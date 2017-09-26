@@ -3,38 +3,8 @@
 
     
   <url>
-    <loc>http://caixiangc.github.io/2017/09/25/Typora-test/</loc>
-    <lastmod>2017-09-25T10:29:01.353Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2017-09-25T10:30:07.245Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://caixiangc.github.io/2017/09/24/newtest-2/</loc>
-    <lastmod>2017-09-24T14:49:11.186Z</lastmod>
-    <data>
-        <display>
-        <title>newtest</title>
-        <pubTime>2017-09-24T14:48:41.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://caixiangc.github.io/2017/09/24/%E5%85%B3%E4%BA%8Ehexo/</loc>
-    <lastmod>2017-09-24T13:33:30.300Z</lastmod>
+    <lastmod>2017-09-25T14:56:12.503Z</lastmod>
     <data>
         <display>
         <title>关于hexo</title>
@@ -42,6 +12,9 @@
         
          
            
+             
+              <breadCrumb title="c" url="http://caixiangc.github.io/categories/c/"/>
+          
         </display>
     </data>
     </url>
@@ -49,14 +22,17 @@
     
   <url>
     <loc>http://caixiangc.github.io/2017/09/24/post/</loc>
-    <lastmod>2017-09-24T05:52:50.017Z</lastmod>
+    <lastmod>2017-09-25T14:40:13.039Z</lastmod>
     <data>
         <display>
-        <title>post</title>
-        <pubTime>2017-09-24T05:52:49.000Z</pubTime>
+        <title></title>
+        <pubTime>2017-09-24T05:52:50.015Z</pubTime>
         
          
            
+             
+              <breadCrumb title="code" url="http://caixiangc.github.io/categories/code/"/>
+          
         </display>
     </data>
     </url>
@@ -64,7 +40,7 @@
     
   <url>
     <loc>http://caixiangc.github.io/2017/09/24/hello-world/</loc>
-    <lastmod>2017-09-24T05:28:02.780Z</lastmod>
+    <lastmod>2017-09-25T14:39:51.382Z</lastmod>
     <data>
         <display>
         <title>Hello World</title>
@@ -72,8 +48,48 @@
         
          
            
+             
+              <breadCrumb title="DSAG" url="http://caixiangc.github.io/categories/DSAG/"/>
+          
         </display>
     </data>
     </url>
 
+    
+  <url>
+    <loc>http://caixiangc.github.io/2017/09/24/newtest-2/</loc>
+    <lastmod>2017-09-25T14:39:34.678Z</lastmod>
+    <data>
+        <display>
+        <title>newtest</title>
+        <pubTime>2017-09-24T14:48:41.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="python" url="http://caixiangc.github.io/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://caixiangc.github.io/2017/09/25/Typora-test/</loc>
+    <lastmod>2017-09-25T14:28:21.102Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2017-09-25T10:30:07.245Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="js" url="http://caixiangc.github.io/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
 </urlset>
