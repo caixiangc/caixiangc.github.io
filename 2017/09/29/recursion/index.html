@@ -69,19 +69,19 @@
 
 
 
-<meta name="description" content="markdown编译器测试   等我 等我q 123     dwq带武器 祈祷文q 大枪   的武器 祈祷文q 带武器   带武器 去去 dwq带武器    h~2~0 12int a=1;printf(&quot;嘿嘿hi额&quot;,a); $$y^2=4$$   首先    ​   [TOC]">
+<meta name="description" content="啥是递归？ 即是该函数调用它本身自己，这种调用过程称为递归。 递归可以相当于循环，所以想结束递归，就必须有终止递归的条件测试部分，否则就会出现无限递归（即无限循环）。同时，这也是使用递归的难点。  12345678910111213141516#include &amp;lt;stdio.h&amp;gt;  void recur(int);  int main (void)  &amp;#123;      recur">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cai Xiang-blog">
-<meta property="og:url" content="http://caixiangc.github.io/2017/09/25/Typora-test/index.html">
+<meta property="og:title" content="C语言-递归函数理解">
+<meta property="og:url" content="http://caixiangc.github.io/2017/09/29/recursion/index.html">
 <meta property="og:site_name" content="Cai Xiang-blog">
-<meta property="og:description" content="markdown编译器测试   等我 等我q 123     dwq带武器 祈祷文q 大枪   的武器 祈祷文q 带武器   带武器 去去 dwq带武器    h~2~0 12int a=1;printf(&quot;嘿嘿hi额&quot;,a); $$y^2=4$$   首先    ​   [TOC]">
+<meta property="og:description" content="啥是递归？ 即是该函数调用它本身自己，这种调用过程称为递归。 递归可以相当于循环，所以想结束递归，就必须有终止递归的条件测试部分，否则就会出现无限递归（即无限循环）。同时，这也是使用递归的难点。  12345678910111213141516#include &amp;lt;stdio.h&amp;gt;  void recur(int);  int main (void)  &amp;#123;      recur">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://owsgipnoo.bkt.clouddn.com/icon8-inner.png">
-<meta property="og:updated_time" content="2017-09-25T14:28:21.102Z">
+<meta property="og:image" content="http://owsgipnoo.bkt.clouddn.com/diguif.jpg">
+<meta property="og:updated_time" content="2017-09-29T05:45:03.538Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cai Xiang-blog">
-<meta name="twitter:description" content="markdown编译器测试   等我 等我q 123     dwq带武器 祈祷文q 大枪   的武器 祈祷文q 带武器   带武器 去去 dwq带武器    h~2~0 12int a=1;printf(&quot;嘿嘿hi额&quot;,a); $$y^2=4$$   首先    ​   [TOC]">
-<meta name="twitter:image" content="http://owsgipnoo.bkt.clouddn.com/icon8-inner.png">
+<meta name="twitter:title" content="C语言-递归函数理解">
+<meta name="twitter:description" content="啥是递归？ 即是该函数调用它本身自己，这种调用过程称为递归。 递归可以相当于循环，所以想结束递归，就必须有终止递归的条件测试部分，否则就会出现无限递归（即无限循环）。同时，这也是使用递归的难点。  12345678910111213141516#include &amp;lt;stdio.h&amp;gt;  void recur(int);  int main (void)  &amp;#123;      recur">
+<meta name="twitter:image" content="http://owsgipnoo.bkt.clouddn.com/diguif.jpg">
 
 
 
@@ -111,13 +111,13 @@
 
 
 
-  <link rel="canonical" href="http://caixiangc.github.io/2017/09/25/Typora-test/"/>
+  <link rel="canonical" href="http://caixiangc.github.io/2017/09/29/recursion/"/>
 
 
 
 
 
-  <title> | Cai Xiang-blog</title>
+  <title>C语言-递归函数理解 | Cai Xiang-blog</title>
   
 
 
@@ -264,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/09/25/Typora-test/">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/09/29/recursion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cai Xiang">
@@ -281,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">C语言-递归函数理解</h1>
         
 
         <div class="post-meta">
@@ -293,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T18:30:07+08:00">
-                2017-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-29T13:45:03+08:00">
+                2017-09-29
               </time>
             
 
@@ -316,8 +316,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c</span>
                   </a>
                 </span>
 
@@ -353,45 +353,67 @@
       
 
       
-        <hr>
-<h2 id="markdown编译器测试"><a href="#markdown编译器测试" class="headerlink" title="markdown编译器测试"></a>markdown编译器测试</h2><table>
-<thead>
-<tr>
-<th>等我</th>
-<th>等我q</th>
-<th>123</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>dwq带武器</td>
-<td>祈祷文q</td>
-<td>大枪</td>
-</tr>
-<tr>
-<td>的武器</td>
-<td>祈祷文q</td>
-<td>带武器</td>
-</tr>
-<tr>
-<td>带武器</td>
-<td>去去</td>
-<td>dwq带武器</td>
-</tr>
-</tbody>
-</table>
-<p>h~2~0</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a=<span class="number">1</span>;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"嘿嘿hi额"</span>,a);</div></pre></td></tr></table></figure>
-<p>$$<br>y^2=4<br>$$</p>
-<p><img src="http://owsgipnoo.bkt.clouddn.com/icon8-inner.png" alt="icon8-inner"></p>
+        <h3 id="啥是递归？"><a href="#啥是递归？" class="headerlink" title="啥是递归？"></a>啥是递归？</h3><blockquote>
+<p>即是该函数调用它本身自己，这种调用过程称为<strong>递归。</strong></p>
+<p>递归可以相当于循环，所以想结束递归，就必须有终止递归的<strong>条件测试</strong>部分，否则就会出现无限递归（即无限循环）。同时，这也是使用递归的难点。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">recur</span><span class="params">(<span class="keyword">int</span>)</span></span>;  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">void</span>)</span>  </span></div><div class="line"><span class="function"></span>&#123;  </div><div class="line">    recur(<span class="number">1</span>);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;  </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">recur</span><span class="params">(<span class="keyword">int</span> n)</span> <span class="comment">//递归函数  </span></span></div><div class="line"><span class="function"></span>&#123;  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"第%d级调用\n"</span>, n); <span class="comment">//#1  </span></div><div class="line">    <span class="keyword">if</span> (n &lt; <span class="number">4</span>)  </div><div class="line">    &#123;  </div><div class="line">        recur(n+<span class="number">1</span>); <span class="comment">//递归  </span></div><div class="line">    &#125;  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"第%d级返回\n"</span>, n); <span class="comment">//#2  </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>首先</p>
+<ul>
+<li>输出结果：</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>第1级调用</p>
+<p>第2级调用</p>
+<p>第3级调用</p>
+<p>第4级调用</p>
+<p>第4级返回</p>
+<p>第3级返回</p>
+<p>第2级返回</p>
+<p>第1级返回</p>
+</blockquote>
 </blockquote>
 <ul>
-<li style="list-style: none"><input type="checkbox" checked> ​</li>
+<li>解析：</li>
 </ul>
+<ol>
+<li>从结果可以看出，#1和#2相当于循环体，当符合测试条件（即n&lt;4）时，#1部分循环；当测试条件为false时，#2部分循环。</li>
+<li>在递归函数中，位于递归调用之前的语句（即#1部分），按被调函数（即recur()）的顺序执行；位于递归调用之后的语句（即#2部分），按被调函数相反的顺序执行。</li>
+<li>每级函数调用都有自己的变量，递归调用就相当于又从头开始执行函数的代码。</li>
+<li>每次函数调用都会返回一次，并且按顺序逐级返回递归。</li>
+</ol>
+</blockquote>
+<h3 id="递归（优缺点）与循环"><a href="#递归（优缺点）与循环" class="headerlink" title="递归（优缺点）与循环"></a>递归（优缺点）与循环</h3><blockquote>
+<ul>
+<li>使用循环的地方都可以使用递归</li>
+<li>缺点：</li>
+</ul>
+<ol>
+<li>递归快速耗内存</li>
+<li>不方便阅读和维护</li>
+<li>效率低</li>
+</ol>
+<ul>
+<li>优点：</li>
+</ul>
+<ol>
+<li>简洁</li>
+<li>适合解决阶乘、涉及相反顺序的编程问题</li>
+</ol>
+</blockquote>
+<h3 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h3><blockquote>
+<p>正好在return语句之前。</p>
+<p>尾递归是最简单的递归形式，因为它相当于循环。</p>
+</blockquote>
+<h3 id="For-Example"><a href="#For-Example" class="headerlink" title="For Example"></a>For Example</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">char</span> s[<span class="number">100</span>];</div><div class="line">	change(<span class="number">13579</span>,s);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,s);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">char</span> *s)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">if</span>(n&lt;<span class="number">10</span>)&#123;</div><div class="line">		*s=n+<span class="string">'0'</span>;</div><div class="line">		i=<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span>&#123;</div><div class="line">		i=change(n/<span class="number">10</span>,s);  <span class="comment">//1357-135-13 </span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"返回值i是：%d,返回值n是：%d\n"</span>,i,n); </div><div class="line">		*(s+i)=n%<span class="number">10</span>+<span class="string">'0'</span>;<span class="comment">//把13579这个int一个一个取出来然后加起来</span></div><div class="line">		i++;</div><div class="line">	&#125;</div><div class="line">		*(s+i)=<span class="string">'\0'</span>;</div><div class="line">		<span class="keyword">return</span> i;  <span class="comment">//这里会return到else下面那个 i=change(n/10,s);</span></div><div class="line">	&#125;</div><div class="line"><span class="comment">//输出的是字符串 ‘13579’</span></div></pre></td></tr></table></figure>
+<p><img src="http://owsgipnoo.bkt.clouddn.com/diguif.jpg" alt=""></p>
+<ul>
+<li><p>这里n的顺序是1357-135-13-13-135-1357</p>
 <hr>
-<p>[TOC]</p>
+<p>PS:这是本人第一次写博客，主要目的与大家分享心得，如果此文章中存在bug，欢迎大神们指正！！</p>
+</li>
+</ul>
 
       
     </div>
@@ -416,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/24/newtest-2/" rel="next" title="newtest">
-                <i class="fa fa-chevron-left"></i> newtest
+              <a href="/2017/09/25/Typora-test/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -425,10 +447,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/29/recursion/" rel="prev" title="C语言-递归函数理解">
-                C语言-递归函数理解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -552,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown编译器测试"><span class="nav-number">1.</span> <span class="nav-text">markdown编译器测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#啥是递归？"><span class="nav-number">1.</span> <span class="nav-text">啥是递归？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归（优缺点）与循环"><span class="nav-number">2.</span> <span class="nav-text">递归（优缺点）与循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尾递归"><span class="nav-number">3.</span> <span class="nav-text">尾递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-Example"><span class="nav-number">4.</span> <span class="nav-text">For Example</span></a></li></ol></div>
             
 
           </div>
