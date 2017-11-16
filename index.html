@@ -272,6 +272,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/14/插入排序和选择排序比较/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/14/插入排序和选择排序比较/" itemprop="url">插入排序和选择排序比较</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T14:35:33+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/11/14/插入排序和选择排序比较/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/11/14/插入排序和选择排序比较/" class="cy_cmt_count" data-xid="2017/11/14/插入排序和选择排序比较/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="插入排序和选择排序比较"><a href="#插入排序和选择排序比较" class="headerlink" title="插入排序和选择排序比较"></a>插入排序和选择排序比较</h2><p><code>main.cpp</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"SortTestHelper.h"</span></span></div><div class="line"><span class="comment">//On^2 复杂度算法在某些情况下 效率很高 </span></div><div class="line"><span class="comment">//插入排序 （把第i个数慢慢比较往前移动，可以提前终止） 插入排序是非常具有实际意义的，日常生活中就是存在很多具有相同类似数据，如日志文件  </span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>&#123;   </div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">		T e = arr[i]; <span class="comment">//把待考察的数组元素放到新的变量e中 </span></div><div class="line">		<span class="keyword">int</span> j; <span class="comment">//j用来保存e该插入的位置 </span></div><div class="line">		<span class="keyword">for</span>(j=i;j&gt;<span class="number">0</span>;j--)&#123;  <span class="comment">//这里是 j-- 这里的j--是插入排序的关键， 插入排序是把插入这个数字和之前那个数字比较，如果比它继续往前移动 </span></div><div class="line">			<span class="keyword">if</span>(arr[j<span class="number">-1</span>]&gt;e)&#123;  <span class="comment">//相比于选择排序，它可以提前结束 </span></div><div class="line">				arr[j]=arr[j<span class="number">-1</span>]; <span class="comment">//把后面的赋值给前面，继续比较，赋值不改变原来数组顺序 ，，这部是改进核心，用赋值取代交换操作，打打提高算法效率 </span></div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				<span class="keyword">break</span>;  <span class="comment">//套着另外一层意思就是，这层循环只有当 arr[j]&gt;arr[j-1]的时候才跳出循环 </span></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		arr[j] = e; <span class="comment">//把e放到最终位置 </span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//选择排序 （找出最小的放到前面去） </span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectionSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> n)</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; n ; i ++)&#123;</div><div class="line">        <span class="keyword">int</span> minIndex = i;</div><div class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> j = i + <span class="number">1</span> ; j &lt; n ; j ++ )  <span class="comment">//插入和选择排序的中级差别是，插入排序可以提前终止循环 </span></div><div class="line">            <span class="keyword">if</span>( arr[j] &lt; arr[minIndex] )</div><div class="line">                minIndex = j;</div><div class="line"></div><div class="line">        swap( arr[i] , arr[minIndex] ); <span class="comment">//交换操作很耗时 ，如果通过赋值把交换取代了，那么性能更加优 </span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> n =<span class="number">10000</span>;</div><div class="line">	<span class="keyword">int</span> *arr =  SortTestHelper::generateNearlyOrderArray(n,<span class="number">100</span>);</div><div class="line">	<span class="keyword">int</span> *arr2 = SortTestHelper::copyIntArray(arr,n); <span class="comment">//把生存的随机数复制一份用于 selectionSort</span></div><div class="line">	</div><div class="line">	SortTestHelper::testSort(<span class="string">"InsertSort"</span>,insertSort,arr,n);</div><div class="line">	SortTestHelper::testSort(<span class="string">"selectionSort"</span>,selectionSort,arr2,n);</div><div class="line">	<span class="keyword">delete</span>[] arr;</div><div class="line">	<span class="keyword">delete</span>[] arr2;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>SortTestHelper</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> SOMETHING_H</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SOMETHING_H</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cassert&gt; </span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">namespace</span> SortTestHelper&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">int</span>* <span class="title">generateRandomArray</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> rangL,<span class="keyword">int</span> rangR)</span></span>&#123;</div><div class="line">		assert(rangL&lt;rangR);<span class="comment">//如果assert 返回为false 那么就中断程序  ，这里不能用assert </span></div><div class="line">		<span class="keyword">int</span> *arr = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">		srand(time(<span class="literal">NULL</span>));</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++)</div><div class="line">			arr[i] = rand()%(rangR-rangL+<span class="number">1</span>)+rangL;</div><div class="line">		<span class="keyword">return</span> arr;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">int</span>* <span class="title">generateNearlyOrderArray</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> swaptime)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> *arr = <span class="keyword">new</span> <span class="keyword">int</span>[n]; <span class="comment">//new 一个新的数组，为int 类型 </span></div><div class="line">		<span class="keyword">int</span> i;</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">			arr[i] = i;</div><div class="line">		&#125;</div><div class="line">		srand(time(<span class="literal">NULL</span>)); <span class="comment">//这个是为了让rand不重复 ,参数seed是rand()的种子，用来初始化rand()的起始值。 可以认为rand()在每次被调用的时候，它会查看</span></div><div class="line">		<span class="keyword">int</span> j;              <span class="comment">//如果希望rand（）在每次程序运行时产生的值都不一样，必须给srand(seed)中的seed一个变值，这个变值必须在每次程序运行时都不一样（比如到目前为止流逝的时间）</span></div><div class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;swaptime;j++)&#123;</div><div class="line">			<span class="keyword">int</span> posx = rand()%n;<span class="comment">//范围是在0-n之间 </span></div><div class="line">			<span class="keyword">int</span> posy = rand()%n;</div><div class="line">			swap(arr[posx],arr[posy]);	</div><div class="line">		&#125; </div><div class="line">		<span class="keyword">return</span> arr;</div><div class="line">	&#125; </div><div class="line">	</div><div class="line">	<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;  </div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">isSorted</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>&#123;  <span class="comment">//这里本来是要写int arr[]，但是如果传入 string arr[] 那么就会报错，所以这里事先要写好template&lt;typename T&gt;  模板  </span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;  <span class="comment">// 这个算法是用来判断 你的排序有没有问题 </span></div><div class="line">			<span class="keyword">if</span>(arr[i]&gt;arr[i+<span class="number">1</span>])&#123;</div><div class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line"></div><div class="line">	<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;  <span class="comment">//如果是写好模板，那么arr传入的数组就不一定是int ，string 啥的都可以 </span></div><div class="line">	void testSort(string sortName, void(*sort)(T[],int),T arr[],int n)&#123;   //第二个参数是 传入的是函数 这里把他命名为sort也是个模板 </div><div class="line"></div><div class="line">		<span class="keyword">clock_t</span> startTime = clock();  <span class="comment">//C/C++中的计时函数是clock()，而与其相关的数据类型是clock_t。</span></div><div class="line">		sort(arr,n);</div><div class="line">		<span class="keyword">clock_t</span> endTime = clock();</div><div class="line">		assert(isSorted(arr,n)); </div><div class="line">		<span class="built_in">cout</span>&lt;&lt;sortName&lt;&lt;<span class="string">":"</span>&lt;&lt;<span class="keyword">double</span>(endTime-startTime)/CLOCKS_PER_SEC&lt;&lt;<span class="string">"s"</span>&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//还定义了一个常量CLOCKS_PER_SEC，它用来表示一秒钟会有多少个时钟计时单元</span></div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">int</span>* <span class="title">copyIntArray</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span>* arr = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">		copy(a,a+n,arr);</div><div class="line">		<span class="keyword">return</span> arr;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<p>$$<br>插入排序虽然是一个O(N^2)的算法复杂度，但是在许多类似数据情况下不亚于O(n),还是非常可取的。由插入排序可以推导出下面两个算法：<br>$$<br><a href="https://github.com/caixiangc/Play-with-Algorithms/tree/master/02-Sorting-Basic/Course%20Code%20(C%2B%2B" target="_blank" rel="external">冒泡排序</a>/Optional-01-Bubble-Sort)</p>
+<p><a href="https://github.com/caixiangc/Play-with-Algorithms/tree/master/02-Sorting-Basic/Course%20Code%20(C%2B%2B" target="_blank" rel="external">希尔排序</a>/Optional-02-Shell-Sort)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/06/每日算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -405,6 +563,10 @@
 <blockquote>
 <h3 id="2017-11-10"><a href="#2017-11-10" class="headerlink" title="2017-11-10"></a>2017-11-10</h3></blockquote>
 <h5 id="已知数组元素如下所示，要求输入一个整数，查找数组中是否存在这个整数，如果找到则输出相应的下标，否者输出‘not-find’-1-5-8-13-20-21-60-88-169-200"><a href="#已知数组元素如下所示，要求输入一个整数，查找数组中是否存在这个整数，如果找到则输出相应的下标，否者输出‘not-find’-1-5-8-13-20-21-60-88-169-200" class="headerlink" title="已知数组元素如下所示，要求输入一个整数，查找数组中是否存在这个整数，如果找到则输出相应的下标，否者输出‘not find’ [1,5,8,13,20,21,60,88,169,200]"></a>已知数组元素如下所示，要求输入一个整数，查找数组中是否存在这个整数，如果找到则输出相应的下标，否者输出‘not find’ [1,5,8,13,20,21,60,88,169,200]</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> a[<span class="number">10</span>] = &#123;<span class="number">1</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">13</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">60</span>,<span class="number">88</span>,<span class="number">169</span>,<span class="number">200</span>&#125;;</div><div class="line">	<span class="keyword">int</span> max=<span class="number">10</span>,min=<span class="number">0</span>,mid,x;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</div><div class="line">	<span class="keyword">while</span>(min&lt;=max)&#123;</div><div class="line">		mid = (max+min)/<span class="number">2</span>;</div><div class="line">		<span class="keyword">if</span>(x&lt;a[mid])&#123;</div><div class="line">			max = mid - <span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(x&gt;a[mid])&#123;</div><div class="line">			min = mid + <span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(min&gt;max)&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"not find"</span>);</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"找到了数组中存在：%d"</span>,a[mid]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="2017-11-11"><a href="#2017-11-11" class="headerlink" title="2017-11-11"></a>2017-11-11</h3></blockquote>
+<p>selectionSort：核心思想就是，for-n次，在一组数组中找出最小的数，然后放到第i个位置。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span>  <span class="comment">//交换函数 要记住</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	    <span class="keyword">int</span> temp;</div><div class="line">	    temp=x;</div><div class="line">	    x=y;</div><div class="line">	    y=temp; </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectionSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> n)</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; n ; i ++)&#123;</div><div class="line">        <span class="keyword">int</span> minIndex = i;</div><div class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> j = i + <span class="number">1</span> ; j &lt; n ; j ++ )</div><div class="line">            <span class="keyword">if</span>( arr[j] &lt; arr[minIndex] )   <span class="comment">//选择排序 缺点是每个都要选过去。 </span></div><div class="line">                minIndex = j;			   <span class="comment">//通过for循环把最小的放到minIndex里面去 </span></div><div class="line">        swap( arr[i] , arr[minIndex] );	  <span class="comment">//在一组剩余数组中选出最小的数，交换到前面去（i的位置）； </span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> arr[<span class="number">7</span>] = &#123;<span class="number">10</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">7</span>&#125;;</div><div class="line">	selectionSort(arr,<span class="number">7</span>);</div><div class="line">	<span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">7</span>;i++)&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,arr[i]);</div><div class="line">	&#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -1960,159 +2122,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/09/24/newtest-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/24/newtest-2/" itemprop="url">newtest</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-24T22:48:41+08:00">
-                2017-09-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/09/24/newtest-2/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2017/09/24/newtest-2/" class="cy_cmt_count" data-xid="2017/09/24/newtest-2/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>嘿嘿嘿<br>大旗网<br>1.当我问起</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2162,7 +2171,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
