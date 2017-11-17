@@ -272,6 +272,162 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/17/归并排序（NlogN）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/17/归并排序（NlogN）/" itemprop="url">归并排序（NlogN）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-17T23:45:36+08:00">
+                2017-11-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/11/17/归并排序（NlogN）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/11/17/归并排序（NlogN）/" class="cy_cmt_count" data-xid="2017/11/17/归并排序（NlogN）/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="归并排序（NlogN）"><a href="#归并排序（NlogN）" class="headerlink" title="归并排序（NlogN）"></a>归并排序（NlogN）</h2><p><code>main.cpp</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"SortTestHelper.h"</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="comment">//将arr[l...mid]和 arr[mid+1...r]两部分进行归并 </span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">void</span> __merge(T arr[],<span class="keyword">int</span> l,<span class="keyword">int</span> mid,<span class="keyword">int</span> r)&#123;</div><div class="line">	T aux[r-l+<span class="number">1</span>];  </div><div class="line">	<span class="comment">//T *aux = new T[r-l+1];  //需要一个临时的空间，这里我们取名叫aux  //既然这里套用了 了模板，赋值数组，那么传进来的参数也要用T 模板数组 </span></div><div class="line">	<span class="comment">//int *aux =new int[r-l+1];   //这个表示的意思就是new 一个心得数组，存放在有地址符变量的aux里面(这样就不用template&lt;typename T&gt;) </span></div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = l ; i&lt;=r ; i++)&#123;</div><div class="line">		aux[i-l] = arr[i];			</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> i = l , j = mid + <span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> k=l;k&lt;=r;k++)&#123;  <span class="comment">//k指向的是下一个要存放的位置 ，l表示最左边的元素，r表示最右边的元素 ，mid表示第一组最后一个元素 </span></div><div class="line">			<span class="keyword">if</span>(i&gt;mid)&#123; <span class="comment">//如果i是mid的时候，那么把剩余的j全都放进新的arr里面 </span></div><div class="line">				arr[k] = aux[j-l];   <span class="comment">//这里别搞反了，arr[]才是最终数组，aux是复制出来 辅助的 </span></div><div class="line">				j++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(j&gt;r)&#123;</div><div class="line">				arr[k] = aux[i-l];</div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(aux[i-l]&lt;aux[j-l])&#123; <span class="comment">//这里千万不能用arr 来比对，因为arr在没有结束比对之前都是乱序的</span></div><div class="line">				arr[k] = aux[i-l];      <span class="comment">//这里要减去偏移量不然 最终数组前面会空着； </span></div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				arr[k] = aux[j-l];</div><div class="line">				j++;</div><div class="line">			&#125;</div><div class="line">		&#125;	 </div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//递归使用归并排序，对arr[l,...,r]的范围进行排序 </span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">void</span> __mergeSort(T arr[],<span class="keyword">int</span> l,<span class="keyword">int</span> r)&#123;</div><div class="line">	<span class="keyword">if</span>(l&gt;=r) &#123; <span class="keyword">return</span>; &#125;  <span class="comment">//这边一定要&gt;= 因为如果是&gt; 是永远不会出现这种情况所以，会死循环 </span></div><div class="line">	<span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;	 <span class="comment">//这种写法类似 二分法，但是这种写法是存在风险的如果l和r 都很大，那么l+r 可能会内存溢出 </span></div><div class="line">	__mergeSort(arr,l,mid);  <span class="comment">//对左边进行 归并 排序 </span></div><div class="line">	__mergeSort(arr,mid+<span class="number">1</span>,r); <span class="comment">//对右边进行 归并 排序</span></div><div class="line">	__merge(arr,l,mid,r); <span class="comment">// 当左右两边都归并排序好以后，只剩下最后两组，然后进行 merge操作 </span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">	__mergeSort(arr,<span class="number">0</span>,n<span class="number">-1</span>); <span class="comment">//__mergeSort，__代表着 __mergeSort是私有的函数 被 mergeSort所调用 </span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//insert sort</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>&#123;   </div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">		T e = arr[i]; <span class="comment">//把待考察的数组元素放到新的变量e中 </span></div><div class="line">		<span class="keyword">int</span> j; <span class="comment">//j用来保存e该插入的位置 </span></div><div class="line">		<span class="keyword">for</span>(j=i;j&gt;<span class="number">0</span>;j--)&#123;  <span class="comment">//这里是 j-- 这里的j--是插入排序的关键， 插入排序是把插入这个数字和之前那个数字比较，如果比它继续往前移动 </span></div><div class="line">			<span class="keyword">if</span>(arr[j<span class="number">-1</span>]&gt;e)&#123;  <span class="comment">//相比于选择排序，它可以提前结束 </span></div><div class="line">				arr[j]=arr[j<span class="number">-1</span>]; <span class="comment">//把后面的赋值给前面，继续比较，赋值不改变原来数组顺序 ，，这部是改进核心，用赋值取代交换操作，打打提高算法效率 </span></div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				<span class="keyword">break</span>;  <span class="comment">//套着另外一层意思就是，这层循环只有当 arr[j]&gt;arr[j-1]的时候才跳出循环 </span></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		arr[j] = e; <span class="comment">//把e放到最终位置 </span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//实现归并排序；归并排序算法分为两步，第一步：先将原来的数据表分成排好序的子表，然后调用 Merger  对子表进行归并，使之成为有序表</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n = <span class="number">10</span>;</div><div class="line">	<span class="keyword">int</span>* arr =  SortTestHelper::generateRandomArray(n,<span class="number">0</span>,n);</div><div class="line">	<span class="keyword">int</span>* arr2 = SortTestHelper::copyIntArray(arr,n); <span class="comment">//把生存的随机数复制一份用于 selectionSort</span></div><div class="line">	</div><div class="line">	SortTestHelper::testSort(<span class="string">"InsertSort"</span>,insertSort,arr,n);</div><div class="line">	SortTestHelper::testSort(<span class="string">"mergeSort"</span>,mergeSort,arr2,n);  <span class="comment">//在排50000个数的时候，归并排序只要0.13秒，所以在时时应用上是完全可以接受的 比如搜索 </span></div><div class="line"></div><div class="line">	<span class="keyword">delete</span>[] arr;</div><div class="line">	<span class="keyword">delete</span>[] arr2;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>SortTestHelper.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> SOMETHING_H</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SOMETHING_H</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cassert&gt; </span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">namespace</span> SortTestHelper&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">int</span>* <span class="title">generateRandomArray</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> rangL,<span class="keyword">int</span> rangR)</span></span>&#123;</div><div class="line">		assert(rangL&lt;rangR);<span class="comment">//如果assert 返回为false 那么就中断程序  ，这里不能用assert </span></div><div class="line">		<span class="keyword">int</span> *arr = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">		srand(time(<span class="literal">NULL</span>));</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++)</div><div class="line">			arr[i] = rand()%(rangR-rangL+<span class="number">1</span>)+rangL;</div><div class="line">		<span class="keyword">return</span> arr;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">int</span>* <span class="title">generateNearlyOrderArray</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> swaptime)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> *arr = <span class="keyword">new</span> <span class="keyword">int</span>[n]; <span class="comment">//new 一个新的数组，为int 类型 </span></div><div class="line">		<span class="keyword">int</span> i;</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">			arr[i] = i;</div><div class="line">		&#125;</div><div class="line">		srand(time(<span class="literal">NULL</span>)); <span class="comment">//这个是为了让rand不重复 ,参数seed是rand()的种子，用来初始化rand()的起始值。 可以认为rand()在每次被调用的时候，它会查看</span></div><div class="line">		<span class="keyword">int</span> j;              <span class="comment">//如果希望rand（）在每次程序运行时产生的值都不一样，必须给srand(seed)中的seed一个变值，这个变值必须在每次程序运行时都不一样（比如到目前为止流逝的时间）</span></div><div class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;swaptime;j++)&#123;</div><div class="line">			<span class="keyword">int</span> posx = rand()%n;<span class="comment">//范围是在0-n之间 </span></div><div class="line">			<span class="keyword">int</span> posy = rand()%n;</div><div class="line">			swap(arr[posx],arr[posy]);	</div><div class="line">		&#125; </div><div class="line">		<span class="keyword">return</span> arr;</div><div class="line">	&#125; </div><div class="line">	</div><div class="line">	<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;  </div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">isSorted</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>&#123;  <span class="comment">//这里本来是要写int arr[]，但是如果传入 string arr[] 那么就会报错，所以这里事先要写好template&lt;typename T&gt;  模板  </span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;  <span class="comment">// 这个算法是用来判断 你的排序有没有问题 </span></div><div class="line">			<span class="keyword">if</span>(arr[i]&gt;arr[i+<span class="number">1</span>])&#123;</div><div class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line"></div><div class="line">	<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;  <span class="comment">//如果是写好模板，那么arr传入的数组就不一定是int ，string 啥的都可以 </span></div><div class="line">	void testSort(string sortName, void(*sort)(T[],int),T arr[],int n)&#123;   //第二个参数是 传入的是函数 这里把他命名为sort也是个模板 </div><div class="line"></div><div class="line">		<span class="keyword">clock_t</span> startTime = clock();  <span class="comment">//C/C++中的计时函数是clock()，而与其相关的数据类型是clock_t。</span></div><div class="line">		sort(arr,n);</div><div class="line">		<span class="keyword">clock_t</span> endTime = clock();</div><div class="line">		assert(isSorted(arr,n)); </div><div class="line">		<span class="built_in">cout</span>&lt;&lt;sortName&lt;&lt;<span class="string">":"</span>&lt;&lt;<span class="keyword">double</span>(endTime-startTime)/CLOCKS_PER_SEC&lt;&lt;<span class="string">"s"</span>&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//还定义了一个常量CLOCKS_PER_SEC，它用来表示一秒钟会有多少个时钟计时单元</span></div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">int</span>* <span class="title">copyIntArray</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span>* arr = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">		copy(a,a+n,arr);</div><div class="line">		<span class="keyword">return</span> arr;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/14/插入排序和选择排序比较/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1931,197 +2087,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/09/25/Typora-test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/25/Typora-test/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T18:30:07+08:00">
-                2017-09-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/09/25/Typora-test/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2017/09/25/Typora-test/" class="cy_cmt_count" data-xid="2017/09/25/Typora-test/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h2 id="markdown编译器测试"><a href="#markdown编译器测试" class="headerlink" title="markdown编译器测试"></a>markdown编译器测试</h2><table>
-<thead>
-<tr>
-<th>等我</th>
-<th>等我q</th>
-<th>123</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>dwq带武器</td>
-<td>祈祷文q</td>
-<td>大枪</td>
-</tr>
-<tr>
-<td>的武器</td>
-<td>祈祷文q</td>
-<td>带武器</td>
-</tr>
-<tr>
-<td>带武器</td>
-<td>去去</td>
-<td>dwq带武器</td>
-</tr>
-</tbody>
-</table>
-<p>h~2~0</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a=<span class="number">1</span>;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"嘿嘿hi额"</span>,a);</div></pre></td></tr></table></figure>
-<p>$$<br>y^2=4<br>$$</p>
-<p><img src="http://owsgipnoo.bkt.clouddn.com/icon8-inner.png" alt="icon8-inner"></p>
-<blockquote>
-<p>首先</p>
-</blockquote>
-<ul>
-<li style="list-style: none"><input type="checkbox" checked> ​</li>
-</ul>
-<hr>
-<p>[TOC]</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2171,7 +2136,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
