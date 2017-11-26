@@ -272,6 +272,440 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/26/使用git上传项目到github/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/26/使用git上传项目到github/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-26T11:55:33+08:00">
+                2017-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/11/26/使用git上传项目到github/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/11/26/使用git上传项目到github/" class="cy_cmt_count" data-xid="2017/11/26/使用git上传项目到github/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="使用git上传项目到github"><a href="#使用git上传项目到github" class="headerlink" title="使用git上传项目到github"></a>使用git上传项目到github</h3><hr>
+<p><strong>1.进入Github首页，点击New repository新建一个项目</strong></p>
+<p><img src="http://images2015.cnblogs.com/blog/913913/201608/913913-20160823164154526-418441991.png" alt="img"></p>
+<p><strong> 2.填写相应信息后点击create即可</strong> </p>
+<p><strong>Repository name: 仓库名称</strong></p>
+<p><strong>Description(可选): 仓库描述介绍</strong></p>
+<p><strong>Public, Private : 仓库权限（公开共享，私有或指定合作者）</strong></p>
+<p><strong>Initialize this repository with a README: 添加一个README.md</strong></p>
+<p><strong>gitignore: 不需要进行版本管理的仓库类型，对应生成文件.gitignore</strong></p>
+<p><strong>license: 证书类型，对应生成文件LICENSE</strong></p>
+<p><img src="http://images2015.cnblogs.com/blog/913913/201608/913913-20160823165025370-49444506.png" alt="img"></p>
+<p><img src="http://images2015.cnblogs.com/blog/913913/201608/913913-20160823165107308-439926006.png" alt="img"></p>
+<p><strong>4.点击Clone or dowload会出现一个地址，copy这个地址备用。</strong></p>
+<p><img src="http://images2015.cnblogs.com/blog/913913/201608/913913-20160823165450636-1167722003.png" alt="img"></p>
+<p><strong>5.接下来就到本地操作了，首先右键你的项目，如果你之前安装git成功的话，右键会出现两个新选项，分别为Git Gui Here,Git Bash Here,这里我们选择Git Bash Here，进入如下界面，Test_Bluetooth即为我的项目名。</strong></p>
+<p><img src="http://images2015.cnblogs.com/blog/913913/201608/913913-20160823171048308-194895299.png" alt="img"></p>
+<p><strong>6.接下来输入如下代码（关键步骤），把github上面的仓库克隆到本地</strong></p>
+<p><strong>git clone <a href="https://github.com/CKTim/BlueTooth.git（https://github.com/CKTim/BlueTooth.git替换成你之前复制的地址）" target="_blank" rel="external">https://github.com/CKTim/BlueTooth.git（https://github.com/CKTim/BlueTooth.git替换成你之前复制的地址）</a></strong></p>
+<p><img src="http://images2015.cnblogs.com/blog/913913/201608/913913-20160823171143980-741152042.png" alt="img"></p>
+<p><strong> 7.这个步骤以后你的本地项目文件夹下面就会多出个文件夹，该文件夹名即为你github上面的项目名，如图我多出了个Test文件夹，我们把本地项目文件夹下的所有文件（除了新多出的那个文件夹不用），其余都复制到那个新多出的文件夹下，</strong></p>
+<p><img src="http://images2015.cnblogs.com/blog/913913/201608/913913-20160823171209730-2089496483.png" alt="img"></p>
+<p><strong>8.接着继续输入命令 cd Test，进入Test文件夹</strong></p>
+<p><img src="http://images2015.cnblogs.com/blog/913913/201608/913913-20160823171454261-10363777.png" alt="img"></p>
+<p><strong>9.接下来依次输入以下代码即可完成其他剩余操作：</strong></p>
+<p><strong>git add .        （注：别忘记后面的.，此操作是把Test文件夹下面的文件都添加进来）</strong></p>
+<p><strong>git commit  -m  “提交信息”  （注：“提交信息”里面换成你需要，如“first commit”）</strong></p>
+<p><strong>git push -u origin master   （注：此操作目的是把本地仓库push到github上面，此步骤需要你输入帐号和密码）</strong></p>
+<p> <img src="http://images2015.cnblogs.com/blog/913913/201608/913913-20160823171557823-3863512.png" alt="img"></p>
+<p><img src="http://images2015.cnblogs.com/blog/913913/201608/913913-20160823171651808-1225335136.png" alt="img"></p>
+<p><img src="http://images2015.cnblogs.com/blog/913913/201608/913913-20160823171818933-1506815566.png" alt="img"></p>
+<p>最终就大功告成了。。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/25/递归的理解和实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/25/递归的理解和实现/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T08:05:33+08:00">
+                2017-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/11/25/递归的理解和实现/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/11/25/递归的理解和实现/" class="cy_cmt_count" data-xid="2017/11/25/递归的理解和实现/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="递归的理解和实现"><a href="#递归的理解和实现" class="headerlink" title="递归的理解和实现"></a>递归的理解和实现</h3><hr>
+<p>递归函数，分为两步：<code>递推</code>和<code>回归</code>两个阶段，递归就是普通的调用回调…调用回调(直到满足条件然后退出)。回归阶段就如下图，由近到远的‘回归’，这里回归是执行（第一个返回—第二个调用）之间的内容，也就是之间递推没有执行的内容。</p>
+<p>大量的递归调用会简历函数的副本，会消耗大量的时间和内存，而迭代则不需要此种付出。</p>
+<p>下面举一个arr[20]的例子： </p>
+<p><img src="http://owsgipnoo.bkt.clouddn.com/%E9%80%92%E5%BD%92%E5%9B%BE%E9%87%8A.jpg" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//斐波那契数列 递归实现</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Fib</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span>(i&lt;<span class="number">2</span>)</div><div class="line">    <span class="keyword">return</span> i==<span class="number">0</span>?<span class="string">'0'</span>:<span class="string">'1'</span>;</div><div class="line">  <span class="keyword">return</span> Fib(n) = Fib(n<span class="number">-1</span>)+Fib(n<span class="number">-2</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//如果输入Fib(5),</span></div><div class="line"><span class="comment">//那么第一轮先会分解成Fib(4)+Fib(3),......，然后每个分支都会分解成无数个小段，直至全部为Fib(0)或者Fib(1)</span></div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//阶乘</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span><span class="params">(n)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span>(n==<span class="number">0</span>)</div><div class="line">    reutn <span class="number">1</span>;</div><div class="line">  <span class="keyword">else</span></div><div class="line">    <span class="keyword">return</span> n*factorial(n<span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//逆序输出字符串，也能用递归思想中的回归</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">char</span> a;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;a);</div><div class="line">	<span class="keyword">if</span>(a!=<span class="string">'#'</span>)&#123;</div><div class="line">		print();</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%c"</span>,a);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	print();  </div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//汉诺塔问题，利用递归分治</span></div><div class="line"><span class="comment">//把递归想成黑盒子就想的通了</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">char</span> x,<span class="keyword">char</span> y,<span class="keyword">char</span> z)</span></span>&#123;</div><div class="line">	<span class="keyword">if</span>(n==<span class="number">1</span>)&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%c--&gt;%c\n"</span>,x,z) ;<span class="comment">//如果只有一个数，那么我们直接将X移到Z上就行 </span></div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		move(n<span class="number">-1</span>,x,z,y); <span class="comment">//将n-1个盘子从x借助z移动到y上 </span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%c--&gt;%c\n"</span>,x,z); <span class="comment">//将n个盘子从x移动到z </span></div><div class="line">		move(n<span class="number">-1</span>,y,x,z);<span class="comment">//将n-1个盘子从y借助x移动到z上 </span></div><div class="line">	&#125; </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入汉诺塔层数"</span>);</div><div class="line">	<span class="keyword">int</span> n;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	move(n,<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>); </div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/24/自底向上-归并排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/24/自底向上-归并排序/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-24T18:34:18+08:00">
+                2017-11-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/11/24/自底向上-归并排序/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/11/24/自底向上-归并排序/" class="cy_cmt_count" data-xid="2017/11/24/自底向上-归并排序/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="自底向上-归并排序"><a href="#自底向上-归并排序" class="headerlink" title="自底向上-归并排序"></a>自底向上-归并排序</h3><hr>
+<p>自底向上归并排序 （并不需要递归只需要迭代就行了） </p>
+<p><em>*</em>自底向上排序有一个非常好的特性就是，通过索引直接获取数组元素然后调用函数，正因如果 底向上归并排序能够很好使用nlogn的时间对链表这样结构的数据进行排序 。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="comment">//归并排序是不管三七，直接把数组进行对分下去直到1，然后通过归并进行排序的 </span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">void</span> __merge(T arr[],<span class="keyword">int</span> l,<span class="keyword">int</span> mid,<span class="keyword">int</span> r)&#123;</div><div class="line">	T aux[r-l+<span class="number">1</span>];  </div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = l ; i&lt;=r ; i++)&#123;</div><div class="line">		aux[i-l] = arr[i];	</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> i = l , j = mid + <span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> k=l;k&lt;=r;k++)&#123;  </div><div class="line">			<span class="keyword">if</span>(i&gt;mid)&#123; </div><div class="line">				arr[k] = aux[j-l];   </div><div class="line">				j++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(j&gt;r)&#123;</div><div class="line">				arr[k] = aux[i-l];</div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(aux[i-l]&lt;aux[j-l])&#123; </div><div class="line">				arr[k] = aux[i-l];     </div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				arr[k] = aux[j-l];</div><div class="line">				j++;</div><div class="line">			&#125;</div><div class="line">		&#125;	 </div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSortBU</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> sz=<span class="number">1</span>;sz&lt;=n;sz+=sz)&#123; <span class="comment">// sz代表着归并元素个数，如果是第一次那么归并1个，如果是第二次那么归并2，4，8以此类推，但是sz&lt;n这是限制。 </span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+sz&lt;n;i+=sz+sz)&#123; <span class="comment">//上面sz代表的是要归并元素的个数，这里sz代表是每次归并元素的序号（就是一排元素中的序号），这里的2sz包含两部分一部分是[0,sz-1]和[sz,2sz-1]，所以这里i累加要2sz </span></div><div class="line">			<span class="comment">//为了使归并有意义：这里 i&lt;n 要改成 i+sz&lt;n 这样使第二段（arr[i+sz...i+sz+sz-1]存在），并且使 i+sz-1有意义，否者可能归并无意义，因为只有一段，本来就有序不用排 </span></div><div class="line">			<span class="comment">//对arr[i...i+sz-1]和arr[i+sz...i+sz+sz-1]进行归并  </span></div><div class="line">			__merge(arr,i+sz<span class="number">-1</span>,min(i+sz+sz<span class="number">-1</span>,n<span class="number">-1</span>)); <span class="comment">//归并至少要对两部分进行归并否者时无意义的，归并的过程（__merge）实质上就是把两个有序的部分合并到一个部分	</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/17/归并排序（NlogN）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -376,8 +810,14 @@
       
         
           
-            <h2 id="归并排序（NlogN）"><a href="#归并排序（NlogN）" class="headerlink" title="归并排序（NlogN）"></a>归并排序（NlogN）</h2><p><code>main.cpp</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"SortTestHelper.h"</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="comment">//将arr[l...mid]和 arr[mid+1...r]两部分进行归并 </span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">void</span> __merge(T arr[],<span class="keyword">int</span> l,<span class="keyword">int</span> mid,<span class="keyword">int</span> r)&#123;</div><div class="line">	T aux[r-l+<span class="number">1</span>];  </div><div class="line">	<span class="comment">//T *aux = new T[r-l+1];  //需要一个临时的空间，这里我们取名叫aux  //既然这里套用了 了模板，赋值数组，那么传进来的参数也要用T 模板数组 </span></div><div class="line">	<span class="comment">//int *aux =new int[r-l+1];   //这个表示的意思就是new 一个心得数组，存放在有地址符变量的aux里面(这样就不用template&lt;typename T&gt;) </span></div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = l ; i&lt;=r ; i++)&#123;</div><div class="line">		aux[i-l] = arr[i];			</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> i = l , j = mid + <span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> k=l;k&lt;=r;k++)&#123;  <span class="comment">//k指向的是下一个要存放的位置 ，l表示最左边的元素，r表示最右边的元素 ，mid表示第一组最后一个元素 </span></div><div class="line">			<span class="keyword">if</span>(i&gt;mid)&#123; <span class="comment">//如果i是mid的时候，那么把剩余的j全都放进新的arr里面 </span></div><div class="line">				arr[k] = aux[j-l];   <span class="comment">//这里别搞反了，arr[]才是最终数组，aux是复制出来 辅助的 </span></div><div class="line">				j++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(j&gt;r)&#123;</div><div class="line">				arr[k] = aux[i-l];</div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(aux[i-l]&lt;aux[j-l])&#123; <span class="comment">//这里千万不能用arr 来比对，因为arr在没有结束比对之前都是乱序的</span></div><div class="line">				arr[k] = aux[i-l];      <span class="comment">//这里要减去偏移量不然 最终数组前面会空着； </span></div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				arr[k] = aux[j-l];</div><div class="line">				j++;</div><div class="line">			&#125;</div><div class="line">		&#125;	 </div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//递归使用归并排序，对arr[l,...,r]的范围进行排序 </span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">void</span> __mergeSort(T arr[],<span class="keyword">int</span> l,<span class="keyword">int</span> r)&#123;</div><div class="line">	<span class="keyword">if</span>(l&gt;=r) &#123; <span class="keyword">return</span>; &#125;  <span class="comment">//这边一定要&gt;= 因为如果是&gt; 是永远不会出现这种情况所以，会死循环 </span></div><div class="line">	<span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;	 <span class="comment">//这种写法类似 二分法，但是这种写法是存在风险的如果l和r 都很大，那么l+r 可能会内存溢出 </span></div><div class="line">	__mergeSort(arr,l,mid);  <span class="comment">//对左边进行 归并 排序 </span></div><div class="line">	__mergeSort(arr,mid+<span class="number">1</span>,r); <span class="comment">//对右边进行 归并 排序</span></div><div class="line">	__merge(arr,l,mid,r); <span class="comment">// 当左右两边都归并排序好以后，只剩下最后两组，然后进行 merge操作 </span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">	__mergeSort(arr,<span class="number">0</span>,n<span class="number">-1</span>); <span class="comment">//__mergeSort，__代表着 __mergeSort是私有的函数 被 mergeSort所调用 </span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//insert sort</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>&#123;   </div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">		T e = arr[i]; <span class="comment">//把待考察的数组元素放到新的变量e中 </span></div><div class="line">		<span class="keyword">int</span> j; <span class="comment">//j用来保存e该插入的位置 </span></div><div class="line">		<span class="keyword">for</span>(j=i;j&gt;<span class="number">0</span>;j--)&#123;  <span class="comment">//这里是 j-- 这里的j--是插入排序的关键， 插入排序是把插入这个数字和之前那个数字比较，如果比它继续往前移动 </span></div><div class="line">			<span class="keyword">if</span>(arr[j<span class="number">-1</span>]&gt;e)&#123;  <span class="comment">//相比于选择排序，它可以提前结束 </span></div><div class="line">				arr[j]=arr[j<span class="number">-1</span>]; <span class="comment">//把后面的赋值给前面，继续比较，赋值不改变原来数组顺序 ，，这部是改进核心，用赋值取代交换操作，打打提高算法效率 </span></div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				<span class="keyword">break</span>;  <span class="comment">//套着另外一层意思就是，这层循环只有当 arr[j]&gt;arr[j-1]的时候才跳出循环 </span></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		arr[j] = e; <span class="comment">//把e放到最终位置 </span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//实现归并排序；归并排序算法分为两步，第一步：先将原来的数据表分成排好序的子表，然后调用 Merger  对子表进行归并，使之成为有序表</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n = <span class="number">10</span>;</div><div class="line">	<span class="keyword">int</span>* arr =  SortTestHelper::generateRandomArray(n,<span class="number">0</span>,n);</div><div class="line">	<span class="keyword">int</span>* arr2 = SortTestHelper::copyIntArray(arr,n); <span class="comment">//把生存的随机数复制一份用于 selectionSort</span></div><div class="line">	</div><div class="line">	SortTestHelper::testSort(<span class="string">"InsertSort"</span>,insertSort,arr,n);</div><div class="line">	SortTestHelper::testSort(<span class="string">"mergeSort"</span>,mergeSort,arr2,n);  <span class="comment">//在排50000个数的时候，归并排序只要0.13秒，所以在时时应用上是完全可以接受的 比如搜索 </span></div><div class="line"></div><div class="line">	<span class="keyword">delete</span>[] arr;</div><div class="line">	<span class="keyword">delete</span>[] arr2;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="归并排序（NlogN）"><a href="#归并排序（NlogN）" class="headerlink" title="归并排序（NlogN）"></a>归并排序（NlogN）</h2><p>归并排序：不必太过于在意递归的具体执行步骤和执行的程序，他的基础思想就是，把需要排序的一组数据，先分成左右两组，左右两组分别进行递归直至每组只有一个元素，这样这个组里面的元素一定是有序的。递归结束以后，<code>递归函数</code>就开始<code>回归</code>，如（1，2，3，4（结束），4，3，2，1），开始执行<code>__merge</code>函数，就开始排序了，不用那么刻意递归的进程，首先这个过程很复杂，写程序的时候也不一定能够理清楚。下面是递归函数的两个优化:</p>
+<p>1.当函数进行<code>回归</code>的时候，如果两组数（他们本身就是有序的），他们是arr[mid]&lt;=arr[mid+1]那么他们本来就是有序的，他们的mid是共通的，就不用归并了，我们只需要对arr[mid]&gt;arr[mid+1]，进行__merge就行</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(arr[mid]&gt;arr[mid+<span class="number">1</span>])</div><div class="line">  __merge(arr,l,mid,r);</div></pre></td></tr></table></figure>
+<p>2.如果r-l小于15的时候插入排序是把归并排序要快的，所以在递归之前可以先做一次拦截判断，是否r-l&gt;15,如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>((r-l)&lt;=<span class="number">15</span>)&#123; <span class="comment">//当数很小的时候，插入排序是要比归并快的，因为归并是nlogn，而插入排序是快接近n的 *******（对小数组进行插入排序） </span></div><div class="line">	insertSorts(arr,l,r); <span class="comment">//这个算法直接从0.007s讲到0.004s  </span></div><div class="line">	<span class="keyword">return</span>;   <span class="comment">//当对大数组进行排序的时候，归并排序和插入排序相结合是非常有必要的 </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p><code>main.cpp</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"SortTestHelper.h"</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="comment">//insert sort</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>&#123;   </div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">		T e = arr[i]; <span class="comment">//把待考察的数组元素放到新的变量e中 </span></div><div class="line">		<span class="keyword">int</span> j; <span class="comment">//j用来保存e该插入的位置 </span></div><div class="line">		<span class="keyword">for</span>(j=i;j&gt;<span class="number">0</span>;j--)&#123;  <span class="comment">//这里是 j-- 这里的j--是插入排序的关键， 插入排序是把插入这个数字和之前那个数字比较，如果比它继续往前移动 </span></div><div class="line">			<span class="keyword">if</span>(arr[j<span class="number">-1</span>]&gt;e)&#123;  <span class="comment">//相比于选择排序，它可以提前结束 </span></div><div class="line">				arr[j]=arr[j<span class="number">-1</span>]; <span class="comment">//把后面的赋值给前面，继续比较，赋值不改变原来数组顺序 ，，这部是改进核心，用赋值取代交换操作，打打提高算法效率 </span></div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				<span class="keyword">break</span>;  <span class="comment">//套着另外一层意思就是，这层循环只有当 arr[j]&gt;arr[j-1]的时候才跳出循环 </span></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		arr[j] = e; <span class="comment">//把e放到最终位置 </span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// insert sort [arr,l,r] </span></div><div class="line"><span class="comment">//insert sort</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSorts</span><span class="params">(T arr[],<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;   </div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">for</span>(i=l+<span class="number">1</span>;i&lt;=r;i++)&#123;</div><div class="line">		T e = arr[i]; </div><div class="line">		<span class="keyword">int</span> j; </div><div class="line">		<span class="keyword">for</span>(j=i;j&gt;l&amp;&amp;arr[j<span class="number">-1</span>]&gt;e;j--)&#123;  </div><div class="line">			arr[j]=arr[j<span class="number">-1</span>];		</div><div class="line">		&#125;</div><div class="line">		arr[j] = e; </div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//将arr[l...mid]和 arr[mid+1...r]两部分进行归并 </span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">void</span> __merge(T arr[],<span class="keyword">int</span> l,<span class="keyword">int</span> mid,<span class="keyword">int</span> r)&#123;</div><div class="line">	T aux[r-l+<span class="number">1</span>];   <span class="comment">//这里不会用固定的长度，因为递归调度的时候，这里的长度是不定的由l和r决定的。 </span></div><div class="line">	<span class="comment">//T *aux = new T[r-l+1];  //需要一个临时的空间，这里我们取名叫aux  //既然这里套用了 了模板，赋值数组，那么传进来的参数也要用T 模板数组 </span></div><div class="line">	<span class="comment">//int *aux =new int[r-l+1];   //这个表示的意思就是new 一个心得数组，存放在有地址符变量的aux里面(这样就不用template&lt;typename T&gt;) </span></div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = l ; i&lt;=r ; i++)&#123;</div><div class="line">		aux[i-l] = arr[i];	<span class="comment">//******这里的i 很关键	，因为当函数递归过来的时候，l可能是从0或1或2...开始，虽然递归中有分组，但是那个分组并不是真正的分组。 </span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> i = l , j = mid + <span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> k=l;k&lt;=r;k++)&#123;  <span class="comment">//k指向的是下一个要存放的位置 ，l表示最左边的元素，r表示最右边的元素 ，mid表示第一组最后一个元素 </span></div><div class="line">			<span class="keyword">if</span>(i&gt;mid)&#123; <span class="comment">//如果i是mid的时候，那么把剩余的j全都放进新的arr里面 </span></div><div class="line">				arr[k] = aux[j-l];   <span class="comment">//这里别搞反了，arr[]才是最终数组，aux是复制出来 辅助的 </span></div><div class="line">				j++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(j&gt;r)&#123;</div><div class="line">				arr[k] = aux[i-l]; <span class="comment">//这里都是减去l的，因为 </span></div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(aux[i-l]&lt;aux[j-l])&#123; <span class="comment">//这里千万不能用arr 来比对，因为arr在没有结束比对之前都是乱序的</span></div><div class="line">				arr[k] = aux[i-l];      <span class="comment">//这里要减去偏移量不然 最终数组前面会空着； </span></div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				arr[k] = aux[j-l];</div><div class="line">				j++;</div><div class="line">			&#125;</div><div class="line">		&#125;	 </div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//递归使用归并排序，对arr[l,...,r]的范围进行排序 </span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">void</span> __mergeSort(T arr[],<span class="keyword">int</span> l,<span class="keyword">int</span> r)&#123;</div><div class="line">	<span class="keyword">if</span>(l&gt;=r) &#123; <span class="keyword">return</span>; &#125;  <span class="comment">//这边一定要&gt;= 因为如果是&gt; 是永远不会出现这种情况所以，会死循环 ;;（***这里的return是返回函数调用处） </span></div><div class="line">	<span class="keyword">if</span>((r-l)&lt;=<span class="number">15</span>)&#123; <span class="comment">//当数很小的时候，插入排序是要比归并快的，因为归并是nlogn，而插入排序是快接近n的 *******（对小数组进行插入排序） </span></div><div class="line">		insertSorts(arr,l,r); <span class="comment">//这个算法直接从0.007s讲到0.004s  </span></div><div class="line">		<span class="keyword">return</span>;   <span class="comment">//当对大数组进行排序的时候，归并排序和插入排序相结合是非常有必要的 </span></div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;	 <span class="comment">//这种写法类似 二分法，但是这种写法是存在风险的如果l和r 都很大，那么l+r 可能会内存溢出 </span></div><div class="line">	__mergeSort(arr,l,mid);  <span class="comment">//对左边进行 归并 排序  ****当这里（0，0）回调失败后，return会这里，这里r 还是保存着上一次数据，也就是r 是1    </span></div><div class="line">	__mergeSort(arr,mid+<span class="number">1</span>,r); <span class="comment">//对右边进行 归并 排序</span></div><div class="line">	<span class="keyword">if</span>(arr[mid]&gt;arr[mid+<span class="number">1</span>])	  <span class="comment">//这个是归并排序优化的核心（如果需要排序的数组是近似有序）那么这个优化很有必要，当arr[mid]&lt;=arr[mid+1]的时候本来就有序的，所以就不用管它 </span></div><div class="line">		__merge(arr,l,mid,r); <span class="comment">// 当左右两边都归并排序好以后，只剩下最后两组，然后进行 merge操作 </span></div><div class="line">&#125;</div><div class="line"><span class="comment">//递归排序 思路：：//不要那么执着于分组 ，因为本来数组就是散的，要做的就是直接进行归并，就直接进行 __merge（） </span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">	__mergeSort(arr,<span class="number">0</span>,n<span class="number">-1</span>); <span class="comment">//__mergeSort，__代表着 __mergeSort是私有的函数 被 mergeSort所调用 </span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//实现归并排序；归并排序算法分为两步，第一步：先将原来的数据表分成排好序的子表，然后调用 Merger  对子表进行归并，使之成为有序表</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n = <span class="number">50000</span>;</div><div class="line">	<span class="keyword">int</span>* arr =  SortTestHelper::generateRandomArray(n,<span class="number">0</span>,n);</div><div class="line">	<span class="keyword">int</span>* arr2 = SortTestHelper::copyIntArray(arr,n); <span class="comment">//把生存的随机数复制一份用于 selectionSort</span></div><div class="line">	</div><div class="line">	<span class="comment">//SortTestHelper::testSort("InsertSort",insertSort,arr,n);</span></div><div class="line">	<span class="comment">//SortTestHelper::testSort("mergeSort",mergeSort,arr2,n);  //在排50000个数的时候，归并排序只要0.13秒，所以在时时应用上是完全可以接受的 比如搜索 </span></div><div class="line"></div><div class="line">	<span class="keyword">int</span>* arr3 =  SortTestHelper::generateNearlyOrderArray(n,<span class="number">100</span>);</div><div class="line">	<span class="keyword">int</span>* arr4 = SortTestHelper::copyIntArray(arr3,n); <span class="comment">//把生存的随机数复制一份用于 selectionSort</span></div><div class="line">	</div><div class="line">	SortTestHelper::testSort(<span class="string">"InsertSort"</span>,insertSort,arr3,n);</div><div class="line">	SortTestHelper::testSort(<span class="string">"mergeSort"</span>,mergeSort,arr4,n);</div><div class="line"></div><div class="line">	<span class="comment">//delete[] arr;</span></div><div class="line">	<span class="comment">//delete[] arr2;</span></div><div class="line">	<span class="keyword">delete</span>[] arr3;</div><div class="line">	<span class="keyword">delete</span>[] arr4;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><code>SortTestHelper.h</code></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> SOMETHING_H</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SOMETHING_H</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cassert&gt; </span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">namespace</span> SortTestHelper&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">int</span>* <span class="title">generateRandomArray</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> rangL,<span class="keyword">int</span> rangR)</span></span>&#123;</div><div class="line">		assert(rangL&lt;rangR);<span class="comment">//如果assert 返回为false 那么就中断程序  ，这里不能用assert </span></div><div class="line">		<span class="keyword">int</span> *arr = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">		srand(time(<span class="literal">NULL</span>));</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++)</div><div class="line">			arr[i] = rand()%(rangR-rangL+<span class="number">1</span>)+rangL;</div><div class="line">		<span class="keyword">return</span> arr;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">int</span>* <span class="title">generateNearlyOrderArray</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> swaptime)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> *arr = <span class="keyword">new</span> <span class="keyword">int</span>[n]; <span class="comment">//new 一个新的数组，为int 类型 </span></div><div class="line">		<span class="keyword">int</span> i;</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">			arr[i] = i;</div><div class="line">		&#125;</div><div class="line">		srand(time(<span class="literal">NULL</span>)); <span class="comment">//这个是为了让rand不重复 ,参数seed是rand()的种子，用来初始化rand()的起始值。 可以认为rand()在每次被调用的时候，它会查看</span></div><div class="line">		<span class="keyword">int</span> j;              <span class="comment">//如果希望rand（）在每次程序运行时产生的值都不一样，必须给srand(seed)中的seed一个变值，这个变值必须在每次程序运行时都不一样（比如到目前为止流逝的时间）</span></div><div class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;swaptime;j++)&#123;</div><div class="line">			<span class="keyword">int</span> posx = rand()%n;<span class="comment">//范围是在0-n之间 </span></div><div class="line">			<span class="keyword">int</span> posy = rand()%n;</div><div class="line">			swap(arr[posx],arr[posy]);	</div><div class="line">		&#125; </div><div class="line">		<span class="keyword">return</span> arr;</div><div class="line">	&#125; </div><div class="line">	</div><div class="line">	<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;  </div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">isSorted</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>&#123;  <span class="comment">//这里本来是要写int arr[]，但是如果传入 string arr[] 那么就会报错，所以这里事先要写好template&lt;typename T&gt;  模板  </span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;  <span class="comment">// 这个算法是用来判断 你的排序有没有问题 </span></div><div class="line">			<span class="keyword">if</span>(arr[i]&gt;arr[i+<span class="number">1</span>])&#123;</div><div class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line"></div><div class="line">	<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;  <span class="comment">//如果是写好模板，那么arr传入的数组就不一定是int ，string 啥的都可以 </span></div><div class="line">	void testSort(string sortName, void(*sort)(T[],int),T arr[],int n)&#123;   //第二个参数是 传入的是函数 这里把他命名为sort也是个模板 </div><div class="line"></div><div class="line">		<span class="keyword">clock_t</span> startTime = clock();  <span class="comment">//C/C++中的计时函数是clock()，而与其相关的数据类型是clock_t。</span></div><div class="line">		sort(arr,n);</div><div class="line">		<span class="keyword">clock_t</span> endTime = clock();</div><div class="line">		assert(isSorted(arr,n)); </div><div class="line">		<span class="built_in">cout</span>&lt;&lt;sortName&lt;&lt;<span class="string">":"</span>&lt;&lt;<span class="keyword">double</span>(endTime-startTime)/CLOCKS_PER_SEC&lt;&lt;<span class="string">"s"</span>&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//还定义了一个常量CLOCKS_PER_SEC，它用来表示一秒钟会有多少个时钟计时单元</span></div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">int</span>* <span class="title">copyIntArray</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span>* arr = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">		copy(a,a+n,arr);</div><div class="line">		<span class="keyword">return</span> arr;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
 
@@ -1522,593 +1962,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/10/03/神奇的Object.defineProperty/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/03/神奇的Object.defineProperty/" itemprop="url">Vue双向数据绑定原理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-03T09:35:12+08:00">
-                2017-10-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/10/03/神奇的Object.defineProperty/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2017/10/03/神奇的Object.defineProperty/" class="cy_cmt_count" data-xid="2017/10/03/神奇的Object.defineProperty/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<h3 id="神奇的Object-defineProperty"><a href="#神奇的Object-defineProperty" class="headerlink" title="神奇的Object.defineProperty"></a>神奇的Object.defineProperty</h3></blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Object.defineProperty(a,b,&#123;&#125;)有三个参数，而且是必填的！</span></div><div class="line">  <span class="keyword">var</span> a= &#123;&#125;</div><div class="line">    <span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">      value:<span class="number">123</span></div><div class="line">    &#125;)</div><div class="line">    <span class="built_in">console</span>.log(a.b);<span class="comment">//123</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h3 id="传入参数"><a href="#传入参数" class="headerlink" title="传入参数"></a>传入参数</h3></blockquote>
-<p>第一个参数:目标对象</p>
-<p>第二个参数:需要定义的属性或方法的名字。</p>
-<p>第三个参数:目标属性所拥有的特性。（descriptor）</p>
-<p>前两个参数不多说了，一看代码就懂，主要看第三个参数descriptor，看看有哪些取值</p>
-<blockquote>
-<h3 id="descriptor"><a href="#descriptor" class="headerlink" title="descriptor"></a>descriptor</h3></blockquote>
-<p>他又以下取值，我们简单认识一下，后面例子，挨个介绍，</p>
-<p>value:属性的值(不用多说了)</p>
-<p>writable:如果为false，属性的值就不能被重写,只能为只读了</p>
-<p>configurable:总开关，一旦为false，就不能再设置他的（value，writable，configurable）</p>
-<p>enumerable:是否能在for…in循环中遍历出来或在Object.keys中列举出来。</p>
-<p>get:一会细说</p>
-<p>set:一会细说</p>
-<blockquote>
-<h3 id="descriptor-1"><a href="#descriptor-1" class="headerlink" title="descriptor"></a>descriptor</h3></blockquote>
-<p>descriptor默认情况下是这样的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a= &#123;&#125;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">  value:<span class="number">123</span>,</div><div class="line">  writable:<span class="literal">false</span>,</div><div class="line">  enumerable:<span class="literal">false</span>,</div><div class="line">  configurable:<span class="literal">false</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(a.b);<span class="comment">//123</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h3 id="configurable"><a href="#configurable" class="headerlink" title="configurable"></a>configurable</h3></blockquote>
-<p>总开关，第一次设置 false 之后，，第二次什么设置也不行了，比如说</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a= &#123;&#125;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">  configurable:<span class="literal">false</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">  configurable:<span class="literal">true</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">//error: Uncaught TypeError: Cannot redefine property: b</span></div></pre></td></tr></table></figure>
-<p>就会报错了。。注意上面讲的默认值。。。如果第一次不设置它会怎样。。会帮你设置为false。。所以。。第二次。再设置他会怎样？。。对喽，，会报错</p>
-<blockquote>
-<h3 id="writable"><a href="#writable" class="headerlink" title="writable"></a>writable</h3></blockquote>
-<p>如果设置为fasle，就变成只读了。。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;&#125;; </div><div class="line"></div><div class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">"b"</span>, &#123; </div><div class="line">    value : <span class="number">123</span>,</div><div class="line">    writable : <span class="literal">false</span> &#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a.b); <span class="comment">// 打印 37</span></div><div class="line">a.b = <span class="number">25</span>; <span class="comment">// 没有错误抛出（在严格模式下会抛出，即使之前已经有相同的值）</span></div><div class="line"><span class="built_in">console</span>.log(o.a); <span class="comment">// 打印 37， 赋值不起作用。</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h3 id="enumerable"><a href="#enumerable" class="headerlink" title="enumerable"></a>enumerable</h3></blockquote>
-<p>属性特性 enumerable 定义了对象的属性是否可以在 for…in 循环和 Object.keys() 中被枚举。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a= &#123;&#125;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">  value:<span class="number">3445</span>,</div><div class="line">  enumerable:<span class="literal">true</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(a));<span class="comment">// 打印["b"]</span></div></pre></td></tr></table></figure>
-<p>改为false</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a= &#123;&#125;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">  value:<span class="number">3445</span>,</div><div class="line">  enumerable:<span class="literal">false</span> <span class="comment">//注意咯这里改了</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(a));<span class="comment">// 打印[]</span></div></pre></td></tr></table></figure>
-<p>for…in 类似，，不赘述了</p>
-<blockquote>
-<h3 id="set-和-get-（重要）"><a href="#set-和-get-（重要）" class="headerlink" title="set 和 get （重要）"></a>set 和 get （重要）</h3></blockquote>
-<p>在 descriptor 中不能 <strong>同时</strong>设置访问器 (get 和 set) 和 wriable 或 value，否则会错，就是说想用(get 和 set)，就不能用（wriable 或 value中的任何一个）</p>
-<p>set 和 get ，他俩干啥用的的，</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a= &#123;&#125;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">  set:<span class="function"><span class="keyword">function</span>(<span class="params">newValue</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"你要赋值给我,我的新值是"</span>＋newValue)</div><div class="line">    &#125;,</div><div class="line">  get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"你取我的值"</span>)</div><div class="line">    <span class="keyword">return</span> <span class="number">2</span> <span class="comment">//注意这里，我硬编码返回2</span></div><div class="line">   &#125;</div><div class="line">&#125;)</div><div class="line">a.b =<span class="number">1</span> <span class="comment">//打印 你要赋值给我,我的新值是1</span></div><div class="line"><span class="built_in">console</span>.log(a.b)    <span class="comment">//打印 你取我的值</span></div><div class="line">                    <span class="comment">//打印 2    注意这里，和我的硬编码相同的</span></div></pre></td></tr></table></figure>
-<p>简单来说，， 这个 “b” 赋值 或者 取值的时候会分别触发 set 和 get 对应的函数</p>
-<hr>
-<blockquote>
-<h3 id="双向数据绑定实例"><a href="#双向数据绑定实例" class="headerlink" title="双向数据绑定实例"></a>双向数据绑定实例</h3></blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line"><span class="comment">//方法1： 这种方法，是vue双向数据绑定的关键</span></div><div class="line">&lt;input type=<span class="string">"text"</span> id=<span class="string">"username1"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></div><div class="line">&lt;span id="uname1"&gt;&lt;/span&gt;&lt;br&gt;</div><div class="line">//方法2，这种方法，是调用监听 keyup，然后把username的event.target.value赋值给uname.innerText</div><div class="line">&lt;input type="text" id="username2"&gt;&lt;br&gt;</div><div class="line">&lt;span id="uname2"&gt;&lt;/span&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var obj=&#123;</div><div class="line">    	pwd:123456</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    //  1 这种方法，是vue双向数据绑定的关键</div><div class="line">    Object.defineProperty(obj,"username1",&#123;</div><div class="line">	    //value:"Jack"</div><div class="line">	    get: function () &#123;</div><div class="line">		    console.log("init get");  //在无监听的情况下，当调用obj的时候，get 函数会自动触发</div><div class="line">	    &#125;,</div><div class="line">	    set: function (val) &#123;</div><div class="line">		    console.log("init set");  //在无监听的情况下，当改变obj的属性时候，set 函数会自动触发(然后我们可以利用这个触发干很多事)</div><div class="line">            document.getElementById("uname1").innerText= val;  //关键</div><div class="line">            document.getElementById("username1").value= val;  //关键</div><div class="line">	    &#125;</div><div class="line">    &#125;);</div><div class="line">    document.getElementById("username1").addEventListener("keyup",function (event) &#123;</div><div class="line">	    obj.username1=event.target.value;</div><div class="line">    &#125;);</div><div class="line">    // 这种方法，是调用监听 keyup，然后把username的event.target.value赋值给uname.innerText</div><div class="line">    document.getElementById("username2").addEventListener("keyup",function (event) &#123;</div><div class="line">        document.getElementById("uname2").innerText=event.target.value;  //可以直接给uname赋值</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/10/01/C_first/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/01/C_first/" itemprop="url">C语言基础篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-01T21:38:55+08:00">
-                2017-10-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/10/01/C_first/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2017/10/01/C_first/" class="cy_cmt_count" data-xid="2017/10/01/C_first/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="C语言基础篇"><a href="#C语言基础篇" class="headerlink" title="C语言基础篇"></a>C语言基础篇</h2><ol>
-<li><p>数学中3&lt;x&lt;10是恒成立的，在程序中要表示成：3&lt;x&amp;&amp;x&lt;10；</p>
-</li>
-<li><p>算数运算符：表达式1？表达式2：表达式3</p>
-<p>表达式1为true，那么等式就为表达式2，false为表达式3</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> a,b,c,max,m_max;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"请输入要判断的3个数\n"</span>);</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;a,&amp;b,&amp;c);</div><div class="line">  max=a&gt;b?a:b;</div><div class="line">  m_max=max&gt;c?max:c;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"最大数为%d"</span>,m_max);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>x%2取余 ; x/2取整数 ;  %1.2d小数点前保留1位小数小数点后保留2位 ; %-4d左对齐按照4个字符。</p>
-</li>
-<li><p>&amp;&amp;（and）==》一个不成立就false；</p>
-<p>||（or）==》只要有一个成立就成立；</p>
-<p>！（非）==》和原来相反；</p>
-</li>
-</ol>
-<h3 id="关于交换问题"><a href="#关于交换问题" class="headerlink" title="关于交换问题"></a>关于交换问题</h3><p>输出两个数a，b，将大数存于a，小数存于b，并输出a，b</p>
-<p><u>思路（交换a，b）</u></p>
-<blockquote>
-<p>1.a=a+b；b=a-b；a=a-b ===》这样可读性差</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> a,b,temp;</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);  <span class="comment">//在输入的时候地址符号（&amp;）千万不要忘记写否者会报错</span></div><div class="line">  <span class="keyword">if</span>(a&lt;b)&#123;</div><div class="line">    temp=a;a=b;b=temp; <span class="comment">//一般是这样实现位置交换，需要个中间变量。</span></div><div class="line">   &#125;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"交换以后的顺序为%d%d"</span>,a,b);  </div><div class="line">&#125;</div><div class="line"><span class="comment">//可以用来判断3个或者4个数的大小</span></div></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">int</span> a= <span class="number">2</span> <span class="comment">//a是静态变量，不会被重置</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/10/01/recursion/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/01/recursion/" itemprop="url">C语言-递归函数理解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-01T10:00:33+08:00">
-                2017-10-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/10/01/recursion/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2017/10/01/recursion/" class="cy_cmt_count" data-xid="2017/10/01/recursion/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="啥是递归？"><a href="#啥是递归？" class="headerlink" title="啥是递归？"></a>啥是递归？</h3><blockquote>
-<p>即是该函数调用它本身自己，这种调用过程称为<strong>递归。</strong></p>
-<p>递归可以相当于循环，所以想结束递归，就必须有终止递归的<strong>条件测试</strong>部分，否则就会出现无限递归（即无限循环）。同时，这也是使用递归的难点。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">recur</span><span class="params">(<span class="keyword">int</span>)</span></span>;  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">void</span>)</span>  </span></div><div class="line"><span class="function"></span>&#123;  </div><div class="line">    recur(<span class="number">1</span>);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;  </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">recur</span><span class="params">(<span class="keyword">int</span> n)</span> <span class="comment">//递归函数  </span></span></div><div class="line"><span class="function"></span>&#123;  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"第%d级调用\n"</span>, n); <span class="comment">//#1  </span></div><div class="line">    <span class="keyword">if</span> (n &lt; <span class="number">4</span>)  </div><div class="line">    &#123;  </div><div class="line">        recur(n+<span class="number">1</span>); <span class="comment">//递归  </span></div><div class="line">    &#125;  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"第%d级返回\n"</span>, n); <span class="comment">//#2  </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>输出结果：</li>
-</ul>
-<blockquote>
-<blockquote>
-<p>第1级调用</p>
-<p>第2级调用</p>
-<p>第3级调用</p>
-<p>第4级调用</p>
-<p>第4级返回</p>
-<p>第3级返回</p>
-<p>第2级返回</p>
-<p>第1级返回</p>
-</blockquote>
-</blockquote>
-<ul>
-<li>解析：</li>
-</ul>
-<ol>
-<li>从结果可以看出，#1和#2相当于循环体，当符合测试条件（即n&lt;4）时，#1部分循环；当测试条件为false时，#2部分循环。</li>
-<li>在递归函数中，位于递归调用之前的语句（即#1部分），按被调函数（即recur()）的顺序执行；位于递归调用之后的语句（即#2部分），按被调函数相反的顺序执行。</li>
-<li>每级函数调用都有自己的变量，递归调用就相当于又从头开始执行函数的代码。</li>
-<li>每次函数调用都会返回一次，并且按顺序逐级返回递归。</li>
-</ol>
-</blockquote>
-<h3 id="递归（优缺点）与循环"><a href="#递归（优缺点）与循环" class="headerlink" title="递归（优缺点）与循环"></a>递归（优缺点）与循环</h3><blockquote>
-<ul>
-<li>使用循环的地方都可以使用递归</li>
-<li>缺点：</li>
-</ul>
-<ol>
-<li>递归快速耗内存</li>
-<li>不方便阅读和维护</li>
-<li>效率低</li>
-</ol>
-<ul>
-<li>优点：</li>
-</ul>
-<ol>
-<li>简洁</li>
-<li>适合解决阶乘、涉及相反顺序的编程问题</li>
-</ol>
-</blockquote>
-<h3 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h3><blockquote>
-<p>正好在return语句之前。</p>
-<p>尾递归是最简单的递归形式，因为它相当于循环。</p>
-</blockquote>
-<h3 id="For-Example"><a href="#For-Example" class="headerlink" title="For Example"></a>For Example</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">char</span> s[<span class="number">100</span>];</div><div class="line">	change(<span class="number">13579</span>,s);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%s\n"</span>,s);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">char</span> *s)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">if</span>(n&lt;<span class="number">10</span>)&#123;</div><div class="line">		*s=n+<span class="string">'0'</span>;</div><div class="line">		i=<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span>&#123;</div><div class="line">		i=change(n/<span class="number">10</span>,s);  <span class="comment">//1357-135-13 </span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"返回值i是：%d,返回值n是：%d\n"</span>,i,n); </div><div class="line">		*(s+i)=n%<span class="number">10</span>+<span class="string">'0'</span>;<span class="comment">//把13579这个int一个一个取出来然后加起来</span></div><div class="line">		i++;</div><div class="line">	&#125;</div><div class="line">		*(s+i)=<span class="string">'\0'</span>;</div><div class="line">		<span class="keyword">return</span> i;  <span class="comment">//这里会return到else下面那个 i=change(n/10,s);</span></div><div class="line">	&#125;</div><div class="line"><span class="comment">//输出的是字符串 ‘13579’</span></div></pre></td></tr></table></figure>
-<p><img src="http://owsgipnoo.bkt.clouddn.com/diguif.jpg" alt=""></p>
-<ul>
-<li><p>这里n的顺序是1357-135-13-13-135-1357</p>
-<hr>
-<p>PS:这是本人第一次写博客，主要目的与大家分享心得，如果此文章中存在bug，欢迎大神们指正！！</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2158,7 +2011,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -69,17 +69,17 @@
 
 
 
-<meta name="description" content="用Typora编译器本地编写md文件在编写的时候，要在文章头加入：   categories: c # 配置categories title: title_test —    //这个分隔线很重要！！！如果漏了无法分页   如果要给博客添加分类，那么要在theme文件夹下的next中的配置文件中添加，这里的添加的分类必须和前面的categories: c # 配置categories保持一直。">
+<meta name="description" content="自底向上-归并排序 自底向上归并排序 （并不需要递归只需要迭代就行了）  *自底向上排序有一个非常好的特性就是，通过索引直接获取数组元素然后调用函数，正因如果 底向上归并排序能够很好使用nlogn的时间对链表这样结构的数据进行排序 。 123456789101112131415161718192021222324252627282930313233343536373839404142434445#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写博客的时候注意事项和步骤">
-<meta property="og:url" content="http://caixiangc.github.io/2017/11/03/写博客注意事项/index.html">
+<meta property="og:title" content="Cai Xiang-blog">
+<meta property="og:url" content="http://caixiangc.github.io/2017/11/24/自底向上-归并排序/index.html">
 <meta property="og:site_name" content="Cai Xiang-blog">
-<meta property="og:description" content="用Typora编译器本地编写md文件在编写的时候，要在文章头加入：   categories: c # 配置categories title: title_test —    //这个分隔线很重要！！！如果漏了无法分页   如果要给博客添加分类，那么要在theme文件夹下的next中的配置文件中添加，这里的添加的分类必须和前面的categories: c # 配置categories保持一直。">
+<meta property="og:description" content="自底向上-归并排序 自底向上归并排序 （并不需要递归只需要迭代就行了）  *自底向上排序有一个非常好的特性就是，通过索引直接获取数组元素然后调用函数，正因如果 底向上归并排序能够很好使用nlogn的时间对链表这样结构的数据进行排序 。 123456789101112131415161718192021222324252627282930313233343536373839404142434445#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-03T15:08:12.792Z">
+<meta property="og:updated_time" content="2017-11-24T10:35:30.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写博客的时候注意事项和步骤">
-<meta name="twitter:description" content="用Typora编译器本地编写md文件在编写的时候，要在文章头加入：   categories: c # 配置categories title: title_test —    //这个分隔线很重要！！！如果漏了无法分页   如果要给博客添加分类，那么要在theme文件夹下的next中的配置文件中添加，这里的添加的分类必须和前面的categories: c # 配置categories保持一直。">
+<meta name="twitter:title" content="Cai Xiang-blog">
+<meta name="twitter:description" content="自底向上-归并排序 自底向上归并排序 （并不需要递归只需要迭代就行了）  *自底向上排序有一个非常好的特性就是，通过索引直接获取数组元素然后调用函数，正因如果 底向上归并排序能够很好使用nlogn的时间对链表这样结构的数据进行排序 。 123456789101112131415161718192021222324252627282930313233343536373839404142434445#">
 
 
 
@@ -109,13 +109,13 @@
 
 
 
-  <link rel="canonical" href="http://caixiangc.github.io/2017/11/03/写博客注意事项/"/>
+  <link rel="canonical" href="http://caixiangc.github.io/2017/11/24/自底向上-归并排序/"/>
 
 
 
 
 
-  <title>写博客的时候注意事项和步骤 | Cai Xiang-blog</title>
+  <title> | Cai Xiang-blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/03/写博客注意事项/">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/24/自底向上-归并排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cai Xiang">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">写博客的时候注意事项和步骤</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-03T23:03:05+08:00">
-                2017-11-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-24T18:34:18+08:00">
+                2017-11-24
               </time>
             
 
@@ -311,28 +311,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/RecordLife/" itemprop="url" rel="index">
-                    <span itemprop="name">RecordLife</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -343,8 +321,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/11/03/写博客注意事项/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/11/03/写博客注意事项/" itemprop="commentsCount"></span>
+                <a href="/2017/11/24/自底向上-归并排序/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/11/24/自底向上-归并排序/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -372,22 +350,10 @@
       
 
       
-        <blockquote>
-<h6 id="用Typora编译器本地编写md文件"><a href="#用Typora编译器本地编写md文件" class="headerlink" title="用Typora编译器本地编写md文件"></a>用Typora编译器本地编写md文件</h6><p>在编写的时候，要在文章头加入：</p>
-</blockquote>
-<ul>
-<li>categories: c # 配置categories</li>
-<li>title: title_test</li>
-<li>—    //这个分隔线很重要！！！如果漏了无法分页</li>
-</ul>
-<blockquote>
-<p>如果要给博客添加分类，那么要在theme文件夹下的next中的配置文件中添加，这里的添加的分类必须和前面的categories: c # 配置categories保持一直。</p>
-<p>在文章写好，生成.md 文件后，放入hexo 的sourse文件夹下的_posts文件夹里面，启动git-bash</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git-bash：hexo g <span class="comment">//重新生成一下文件，有把.md文件编译成html，css，js文件</span></div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git-bash：hexo s <span class="comment">//本地生成一下，预览一下，要是成功以后，再git到服务器</span></div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git-bash：hexo d <span class="comment">//发布代码到github上</span></div></pre></td></tr></table></figure>
-<p>TIP：最后注意如果文章目录有 <code>record_life</code> 有下划线这种命名，那么在hexo g 生成的时候会自动编译出<code>record-life</code>的文件夹所以会出现:<code>hexo Cannot GET /categories/Record_life/</code> 这样的报错，解决方案：在<code>public/categories</code>中修改之前的文件夹</p>
+        <h3 id="自底向上-归并排序"><a href="#自底向上-归并排序" class="headerlink" title="自底向上-归并排序"></a>自底向上-归并排序</h3><hr>
+<p>自底向上归并排序 （并不需要递归只需要迭代就行了） </p>
+<p><em>*</em>自底向上排序有一个非常好的特性就是，通过索引直接获取数组元素然后调用函数，正因如果 底向上归并排序能够很好使用nlogn的时间对链表这样结构的数据进行排序 。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="comment">//归并排序是不管三七，直接把数组进行对分下去直到1，然后通过归并进行排序的 </span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">void</span> __merge(T arr[],<span class="keyword">int</span> l,<span class="keyword">int</span> mid,<span class="keyword">int</span> r)&#123;</div><div class="line">	T aux[r-l+<span class="number">1</span>];  </div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = l ; i&lt;=r ; i++)&#123;</div><div class="line">		aux[i-l] = arr[i];	</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> i = l , j = mid + <span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> k=l;k&lt;=r;k++)&#123;  </div><div class="line">			<span class="keyword">if</span>(i&gt;mid)&#123; </div><div class="line">				arr[k] = aux[j-l];   </div><div class="line">				j++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(j&gt;r)&#123;</div><div class="line">				arr[k] = aux[i-l];</div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(aux[i-l]&lt;aux[j-l])&#123; </div><div class="line">				arr[k] = aux[i-l];     </div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span>&#123;</div><div class="line">				arr[k] = aux[j-l];</div><div class="line">				j++;</div><div class="line">			&#125;</div><div class="line">		&#125;	 </div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSortBU</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> sz=<span class="number">1</span>;sz&lt;=n;sz+=sz)&#123; <span class="comment">// sz代表着归并元素个数，如果是第一次那么归并1个，如果是第二次那么归并2，4，8以此类推，但是sz&lt;n这是限制。 </span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+sz&lt;n;i+=sz+sz)&#123; <span class="comment">//上面sz代表的是要归并元素的个数，这里sz代表是每次归并元素的序号（就是一排元素中的序号），这里的2sz包含两部分一部分是[0,sz-1]和[sz,2sz-1]，所以这里i累加要2sz </span></div><div class="line">			<span class="comment">//为了使归并有意义：这里 i&lt;n 要改成 i+sz&lt;n 这样使第二段（arr[i+sz...i+sz+sz-1]存在），并且使 i+sz-1有意义，否者可能归并无意义，因为只有一段，本来就有序不用排 </span></div><div class="line">			<span class="comment">//对arr[i...i+sz-1]和arr[i+sz...i+sz+sz-1]进行归并  </span></div><div class="line">			__merge(arr,i+sz<span class="number">-1</span>,min(i+sz+sz<span class="number">-1</span>,n<span class="number">-1</span>)); <span class="comment">//归并至少要对两部分进行归并否者时无意义的，归并的过程（__merge）实质上就是把两个有序的部分合并到一个部分	</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -412,8 +378,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/30/c语言实现的基本算法/" rel="next" title="C语言实现的基本算法">
-                <i class="fa fa-chevron-left"></i> C语言实现的基本算法
+              <a href="/2017/11/17/归并排序（NlogN）/" rel="next" title="归并排序（NlogN）">
+                <i class="fa fa-chevron-left"></i> 归并排序（NlogN）
               </a>
             
           </div>
@@ -422,8 +388,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/06/每日算法/" rel="prev" title="每日算法">
-                每日算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/25/递归的理解和实现/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -550,7 +516,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#用Typora编译器本地编写md文件"><span class="nav-number">1.</span> <span class="nav-text">用Typora编译器本地编写md文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#自底向上-归并排序"><span class="nav-number">1.</span> <span class="nav-text">自底向上-归并排序</span></a></li></ol></div>
             
 
           </div>

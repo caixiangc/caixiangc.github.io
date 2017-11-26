@@ -69,17 +69,19 @@
 
 
 
-<meta name="description" content="用Typora编译器本地编写md文件在编写的时候，要在文章头加入：   categories: c # 配置categories title: title_test —    //这个分隔线很重要！！！如果漏了无法分页   如果要给博客添加分类，那么要在theme文件夹下的next中的配置文件中添加，这里的添加的分类必须和前面的categories: c # 配置categories保持一直。">
+<meta name="description" content="递归的理解和实现 递归函数，分为两步：递推和回归两个阶段，递归就是普通的调用回调…调用回调(直到满足条件然后退出)。回归阶段就如下图，由近到远的‘回归’，这里回归是执行（第一个返回—第二个调用）之间的内容，也就是之间递推没有执行的内容。 大量的递归调用会简历函数的副本，会消耗大量的时间和内存，而迭代则不需要此种付出。 下面举一个arr[20]的例子：   12345678//斐波那契数列 递归实现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写博客的时候注意事项和步骤">
-<meta property="og:url" content="http://caixiangc.github.io/2017/11/03/写博客注意事项/index.html">
+<meta property="og:title" content="Cai Xiang-blog">
+<meta property="og:url" content="http://caixiangc.github.io/2017/11/25/递归的理解和实现/index.html">
 <meta property="og:site_name" content="Cai Xiang-blog">
-<meta property="og:description" content="用Typora编译器本地编写md文件在编写的时候，要在文章头加入：   categories: c # 配置categories title: title_test —    //这个分隔线很重要！！！如果漏了无法分页   如果要给博客添加分类，那么要在theme文件夹下的next中的配置文件中添加，这里的添加的分类必须和前面的categories: c # 配置categories保持一直。">
+<meta property="og:description" content="递归的理解和实现 递归函数，分为两步：递推和回归两个阶段，递归就是普通的调用回调…调用回调(直到满足条件然后退出)。回归阶段就如下图，由近到远的‘回归’，这里回归是执行（第一个返回—第二个调用）之间的内容，也就是之间递推没有执行的内容。 大量的递归调用会简历函数的副本，会消耗大量的时间和内存，而迭代则不需要此种付出。 下面举一个arr[20]的例子：   12345678//斐波那契数列 递归实现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-03T15:08:12.792Z">
+<meta property="og:image" content="http://owsgipnoo.bkt.clouddn.com/%E9%80%92%E5%BD%92%E5%9B%BE%E9%87%8A.jpg">
+<meta property="og:updated_time" content="2017-11-25T11:32:34.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写博客的时候注意事项和步骤">
-<meta name="twitter:description" content="用Typora编译器本地编写md文件在编写的时候，要在文章头加入：   categories: c # 配置categories title: title_test —    //这个分隔线很重要！！！如果漏了无法分页   如果要给博客添加分类，那么要在theme文件夹下的next中的配置文件中添加，这里的添加的分类必须和前面的categories: c # 配置categories保持一直。">
+<meta name="twitter:title" content="Cai Xiang-blog">
+<meta name="twitter:description" content="递归的理解和实现 递归函数，分为两步：递推和回归两个阶段，递归就是普通的调用回调…调用回调(直到满足条件然后退出)。回归阶段就如下图，由近到远的‘回归’，这里回归是执行（第一个返回—第二个调用）之间的内容，也就是之间递推没有执行的内容。 大量的递归调用会简历函数的副本，会消耗大量的时间和内存，而迭代则不需要此种付出。 下面举一个arr[20]的例子：   12345678//斐波那契数列 递归实现">
+<meta name="twitter:image" content="http://owsgipnoo.bkt.clouddn.com/%E9%80%92%E5%BD%92%E5%9B%BE%E9%87%8A.jpg">
 
 
 
@@ -109,13 +111,13 @@
 
 
 
-  <link rel="canonical" href="http://caixiangc.github.io/2017/11/03/写博客注意事项/"/>
+  <link rel="canonical" href="http://caixiangc.github.io/2017/11/25/递归的理解和实现/"/>
 
 
 
 
 
-  <title>写博客的时候注意事项和步骤 | Cai Xiang-blog</title>
+  <title> | Cai Xiang-blog</title>
   
 
 
@@ -272,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/03/写博客注意事项/">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/25/递归的理解和实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cai Xiang">
@@ -289,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">写博客的时候注意事项和步骤</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -301,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-03T23:03:05+08:00">
-                2017-11-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T08:05:33+08:00">
+                2017-11-25
               </time>
             
 
@@ -311,28 +313,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/RecordLife/" itemprop="url" rel="index">
-                    <span itemprop="name">RecordLife</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -343,8 +323,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/11/03/写博客注意事项/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/11/03/写博客注意事项/" itemprop="commentsCount"></span>
+                <a href="/2017/11/25/递归的理解和实现/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/11/25/递归的理解和实现/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -372,22 +352,15 @@
       
 
       
-        <blockquote>
-<h6 id="用Typora编译器本地编写md文件"><a href="#用Typora编译器本地编写md文件" class="headerlink" title="用Typora编译器本地编写md文件"></a>用Typora编译器本地编写md文件</h6><p>在编写的时候，要在文章头加入：</p>
-</blockquote>
-<ul>
-<li>categories: c # 配置categories</li>
-<li>title: title_test</li>
-<li>—    //这个分隔线很重要！！！如果漏了无法分页</li>
-</ul>
-<blockquote>
-<p>如果要给博客添加分类，那么要在theme文件夹下的next中的配置文件中添加，这里的添加的分类必须和前面的categories: c # 配置categories保持一直。</p>
-<p>在文章写好，生成.md 文件后，放入hexo 的sourse文件夹下的_posts文件夹里面，启动git-bash</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git-bash：hexo g <span class="comment">//重新生成一下文件，有把.md文件编译成html，css，js文件</span></div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git-bash：hexo s <span class="comment">//本地生成一下，预览一下，要是成功以后，再git到服务器</span></div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git-bash：hexo d <span class="comment">//发布代码到github上</span></div></pre></td></tr></table></figure>
-<p>TIP：最后注意如果文章目录有 <code>record_life</code> 有下划线这种命名，那么在hexo g 生成的时候会自动编译出<code>record-life</code>的文件夹所以会出现:<code>hexo Cannot GET /categories/Record_life/</code> 这样的报错，解决方案：在<code>public/categories</code>中修改之前的文件夹</p>
+        <h3 id="递归的理解和实现"><a href="#递归的理解和实现" class="headerlink" title="递归的理解和实现"></a>递归的理解和实现</h3><hr>
+<p>递归函数，分为两步：<code>递推</code>和<code>回归</code>两个阶段，递归就是普通的调用回调…调用回调(直到满足条件然后退出)。回归阶段就如下图，由近到远的‘回归’，这里回归是执行（第一个返回—第二个调用）之间的内容，也就是之间递推没有执行的内容。</p>
+<p>大量的递归调用会简历函数的副本，会消耗大量的时间和内存，而迭代则不需要此种付出。</p>
+<p>下面举一个arr[20]的例子： </p>
+<p><img src="http://owsgipnoo.bkt.clouddn.com/%E9%80%92%E5%BD%92%E5%9B%BE%E9%87%8A.jpg" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//斐波那契数列 递归实现</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Fib</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span>(i&lt;<span class="number">2</span>)</div><div class="line">    <span class="keyword">return</span> i==<span class="number">0</span>?<span class="string">'0'</span>:<span class="string">'1'</span>;</div><div class="line">  <span class="keyword">return</span> Fib(n) = Fib(n<span class="number">-1</span>)+Fib(n<span class="number">-2</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//如果输入Fib(5),</span></div><div class="line"><span class="comment">//那么第一轮先会分解成Fib(4)+Fib(3),......，然后每个分支都会分解成无数个小段，直至全部为Fib(0)或者Fib(1)</span></div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//阶乘</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span><span class="params">(n)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span>(n==<span class="number">0</span>)</div><div class="line">    reutn <span class="number">1</span>;</div><div class="line">  <span class="keyword">else</span></div><div class="line">    <span class="keyword">return</span> n*factorial(n<span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//逆序输出字符串，也能用递归思想中的回归</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">char</span> a;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;a);</div><div class="line">	<span class="keyword">if</span>(a!=<span class="string">'#'</span>)&#123;</div><div class="line">		print();</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%c"</span>,a);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	print();  </div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//汉诺塔问题，利用递归分治</span></div><div class="line"><span class="comment">//把递归想成黑盒子就想的通了</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">char</span> x,<span class="keyword">char</span> y,<span class="keyword">char</span> z)</span></span>&#123;</div><div class="line">	<span class="keyword">if</span>(n==<span class="number">1</span>)&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%c--&gt;%c\n"</span>,x,z) ;<span class="comment">//如果只有一个数，那么我们直接将X移到Z上就行 </span></div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		move(n<span class="number">-1</span>,x,z,y); <span class="comment">//将n-1个盘子从x借助z移动到y上 </span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%c--&gt;%c\n"</span>,x,z); <span class="comment">//将n个盘子从x移动到z </span></div><div class="line">		move(n<span class="number">-1</span>,y,x,z);<span class="comment">//将n-1个盘子从y借助x移动到z上 </span></div><div class="line">	&#125; </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入汉诺塔层数"</span>);</div><div class="line">	<span class="keyword">int</span> n;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	move(n,<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>); </div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -412,8 +385,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/30/c语言实现的基本算法/" rel="next" title="C语言实现的基本算法">
-                <i class="fa fa-chevron-left"></i> C语言实现的基本算法
+              <a href="/2017/11/24/自底向上-归并排序/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -422,8 +395,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/06/每日算法/" rel="prev" title="每日算法">
-                每日算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/26/使用git上传项目到github/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -550,7 +523,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#用Typora编译器本地编写md文件"><span class="nav-number">1.</span> <span class="nav-text">用Typora编译器本地编写md文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归的理解和实现"><span class="nav-number">1.</span> <span class="nav-text">递归的理解和实现</span></a></li></ol></div>
             
 
           </div>
