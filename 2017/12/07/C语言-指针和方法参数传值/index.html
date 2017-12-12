@@ -69,17 +69,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="C语言-指针和方法参数传值 function()中传值，如果是一个地址变量，那么传的是地址，然后根据地址，往后面接着一个个p++，这里p++是指针的指向的位置，并不是代表这p这个值，如果不是指针变量，它的值也是存在，内存当中的，只不过，它要是被传值（被function）那么是把数据整个传过去 12345678910111213141516171819202122232425262728293031">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://caixiangc.github.io/2017/09/24/hello-world/index.html">
+<meta property="og:title" content="C语言-指针和方法参数传值">
+<meta property="og:url" content="http://caixiangc.github.io/2017/12/07/C语言-指针和方法参数传值/index.html">
 <meta property="og:site_name" content="Cai Xiang-blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="C语言-指针和方法参数传值 function()中传值，如果是一个地址变量，那么传的是地址，然后根据地址，往后面接着一个个p++，这里p++是指针的指向的位置，并不是代表这p这个值，如果不是指针变量，它的值也是存在，内存当中的，只不过，它要是被传值（被function）那么是把数据整个传过去 12345678910111213141516171819202122232425262728293031">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-25T14:39:51.382Z">
+<meta property="og:updated_time" content="2017-12-07T14:40:30.894Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="C语言-指针和方法参数传值">
+<meta name="twitter:description" content="C语言-指针和方法参数传值 function()中传值，如果是一个地址变量，那么传的是地址，然后根据地址，往后面接着一个个p++，这里p++是指针的指向的位置，并不是代表这p这个值，如果不是指针变量，它的值也是存在，内存当中的，只不过，它要是被传值（被function）那么是把数据整个传过去 12345678910111213141516171819202122232425262728293031">
 
 
 
@@ -109,13 +109,13 @@
 
 
 
-  <link rel="canonical" href="http://caixiangc.github.io/2017/09/24/hello-world/"/>
+  <link rel="canonical" href="http://caixiangc.github.io/2017/12/07/C语言-指针和方法参数传值/"/>
 
 
 
 
 
-  <title>Hello World | Cai Xiang-blog</title>
+  <title>C语言-指针和方法参数传值 | Cai Xiang-blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/09/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/07/C语言-指针和方法参数传值/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cai Xiang">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">C语言-指针和方法参数传值</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-24T13:28:02+08:00">
-                2017-09-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-07T22:33:57+08:00">
+                2017-12-07
               </time>
             
 
@@ -324,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DSAG/" itemprop="url" rel="index">
-                    <span itemprop="name">DSAG</span>
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c</span>
                   </a>
                 </span>
 
@@ -343,8 +343,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/09/24/hello-world/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/09/24/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2017/12/07/C语言-指针和方法参数传值/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/12/07/C语言-指针和方法参数传值/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -372,15 +372,9 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h3 id="C语言-指针和方法参数传值"><a href="#C语言-指针和方法参数传值" class="headerlink" title="C语言-指针和方法参数传值"></a>C语言-指针和方法参数传值</h3><hr>
+<p>function()中传值，如果是一个<code>地址变量</code>，那么传的是地址，然后根据地址，往后面接着一个个p++，<strong>这里p++是指针的指向的位置，并不是代表这p这个值</strong>，如果不是指针变量，它的值也是存在，内存当中的，只不过，它要是被传值（被function）那么是把数据整个传过去</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">input</span> <span class="params">(<span class="keyword">int</span> * p)</span></span>;<span class="comment">//声明函数</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">paixu</span> <span class="params">(<span class="keyword">int</span> * p)</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span> <span class="params">(<span class="keyword">int</span> * p)</span></span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">        <span class="keyword">int</span> a[<span class="number">10</span>];</div><div class="line">        input (a);</div><div class="line">        paixu (a);</div><div class="line">        print (a);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">input</span> <span class="params">(<span class="keyword">int</span> * p)</span><span class="comment">//需要用指针地址</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">        <span class="keyword">int</span> *q = p; <span class="comment">//*******将数组的地址给q</span></div><div class="line">        <span class="keyword">while</span> (p &lt; q + <span class="number">10</span>)<span class="comment">//由于数组长度为10  切记 数组由0开始的</span></div><div class="line">        &#123;</div><div class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,p++);<span class="comment">//**********给数组赋值</span></div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">paixu</span> <span class="params">(<span class="keyword">int</span> * p)</span><span class="comment">//排序函数</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">        <span class="keyword">int</span> *q = p;<span class="comment">//获取地址</span></div><div class="line">        <span class="keyword">int</span> *max = p,*min = p,tmp;<span class="comment">//假设数组第一个为最大最小</span></div><div class="line">        <span class="keyword">for</span> (; p &lt; q + <span class="number">10</span>; p++)<span class="comment">//为何第一个参数省略了 注意“void paixu (int * p)”</span></div><div class="line">        &#123;</div><div class="line">                <span class="keyword">if</span> (*max &lt; *p) <span class="comment">//取地址所在的值比较  不是比较地址 是比较地址对应的值</span></div><div class="line">                        max = p;</div><div class="line">                <span class="keyword">if</span> (*min &gt; *p) <span class="comment">//同理</span></div><div class="line">                        min = p;</div><div class="line">        &#125;</div><div class="line">        tmp = *q;<span class="comment">//交换</span></div><div class="line">        *q = *min;</div><div class="line">        *min = tmp;</div><div class="line">        <span class="keyword">if</span>(max == q)<span class="comment">//如果max的位置正好是第一个元素的地址，这是已经被改变了，所以要改成新地址。</span></div><div class="line">        &#123;</div><div class="line">                max = min;</div><div class="line">        &#125;</div><div class="line">        q+=<span class="number">9</span>;</div><div class="line">        tmp = *q;</div><div class="line">        *q = *max;</div><div class="line">        *max = tmp;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span> <span class="params">(<span class="keyword">int</span> * p)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">        <span class="keyword">int</span> *q = p;</div><div class="line">        <span class="keyword">while</span> (p &lt; q + <span class="number">10</span>)</div><div class="line">        &#123;</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"%d "</span>,*p++);</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -405,14 +399,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/12/03/正则表达式/" rel="next" title="ES6-正则表达式">
+                <i class="fa fa-chevron-left"></i> ES6-正则表达式
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/24/post/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/09/git add用法/" rel="prev" title="git add用法">
+                git add用法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -539,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#C语言-指针和方法参数传值"><span class="nav-number">1.</span> <span class="nav-text">C语言-指针和方法参数传值</span></a></li></ol></div>
             
 
           </div>

@@ -69,17 +69,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="JS事件冒泡和事件捕捉 在学校，听老师讲解事件冒泡和事件捕获机制的时候跟听天书一样，只依稀记得IE使用的是事件冒泡，其他浏览器则是事件捕获。当时的我，把它当成IE浏览器兼容问题，所以没有深究（IE8以下版本的浏览器已基本退出市场）。工作至今，虽然多次遇到该类问题，但均未深究，始终一知半解，遇到了全TM靠猜（选A不行就选B呗）。今天闲来无事自己做了个demo,算是把这个问题彻底搞明白了。 先上结论：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://caixiangc.github.io/2017/09/24/hello-world/index.html">
+<meta property="og:title" content="JS事件冒泡和事件捕捉">
+<meta property="og:url" content="http://caixiangc.github.io/2017/12/12/JS事件冒泡和事件捕捉/index.html">
 <meta property="og:site_name" content="Cai Xiang-blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="JS事件冒泡和事件捕捉 在学校，听老师讲解事件冒泡和事件捕获机制的时候跟听天书一样，只依稀记得IE使用的是事件冒泡，其他浏览器则是事件捕获。当时的我，把它当成IE浏览器兼容问题，所以没有深究（IE8以下版本的浏览器已基本退出市场）。工作至今，虽然多次遇到该类问题，但均未深究，始终一知半解，遇到了全TM靠猜（选A不行就选B呗）。今天闲来无事自己做了个demo,算是把这个问题彻底搞明白了。 先上结论：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-25T14:39:51.382Z">
+<meta property="og:updated_time" content="2017-12-12T14:21:23.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="JS事件冒泡和事件捕捉">
+<meta name="twitter:description" content="JS事件冒泡和事件捕捉 在学校，听老师讲解事件冒泡和事件捕获机制的时候跟听天书一样，只依稀记得IE使用的是事件冒泡，其他浏览器则是事件捕获。当时的我，把它当成IE浏览器兼容问题，所以没有深究（IE8以下版本的浏览器已基本退出市场）。工作至今，虽然多次遇到该类问题，但均未深究，始终一知半解，遇到了全TM靠猜（选A不行就选B呗）。今天闲来无事自己做了个demo,算是把这个问题彻底搞明白了。 先上结论：">
 
 
 
@@ -109,13 +109,13 @@
 
 
 
-  <link rel="canonical" href="http://caixiangc.github.io/2017/09/24/hello-world/"/>
+  <link rel="canonical" href="http://caixiangc.github.io/2017/12/12/JS事件冒泡和事件捕捉/"/>
 
 
 
 
 
-  <title>Hello World | Cai Xiang-blog</title>
+  <title>JS事件冒泡和事件捕捉 | Cai Xiang-blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/09/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/12/JS事件冒泡和事件捕捉/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cai Xiang">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">JS事件冒泡和事件捕捉</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-24T13:28:02+08:00">
-                2017-09-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-12T22:15:20+08:00">
+                2017-12-12
               </time>
             
 
@@ -324,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DSAG/" itemprop="url" rel="index">
-                    <span itemprop="name">DSAG</span>
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
                   </a>
                 </span>
 
@@ -343,8 +343,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/09/24/hello-world/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/09/24/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2017/12/12/JS事件冒泡和事件捕捉/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/12/12/JS事件冒泡和事件捕捉/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -372,15 +372,27 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h3 id="JS事件冒泡和事件捕捉"><a href="#JS事件冒泡和事件捕捉" class="headerlink" title="JS事件冒泡和事件捕捉"></a>JS事件冒泡和事件捕捉</h3><hr>
+<p>在学校，听老师讲解事件冒泡和事件捕获机制的时候跟听天书一样，只依稀记得IE使用的是事件冒泡，其他浏览器则是事件捕获。当时的我，把它当成IE浏览器兼容问题，所以没有深究（IE8以下版本的浏览器已基本退出市场）。工作至今，虽然多次遇到该类问题，但均未深究，始终一知半解，遇到了全TM靠猜（选A不行就选B呗）。今天闲来无事自己做了个demo,算是把这个问题彻底搞明白了。</p>
+<p>先上结论：他们是描述事件触发时序问题的术语。事件捕获指的是从document到触发事件的那个节点，即自上而下的去触发事件。相反的，事件冒泡是自下而上的去触发事件。绑定事件方法的第三个参数，就是控制事件触发顺序是否为事件捕获。true,事件捕获；false,事件冒泡。默认false,即事件冒泡。Jquery的e.stopPropagation会阻止冒泡，<strong>意思就是到我为止，我的爹和祖宗的事件就不要触发了。</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span>parent</div><div class="line">　　<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"child"</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>child</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>现在我们给它们绑定上事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"parent"</span>).addEventListener(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    alert(<span class="string">"parent事件被触发，"</span>+<span class="keyword">this</span>.id);</div><div class="line">&#125;)</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"child"</span>).addEventListener(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    alert(<span class="string">"child事件被触发，"</span>+<span class="keyword">this</span>.id)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>结果：当点击child的时候，根据事件冒泡它会：先child=》parent</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">child事件被触发，child</div><div class="line"><span class="keyword">parent</span>事件被触发，<span class="keyword">parent</span></div></pre></td></tr></table></figure>
+<p>当点击parent的时候，根据事件冒泡它会：只会调用parent；</p>
+<p><strong>如果是事件捕获：先parent,然后child。事件触发顺序变更为自外向内。</strong></p>
+<p><strong>貌似没什么卵用，上一个利用事件冒泡的案例，反正我是经常会用到。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">          &lt;li&gt;item1&lt;<span class="regexp">/li&gt;</span></div><div class="line"><span class="regexp">          &lt;li&gt;item2&lt;/</span>li&gt;</div><div class="line">          &lt;li&gt;item3&lt;<span class="regexp">/li&gt;</span></div><div class="line"><span class="regexp">          &lt;li&gt;item4&lt;/</span>li&gt;</div><div class="line">          &lt;li&gt;item5&lt;<span class="regexp">/li&gt;</span></div><div class="line"><span class="regexp">          &lt;li&gt;item6&lt;/</span>li&gt;</div><div class="line">      &lt;<span class="regexp">/ul&gt;</span></div></pre></td></tr></table></figure>
+<p>需求是这样的：鼠标放到li上对应的li背景变灰。</p>
+<p>利用事件冒泡实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"ul"</span>).on(<span class="string">"mouseover"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    $(e.target).css(<span class="string">"background-color"</span>,<span class="string">"#ddd"</span>).siblings().css(<span class="string">"background-color"</span>,<span class="string">"white"</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>也许有人会说，我们直接给所有li都绑上事件也可以啊，一点也不麻烦，只要……</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"li"</span>).on(<span class="string">"mouseover"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   $(<span class="keyword">this</span>).css(<span class="string">"background-color"</span>,<span class="string">"#ddd"</span>).siblings().css(<span class="string">"background-color"</span>,<span class="string">"white"</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>是，这样也行。而且从代码简洁程度上，两者是相若仿佛的。但是，前者少了一个遍历所有li节点的操作，所以在性能上肯定是更优的。</p>
+<p>还有就是，如果我们在绑定事件完成后，页面又动态的加载了一些元素……</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"&lt;li&gt;item7&lt;/li&gt;"</span>).appendTo(<span class="string">"ul"</span>);</div></pre></td></tr></table></figure>
+<p>这时候，第二种方案，由于绑定事件的时候item7还不存在，所以为了效果，我们还要给它再绑定一次事件。而利用冒泡方案由于是给ul绑的事件……</p>
 
       
     </div>
@@ -405,15 +417,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/12/09/git add用法/" rel="next" title="git add用法">
+                <i class="fa fa-chevron-left"></i> git add用法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/24/post/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -539,7 +551,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS事件冒泡和事件捕捉"><span class="nav-number">1.</span> <span class="nav-text">JS事件冒泡和事件捕捉</span></a></li></ol></div>
             
 
           </div>
