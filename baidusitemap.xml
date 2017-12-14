@@ -3,6 +3,57 @@
 
     
   <url>
+    <loc>http://caixiangc.github.io/2017/11/25/%E9%80%92%E5%BD%92%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2017-12-14T05:11:09.947Z</lastmod>
+    <data>
+        <display>
+        <title>递归的理解和实现</title>
+        <pubTime>2017-11-25T00:05:33.601Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="c" url="http://caixiangc.github.io/categories/c/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://caixiangc.github.io/2017/12/14/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F/</loc>
+    <lastmod>2017-12-14T05:10:54.840Z</lastmod>
+    <data>
+        <display>
+        <title>全局变量和静态变量</title>
+        <pubTime>2017-12-14T04:53:27.046Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="c" url="http://caixiangc.github.io/categories/c/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://caixiangc.github.io/2017/12/13/ES6%E4%B9%8Bfor%E5%BE%AA%E7%8E%AF%E5%92%8CMap,Set/</loc>
+    <lastmod>2017-12-13T15:00:24.998Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2017-12-13T14:57:27.769Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://caixiangc.github.io/2017/12/12/JS%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%8D%95%E6%8D%89/</loc>
     <lastmod>2017-12-12T14:21:23.647Z</lastmod>
     <data>
@@ -212,24 +263,6 @@
            
              
               <breadCrumb title="RecordLife" url="http://caixiangc.github.io/categories/RecordLife/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://caixiangc.github.io/2017/11/25/%E9%80%92%E5%BD%92%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E5%AE%9E%E7%8E%B0/</loc>
-    <lastmod>2017-11-26T04:13:39.531Z</lastmod>
-    <data>
-        <display>
-        <title>递归的理解和实现</title>
-        <pubTime>2017-11-25T00:05:33.601Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="c" url="http://caixiangc.github.io/categories/c/"/>
           
         </display>
     </data>

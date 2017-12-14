@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="ES6之for循环和Map,Set现在大家先想一想，如果要你遍历一个数组的元素，你会选择如何去做呢？一般都会想起for循环： 123for (var index = 0; index &amp;lt; myArray.length; index++) &amp;#123;  console.log(myArray[index]);&amp;#125;123 可惜我得告诉你，这个方法是二十年的人才应该使用的方法，在ES5中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cai Xiang-blog">
+<meta property="og:url" content="http://caixiangc.github.io/2017/12/13/ES6之for循环和Map,Set/index.html">
+<meta property="og:site_name" content="Cai Xiang-blog">
+<meta property="og:description" content="ES6之for循环和Map,Set现在大家先想一想，如果要你遍历一个数组的元素，你会选择如何去做呢？一般都会想起for循环： 123for (var index = 0; index &amp;lt; myArray.length; index++) &amp;#123;  console.log(myArray[index]);&amp;#125;123 可惜我得告诉你，这个方法是二十年的人才应该使用的方法，在ES5中">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-13T15:00:24.998Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cai Xiang-blog">
+<meta name="twitter:description" content="ES6之for循环和Map,Set现在大家先想一想，如果要你遍历一个数组的元素，你会选择如何去做呢？一般都会想起for循环： 123for (var index = 0; index &amp;lt; myArray.length; index++) &amp;#123;  console.log(myArray[index]);&amp;#125;123 可惜我得告诉你，这个方法是二十年的人才应该使用的方法，在ES5中">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://caixiangc.github.io/2017/12/13/ES6之for循环和Map,Set/"/>
+
+
+
+
+
+  <title> | Cai Xiang-blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cai Xiang-blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-js">
+          <a href="/categories/js" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            js
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-c">
+          <a href="/categories/c" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            c
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-vue">
+          <a href="/categories/Vue" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Vue
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-dsag">
+          <a href="/categories/DSAG" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            DSAG
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-recordlife">
+          <a href="/categories/RecordLife" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            RecordLife
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-code">
+          <a href="/categories/code" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            code
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/13/ES6之for循环和Map,Set/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-13T22:57:27+08:00">
+                2017-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/12/13/ES6之for循环和Map,Set/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/12/13/ES6之for循环和Map,Set/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="ES6之for循环和Map-Set"><a href="#ES6之for循环和Map-Set" class="headerlink" title="ES6之for循环和Map,Set"></a>ES6之for循环和Map,Set</h3><p>现在大家先想一想，如果要你遍历一个数组的元素，你会选择如何去做呢？一般都会想起for循环：</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var <span class="keyword">index</span> = <span class="number">0</span>; <span class="keyword">index</span> &lt; myArray.<span class="built_in">length</span>; <span class="keyword">index</span>++) &#123;</div><div class="line">  console.<span class="built_in">log</span>(myArray[<span class="keyword">index</span>]);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
+<p>可惜我得告诉你，这个方法是二十年的人才应该使用的方法，在ES5中已经提出了更为简便的<strong>forEach</strong>方法，代码如下：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myArray.forEach(<span class="function"><span class="keyword">function</span></span> (<span class="keyword">value</span>) &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="keyword">value</span>);</div><div class="line">&#125;);<span class="number">123</span></div></pre></td></tr></table></figure>
+<p>虽然forEach方法简短一点，但是它也有它的缺点，就是<strong>不能够break来中途退出循环</strong>，也<strong>不能通过return来退出循环</strong>。</p>
+<p>那么不是还有for-in方法吗：</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (var <span class="keyword">index</span> <span class="keyword">in</span> myArray) &#123;    </div><div class="line">  console.<span class="built_in">log</span>(myArray[<span class="keyword">index</span>]);</div><div class="line">&#125;<span class="number">123</span></div></pre></td></tr></table></figure>
+<p>可是for-in方法实际上是为存储key的键值对型<strong>对象</strong>准备的，而<strong>不是为数组准备的</strong>，它的下标为<strong>字符串</strong>“1”，“2”……相信大家都知道“1”+“2”会怎么样吧？</p>
+<hr>
+<h2 id="for-of循环"><a href="#for-of循环" class="headerlink" title="for-of循环"></a><strong>for-of循环</strong></h2><p>ES6为了不影响以前的代码，为了满足很多人已经养成的习惯，只能推出一种新的循环语法for-of：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> value <span class="keyword">of</span> myArray) &#123;</div><div class="line">  <span class="built_in">console</span>.log(value);</div><div class="line">&#125;<span class="number">123</span></div></pre></td></tr></table></figure>
+<p><strong>对比for-in和for-of</strong>：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> a = [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>];</div><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> idx <span class="keyword">in</span> a) &#123;</div><div class="line">     console.<span class="built_in">log</span>( idx ); </div><div class="line">     &#125;// <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> </div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> val of a) &#123;</div><div class="line">     console.<span class="built_in">log</span>( val ); </div><div class="line">     &#125;// <span class="string">"a"</span> <span class="string">"b"</span> <span class="string">"c"</span> <span class="string">"d"</span> <span class="string">"e"</span><span class="number">12345678</span></div></pre></td></tr></table></figure>
+<p>for-of不仅仅可以用于<strong>数组</strong>，还可以用在<strong>dom对象</strong>上，同样作用于<strong>Map和Set对象</strong>。</p>
+<p>下面介绍一下Map和Set对象</p>
+<hr>
+<h2 id="Map-Set"><a href="#Map-Set" class="headerlink" title="Map,Set"></a><strong>Map,Set</strong></h2><p>JavaScript的默认对象表示方式是{}，但是JavaScript的对象有个小问题，就是<strong>键必须是字符串</strong>。但实际上Number或者其他数据类型作为键也是<strong>非常合理的</strong>。</p>
+<p>为了解决这个问题，最新的ES6规范引入了新的数据类型Map。</p>
+<p>Map是<strong>具有极快查找速度</strong>的键值对结构。</p>
+<p>我们看看Map的使用示例：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([[<span class="string">'Michael'</span>, <span class="number">95</span>], [<span class="string">'Bob'</span>, <span class="number">75</span>], [<span class="string">'Tracy'</span>, <span class="number">85</span>]]);</div><div class="line">m.<span class="keyword">get</span>(<span class="string">'Michael'</span>); <span class="comment">// 95</span></div><div class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>(); <span class="comment">// 空Map</span></div><div class="line">m.<span class="keyword">set</span>(<span class="string">'Adam'</span>, <span class="number">67</span>); <span class="comment">// 添加新的key-value</span></div><div class="line">m.<span class="keyword">set</span>(<span class="string">'Bob'</span>, <span class="number">59</span>);</div><div class="line">m.has(<span class="string">'Adam'</span>); <span class="comment">// 是否存在key 'Adam': true</span></div><div class="line">m.<span class="keyword">get</span>(<span class="string">'Adam'</span>); <span class="comment">// 67</span></div><div class="line">m.delete(<span class="string">'Adam'</span>); <span class="comment">// 删除key 'Adam'</span></div><div class="line">m.<span class="keyword">get</span>(<span class="string">'Adam'</span>); <span class="comment">// undefined123456789</span></div></pre></td></tr></table></figure>
+<p>上面的<strong>has</strong>方法比<strong>indexOf</strong>速度快。</p>
+<p>Set和Map类似，也是存在key的列表，只不过Set中的元素<strong>不能够重复</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> <span class="built_in">Set</span>(); <span class="comment">// 空Set</span></div><div class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); <span class="comment">// 含1, 2, 3</span></div><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="string">'3'</span>]);</div><div class="line">s; <span class="comment">// Set &#123;1, 2, 3, "3"&#125;1234</span></div></pre></td></tr></table></figure>
+<p>可以看到，再次添加的<strong>重复数据会被过滤掉</strong>。</p>
+<p>那么这两种对象的<strong>运用场景</strong>有哪些呢？</p>
+<p>Map可以用来存储键值对，比如姓名和年龄，而Set可以用来存储不能重复的目标，比如学号列表。</p>
+<hr>
+<h2 id="for-of用于对象"><a href="#for-of用于对象" class="headerlink" title="for-of用于对象"></a><strong>for-of用于对象</strong></h2><p>好啦，介绍完了两种类型的新对象，让我们看看for-of如何作用于Set对象上的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> uniqueWords = <span class="keyword">new</span> <span class="built_in">Set</span>(words);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> word <span class="keyword">of</span> uniqueWords) &#123;</div><div class="line">  <span class="built_in">console</span>.log(word);</div><div class="line">&#125;<span class="number">1234</span></div></pre></td></tr></table></figure>
+<p>遍历Map对象则不同，因为Map是以键值对存储的，所以我们需要分开<strong>两个单独的变量</strong>来遍历：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> [<span class="built_in">key</span>, value] of phoneBookMap) &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="built_in">key</span> + <span class="string">"'s phone number is: "</span> + value);</div><div class="line">&#125;<span class="number">123</span></div></pre></td></tr></table></figure>
+<p>但是需要注意一点。for-of并<strong>不是用来遍历普通的对象的属性的</strong>，如果我们一定要这么做，可以使用for-in或者如下方法：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> <span class="built_in">key</span> of Object.keys(someObject)) &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="built_in">key</span> + <span class="string">": "</span> + someObject[<span class="built_in">key</span>]);</div><div class="line">&#125;<span class="number">123</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/12/JS事件冒泡和事件捕捉/" rel="next" title="JS事件冒泡和事件捕捉">
+                <i class="fa fa-chevron-left"></i> JS事件冒泡和事件捕捉
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/14/全局变量和静态变量/" rel="prev" title="全局变量和静态变量">
+                全局变量和静态变量 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">Cai Xiang</p>
+            <p class="site-description motion-element" itemprop="description">person blog</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6之for循环和Map-Set"><span class="nav-number">1.</span> <span class="nav-text">ES6之for循环和Map,Set</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-of循环"><span class="nav-number"></span> <span class="nav-text">for-of循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-Set"><span class="nav-number"></span> <span class="nav-text">Map,Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-of用于对象"><span class="nav-number"></span> <span class="nav-text">for-of用于对象</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cai Xiang</span>
+
+  
+</div>
+
+
+
+  <div class="powered-by"><a class="theme-link" href="http://www.cxnei.cn">Friends Links</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytf4s6c2';
+      var conf = 'fdbfa210ec18f6093f8fe5396ef6602e';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
