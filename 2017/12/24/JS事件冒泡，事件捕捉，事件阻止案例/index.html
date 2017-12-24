@@ -69,17 +69,17 @@
 
 
 
-<meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263&amp;#123;    // #构造函数#    let regex = new RegExp(&apos;xyz&apos;, &apos;i&apos;); //第一个参数是字符串，第二个是修饰符    l">
+<meta name="description" content="JS事件冒泡，事件捕捉，事件阻止案例 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;    &amp;lt;title">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6-正则表达式">
-<meta property="og:url" content="http://caixiangc.github.io/2017/12/03/正则表达式/index.html">
+<meta property="og:title" content="JS事件冒泡和事件捕捉">
+<meta property="og:url" content="http://caixiangc.github.io/2017/12/24/JS事件冒泡，事件捕捉，事件阻止案例/index.html">
 <meta property="og:site_name" content="Cai Xiang-blog">
-<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263&amp;#123;    // #构造函数#    let regex = new RegExp(&apos;xyz&apos;, &apos;i&apos;); //第一个参数是字符串，第二个是修饰符    l">
+<meta property="og:description" content="JS事件冒泡，事件捕捉，事件阻止案例 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;    &amp;lt;title">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-06T14:59:01.572Z">
+<meta property="og:updated_time" content="2017-12-24T03:49:55.572Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6-正则表达式">
-<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263&amp;#123;    // #构造函数#    let regex = new RegExp(&apos;xyz&apos;, &apos;i&apos;); //第一个参数是字符串，第二个是修饰符    l">
+<meta name="twitter:title" content="JS事件冒泡和事件捕捉">
+<meta name="twitter:description" content="JS事件冒泡，事件捕捉，事件阻止案例 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;    &amp;lt;title">
 
 
 
@@ -109,13 +109,13 @@
 
 
 
-  <link rel="canonical" href="http://caixiangc.github.io/2017/12/03/正则表达式/"/>
+  <link rel="canonical" href="http://caixiangc.github.io/2017/12/24/JS事件冒泡，事件捕捉，事件阻止案例/"/>
 
 
 
 
 
-  <title>ES6-正则表达式 | Cai Xiang-blog</title>
+  <title>JS事件冒泡和事件捕捉 | Cai Xiang-blog</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/03/正则表达式/">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/24/JS事件冒泡，事件捕捉，事件阻止案例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cai Xiang">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ES6-正则表达式</h1>
+          <h1 class="post-title" itemprop="name headline">JS事件冒泡和事件捕捉</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T19:36:40+08:00">
-                2017-12-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-24T11:47:44+08:00">
+                2017-12-24
               </time>
             
 
@@ -343,8 +343,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/12/03/正则表达式/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/12/03/正则表达式/" itemprop="commentsCount"></span>
+                <a href="/2017/12/24/JS事件冒泡，事件捕捉，事件阻止案例/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/12/24/JS事件冒泡，事件捕捉，事件阻止案例/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -372,7 +372,8 @@
       
 
       
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="comment">// #构造函数#</span></div><div class="line">    <span class="keyword">let</span> regex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'xyz'</span>, <span class="string">'i'</span>); <span class="comment">//第一个参数是字符串，第二个是修饰符</span></div><div class="line">    <span class="keyword">let</span> regex2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/xyz/i</span>); <span class="comment">//第一个参数是正则表达式，不接受第二个参数，否则会报错</span></div><div class="line">    <span class="built_in">console</span>.log(regex.test(<span class="string">'xyz123'</span>), regex2.test(<span class="string">'xyz123'</span>)); <span class="comment">//i修饰符是忽略大小写</span></div><div class="line">    <span class="built_in">console</span>.log(regex.test(<span class="string">'xyZ123'</span>), regex2.test(<span class="string">'xyZ123'</span>));</div><div class="line"></div><div class="line">    <span class="keyword">let</span> regex3 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/abc/ig</span>, <span class="string">'i'</span>);<span class="comment">//原有正则对象的修饰符是ig，它会被第二个参数i覆盖</span></div><div class="line">    <span class="built_in">console</span>.log(regex3.flags);  <span class="comment">//flags是es6新增加的用来获取，正则表达式的修饰符</span></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 字符串对象的4个使用正则表达式的方法： match(),replace(),search(),split()这四个方法全部调用RegExp的实例的方法。</span></div><div class="line"></div><div class="line">&#123;</div><div class="line">    <span class="keyword">let</span> regex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'xyz'</span>, <span class="string">'ig'</span>);</div><div class="line">    <span class="built_in">console</span>.log(regex.test(<span class="string">'xyz0XYZ1xyz2'</span>), regex.exec(<span class="string">'xyz0XYZ1xyz2'</span>));</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">    <span class="comment">// y修饰符</span></div><div class="line">    <span class="keyword">let</span> s = <span class="string">'bbbb_bbb_bb_b'</span>;</div><div class="line">    <span class="keyword">var</span> a1 = <span class="regexp">/b+/g</span>; <span class="comment">//g修饰符在匹配的时候会忽略 _ 直接去匹配后面的</span></div><div class="line">    <span class="keyword">var</span> a2 = <span class="regexp">/b+/y</span>; <span class="comment">//y修饰符不会忽略 就直接undefined</span></div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(a1.exec(s), a2.exec(s)); <span class="comment">// ["bbbb"],["bbbb"]</span></div><div class="line">    <span class="built_in">console</span>.log(a1.exec(s), a2.exec(s)); <span class="comment">// ["bbb"],null</span></div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(a1.sticky, a2.sticky); <span class="comment">//表示是否开启了粘连模式</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;    <span class="comment">//unique编码匹配</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'u修饰符'</span>,/^\uD83D/.test(<span class="string">'\uD83D\uDC2A'</span>)); <span class="comment">// true     //不加u，这两个字符是分开的所以能匹配成功</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'u修饰符'</span>,/^\uD83D/u.test(<span class="string">'\uD83D\uDC2A'</span>)); <span class="comment">// false  //加了u之后，会把两个字符合并成一个\uD83D\uDC2A</span></div><div class="line">    <span class="comment">// 大括号表示Unicode字符，只有加上u才能识别</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="regexp">/\u&#123;61&#125;/</span>.test(<span class="string">'a'</span>)); <span class="comment">// false   //'a' 的unique编码 是61，，如果匹配模式里面放的是 unique编码的话，那么要加u，否者无法识别的</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="regexp">/\u&#123;61&#125;/u</span>.test(<span class="string">'a'</span>)); <span class="comment">// true  </span></div><div class="line">    <span class="built_in">console</span>.log(<span class="regexp">/\u&#123;20BB7&#125;/u</span>.test(<span class="string">'𠮷'</span>)); <span class="comment">// true  //这是一个特殊字符</span></div><div class="line">    <span class="comment">// 点（.）字符不能识别码点大于0xFFFF的Unicode字符，必须加上u修饰符。</span></div><div class="line">    <span class="keyword">let</span> s = <span class="string">'𠮷'</span>;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'大于0xFFFF的Unicode字符'</span>,/^.$/.test(s)); <span class="comment">// false</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'使用u字符'</span>,/^.$/u.test(s)); <span class="comment">// true //如果你要处理的字符大于两个字节，那么一定要加u,,否者无法识别</span></div><div class="line"></div><div class="line">    <span class="comment">// 使用u修饰符后，所有量词都会正确识别大于码点大于0xFFFF的Unicode字符。</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'量词'</span>,/a&#123;<span class="number">2</span>&#125;/.test(<span class="string">'aa'</span>)); <span class="comment">// true</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'量词'</span>,/a&#123;<span class="number">2</span>&#125;/u.test(<span class="string">'aa'</span>)); <span class="comment">// true</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'量词'</span>,/𠮷&#123;<span class="number">2</span>&#125;/.test(<span class="string">'𠮷𠮷'</span>)); <span class="comment">// false</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'量词'</span>,/𠮷&#123;<span class="number">2</span>&#125;/u.test(<span class="string">'𠮷𠮷'</span>)); <span class="comment">// true</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">    <span class="comment">// #正则表达式中，点（.）是一个特殊字符，代表任意的单个字符，但是行终止符（line terminator character）除外</span></div><div class="line">    <span class="comment">// U+000A 换行符（\n）</span></div><div class="line">    <span class="comment">// U+000D 回车符（\r）</span></div><div class="line">    <span class="comment">// U+2028 行分隔符（line separator）</span></div><div class="line">    <span class="comment">// U+2029 段分隔符（paragraph separator）</span></div><div class="line">    <span class="comment">// 只是一个提案目前还不支持</span></div><div class="line">    <span class="comment">// let reg=/test.go/s;</span></div><div class="line">    <span class="comment">// console.log(reg.test('test\ngo'));</span></div><div class="line">    <span class="comment">// console.log(reg.test('test\ngo'));</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'s变通方法'</span>,/foo.bar/.test(<span class="string">'foo\nbar'</span>));</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'s变通方法'</span>,/foo[^]bar/.test(<span class="string">'foo\nbar'</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="JS事件冒泡，事件捕捉，事件阻止案例"><a href="#JS事件冒泡，事件捕捉，事件阻止案例" class="headerlink" title="JS事件冒泡，事件捕捉，事件阻止案例"></a>JS事件冒泡，事件捕捉，事件阻止案例</h3><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">    &lt;title&gt;<span class="xml"><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></div><div class="line">    &lt;style media=<span class="string">"screen"</span>&gt;</div><div class="line">      img&#123;<span class="attr">width</span>: <span class="number">100</span>px; height: <span class="number">100</span>px; float: left;&#125;</div><div class="line">    &lt;<span class="regexp">/style&gt;</span></div><div class="line"><span class="regexp">  &lt;/</span>head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    ul&gt;(li&gt;img)*<span class="number">4</span></div><div class="line">    &lt;!--    <span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">'aa'</span> <span class="attr">onclick</span>=<span class="string">"showMessage()"</span>&gt;</span>testsssssss<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>--&gt;</div><div class="line">    &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">'aa'</span>&gt;testsssssss&lt;<span class="regexp">/a&gt;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">    &lt;ul class="group-list"&gt;</span></div><div class="line"><span class="regexp">      &lt;li&gt;&lt;img src="aa.png" alt="1"&gt;&lt;/</span>li&gt;</div><div class="line">      &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"aa.png"</span> <span class="attr">alt</span>=<span class="string">"2"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">      &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"aa.png"</span> <span class="attr">alt</span>=<span class="string">"3"</span> <span class="attr">id</span>=<span class="string">'lost'</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">      &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"aa.png"</span> <span class="attr">alt</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">    &lt;<span class="regexp">/ul&gt;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">    &lt;script type="text/</span>javascript<span class="string">"&gt;</span></div><div class="line"><span class="string">      var as = document.querySelector('.group-list');//这里我们并没有为每个img去添加事件，而是在他们共同的容器ul上添加一个事件，因为事件会传播的，这种传播方式称为事件冒泡（默认情况下），</span></div><div class="line"><span class="string">                                 //由下到上，比如我们点击img它会向li传播，然后li再向ul传播,时间捕获是由外到内的</span></div><div class="line"><span class="string">      function showMessageaa(event)&#123; //只有绑定了addEventListener，才会返回event对象否者只是返回undefined</span></div><div class="line">        alert(event.target.alt);  //现在得到的就是，你点击的对象，后面代码也是可以的$(e.target).css("background-color","#ddd").siblings().css("background-color","white");</div><div class="line">      &#125;<span class="comment">//触发事件 img里面的alt 属性</span></div><div class="line">      <span class="keyword">as</span>.addEventListener(<span class="string">'click'</span>,showMessageaa,<span class="literal">false</span>);</div><div class="line"></div><div class="line"></div><div class="line">      <span class="comment">//JS在默认情况下获取事件后，就开始从根元素开始捕获所有该事件的监听对象，然后在冒泡阶段逐一执行。捕获阶段是在冒泡阶段前面</span></div><div class="line">      <span class="comment">//结构  ul&gt;(li&gt;img)*4 //如果定义了好几个事件，那还是得看具体事件是怎么定义的</span></div><div class="line">      <span class="keyword">var</span> listGroup = <span class="built_in">document</span>.querySelector(<span class="string">'.group-list'</span>);</div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">showMessage</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'这里是ul层'</span>);</div><div class="line">      &#125;</div><div class="line">      listGroup.addEventListener(<span class="string">'click'</span>,showMessage,<span class="literal">true</span>); <span class="comment">//事件捕捉  true（默认）--事件捕捉  由上往下</span></div><div class="line"></div><div class="line">      <span class="keyword">var</span> imgId = <span class="built_in">document</span>.getElementById(<span class="string">'lost'</span>);</div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">showAlert</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(event.target.alt);</div><div class="line">      &#125;</div><div class="line">      imgId.addEventListener(<span class="string">'click'</span>,showAlert,<span class="literal">false</span>); <span class="comment">//事件冒泡  false--事件冒泡 由下往上</span></div><div class="line">      <span class="comment">//当点击 lost 的时候 会输出 这里是ul层 3 ，因为有事件捕捉先执行他，然后在事件冒泡</span></div><div class="line">      <span class="comment">//listGroup 改成false，imgId 改成true。。当点击 lost 的时候 会输出  3 这里是ul层，因为事件捕捉完了，还要执行事件冒泡的</span></div><div class="line">      <span class="comment">//如果listGroup 改成true 事件不捕捉，那么会输出 这里是ul层 3</span></div><div class="line">    &lt;<span class="regexp">/script&gt;</span></div><div class="line"><span class="regexp">  &lt;/</span>body&gt;</div><div class="line">&lt;<span class="regexp">/html&gt;</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -397,8 +398,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/03/ES6-解构赋值/" rel="next" title="ES6-解构赋值">
-                <i class="fa fa-chevron-left"></i> ES6-解构赋值
+              <a href="/2017/12/23/Javascript基础和一些需要注意的地方/" rel="next" title="Javascript基础和一些需要注意的地方-ES5">
+                <i class="fa fa-chevron-left"></i> Javascript基础和一些需要注意的地方-ES5
               </a>
             
           </div>
@@ -406,10 +407,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/07/C语言-指针和方法参数传值/" rel="prev" title="C语言-指针和方法参数传值">
-                C语言-指针和方法参数传值 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -463,8 +460,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">Cai Xiang</p>
@@ -516,6 +522,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS事件冒泡，事件捕捉，事件阻止案例"><span class="nav-number">1.</span> <span class="nav-text">JS事件冒泡，事件捕捉，事件阻止案例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
