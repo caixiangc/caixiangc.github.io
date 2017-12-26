@@ -210,6 +210,36 @@
         </li>
       
         
+        <li class="menu-item menu-item-java">
+          <a href="/categories/java" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            java
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-operations">
+          <a href="/categories/Operations" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Operations
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/Python" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Python
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-dsag">
           <a href="/categories/DSAG" rel="section">
             
@@ -375,7 +405,7 @@
         <h3 id="Javascript基础和一些需要注意的地方-ES5"><a href="#Javascript基础和一些需要注意的地方-ES5" class="headerlink" title="Javascript基础和一些需要注意的地方-ES5"></a>Javascript基础和一些需要注意的地方-ES5</h3><hr>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js是区分大小写的</span></div><div class="line">var words = <span class="string">"一二三四,五六七"</span>;</div><div class="line">words.split(<span class="string">','</span>);</div><div class="line"><span class="comment">//输出["一二三四", "五六七"]</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line"><span class="keyword">while</span>(i&lt;<span class="number">10</span>)&#123;</div><div class="line">  i++;</div><div class="line">  <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)&#123;</div><div class="line">    <span class="keyword">continue</span>; <span class="comment">//continue 是继续下一次循环，这次循环剩下的不做</span></div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">//</span>var abc = <span class="keyword">function</span>()&#123;</div><div class="line"><span class="regexp">//</span>  alert(<span class="string">'123'</span>);</div><div class="line"><span class="regexp">//</span>  var message_1 = <span class="string">'hello'</span></div><div class="line"><span class="regexp">//</span>&#125;</div><div class="line"><span class="regexp">//</span>alert(message_1);<span class="regexp">//</span>会报错undefined，不能调用函数内部变量</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//var abc = function()&#123;</div><div class="line">//  alert(&apos;123&apos;);</div><div class="line">//  var message_1 = &apos;hello&apos;</div><div class="line">//&#125;</div><div class="line">//alert(message_1);//会报错undefined，不能调用函数内部变量</div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对象</span></div><div class="line"><span class="keyword">var</span> beyound = &#123;</div><div class="line">  eg3:<span class="string">'hello'</span>,</div><div class="line">  eg4:<span class="number">555</span>,</div><div class="line">  arra:[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>]</div><div class="line">&#125;;</div><div class="line">beyound.eg1 = <span class="string">'1996'</span>; <span class="comment">//往对象里面添加数据</span></div><div class="line">beyound[<span class="string">'eg2'</span>] = <span class="string">'cxcx'</span>;<span class="comment">//往对象里面添加数据</span></div><div class="line">beyound.showarra = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;<span class="keyword">this</span>.arra.length;i++)&#123;</div><div class="line">    <span class="built_in">console</span>.log(beyound.arra[i]);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">beyound.showarra();</div><div class="line"><span class="built_in">console</span>.log(beyound);</div><div class="line"><span class="comment">// beyound.eg1    得到1996</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> property;</div><div class="line"><span class="keyword">for</span>(property <span class="keyword">in</span> beyound)&#123; <span class="comment">//这里的意思就是如果beyound中的数组元素一个一个的循环，循环到哪个放到property</span></div><div class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> beyound[property]!=<span class="string">'function'</span>)&#123;<span class="comment">//这样就不会把function输出出来</span></div><div class="line">    <span class="built_in">console</span>.log(beyound[property]);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newMember = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</div><div class="line"><span class="keyword">var</span> newMemberText = <span class="built_in">document</span>.createTextNode(<span class="string">'caixiangs'</span>);</div><div class="line">newMember.appendChild(newMemberText);</div><div class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.artist-list'</span>).appendChild(newMember);<span class="comment">//意思是找到.artist-list节点然后通过appendChild把&lt;li&gt;caixiangs&lt;/li&gt;放到.artist-list里面去</span></div><div class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.artist-list'</span>).removeChild(newMember);<span class="comment">//把newMember这个节点给删除</span></div></pre></td></tr></table></figure>
@@ -499,7 +529,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -510,7 +540,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

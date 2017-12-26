@@ -210,6 +210,36 @@
         </li>
       
         
+        <li class="menu-item menu-item-java">
+          <a href="/categories/java" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            java
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-operations">
+          <a href="/categories/Operations" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Operations
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/Python" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Python
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-dsag">
           <a href="/categories/DSAG" rel="section">
             
@@ -393,7 +423,7 @@
 <p>1.a=a+b；b=a-b；a=a-b ===》这样可读性差</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> a,b,temp;</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);  <span class="comment">//在输入的时候地址符号（&amp;）千万不要忘记写否者会报错</span></div><div class="line">  <span class="keyword">if</span>(a&lt;b)&#123;</div><div class="line">    temp=a;a=b;b=temp; <span class="comment">//一般是这样实现位置交换，需要个中间变量。</span></div><div class="line">   &#125;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"交换以后的顺序为%d%d"</span>,a,b);  </div><div class="line">&#125;</div><div class="line"><span class="comment">//可以用来判断3个或者4个数的大小</span></div></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">int</span> a= <span class="number">2</span> <span class="comment">//a是静态变量，不会被重置</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">static int a= 2 //a是静态变量，不会被重置</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -508,7 +538,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -519,7 +549,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

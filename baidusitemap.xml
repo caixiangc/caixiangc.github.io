@@ -3,6 +3,60 @@
 
     
   <url>
+    <loc>http://caixiangc.github.io/2017/12/20/Python%20%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2017-12-26T08:20:20.479Z</lastmod>
+    <data>
+        <display>
+        <title>Python 基础</title>
+        <pubTime>2017-12-20T13:37:57.536Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Python" url="http://caixiangc.github.io/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://caixiangc.github.io/2017/12/26/Nginx%20%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95%20%E5%92%8C%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</loc>
+    <lastmod>2017-12-26T08:18:02.398Z</lastmod>
+    <data>
+        <display>
+        <title>Nginx 的一些用法 和注意事项</title>
+        <pubTime>2017-12-26T06:32:35.678Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Operations" url="http://caixiangc.github.io/categories/Operations/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://caixiangc.github.io/2017/11/06/%E6%AF%8F%E6%97%A5%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2017-12-25T08:05:25.083Z</lastmod>
+    <data>
+        <display>
+        <title>每日算法</title>
+        <pubTime>2017-11-06T11:50:10.389Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="c" url="http://caixiangc.github.io/categories/c/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://caixiangc.github.io/2017/12/24/JS%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%EF%BC%8C%E4%BA%8B%E4%BB%B6%E6%8D%95%E6%8D%89%EF%BC%8C%E4%BA%8B%E4%BB%B6%E9%98%BB%E6%AD%A2%E6%A1%88%E4%BE%8B/</loc>
     <lastmod>2017-12-24T03:52:23.347Z</lastmod>
     <data>
@@ -87,21 +141,6 @@
              
               <breadCrumb title="c" url="http://caixiangc.github.io/categories/c/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://caixiangc.github.io/2017/12/20/Python%20%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2017-12-20T15:03:30.275Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2017-12-20T13:37:57.536Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -224,24 +263,6 @@
            
              
               <breadCrumb title="js" url="http://caixiangc.github.io/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://caixiangc.github.io/2017/11/06/%E6%AF%8F%E6%97%A5%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2017-12-06T14:58:09.353Z</lastmod>
-    <data>
-        <display>
-        <title>每日算法</title>
-        <pubTime>2017-11-06T11:50:10.389Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="c" url="http://caixiangc.github.io/categories/c/"/>
           
         </display>
     </data>

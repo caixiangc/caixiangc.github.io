@@ -210,6 +210,36 @@
         </li>
       
         
+        <li class="menu-item menu-item-java">
+          <a href="/categories/java" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            java
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-operations">
+          <a href="/categories/Operations" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Operations
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/Python" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Python
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-dsag">
           <a href="/categories/DSAG" rel="section">
             
@@ -258,6 +288,162 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/09/git add用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/09/git add用法/" itemprop="url">git add用法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-09T17:19:36+08:00">
+                2017-12-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RecordLife/" itemprop="url" rel="index">
+                    <span itemprop="name">RecordLife</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/12/09/git add用法/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/12/09/git add用法/" class="cy_cmt_count" data-xid="2017/12/09/git add用法/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="git-add用法"><a href="#git-add用法" class="headerlink" title="git add用法"></a>git add用法</h3><p>一、前言<br>git add命令主要用于把我们要提交的文件的信息添加到索引库中。当我们使用git commit时，git将依据索引库中的内容来进行文件的提交。<br>二、基本<br>git add <path></path>表示 add to index only files created or modified and not those deleted<br>我通常是通过git add <path></path>的形式把我们<path></path>添加到索引库中，<path></path>可以是文件也可以是目录。<br>git不仅能判断出<path></path>中，修改（不包括已删除）的文件，还能判断出新添的文件，并把它们的信息添加到索引库中。<br>三、git add -u<br>git add -u 表示 add to index only files modified or deleted and not those created<br>git add -u [<path></path>]: 把<path></path>中所有tracked文件中被修改过或已删除文件的信息添加到索引库。它不会处理untracted的文件。<br>省略<path></path>表示.,即当前目录。<br>四、git add -A<br>git add -A: [<path></path>]表示把<path></path>中所有tracked文件中被修改过或已删除文件和所有untracted的文件信息添加到索引库。<br>省略<path></path>表示.,即当前目录。<br>五、git add -i<br>我们可以通过git add -i [<path></path>]命令查看<path></path>中被所有修改过或已删除文件但没有提交的文件，<br>并通过其revert子命令可以查看<path></path>中所有untracted的文件，同时进入一个子命令系统。<br>比如：<br> git add -i<br>​           staged     unstaged path<br>  1:        +0/-0      nothing branch/t.txt<br>  2:        +0/-0      nothing branch/t2.txt<br>  3:    unchanged        +1/-0 readme.txt</p>
+<p><strong><em> Commands </em></strong><br>  1: [s]tatus     2: [u]pdate     3: [r]evert     4: [a]dd untracked<br>  5: [p]atch      6: [d]iff       7: [q]uit       8: [h]elp<br>What now&gt;<br>这里的t.txt和t2.txt表示已经被执行了git add，待提交。即已经添加到索引库中。<br>readme.txt表示已经处于tracked下，它被修改了，但是还没有被执行了git add。即还没添加到索引库中。<br>5.1、revert子命令<br>可以通过git add -i的revert子命令（3: [r]evert）把已经添加到索引库中的文件从索引库中剔除。<br>（3: [r]evert）表示通过3或r或revert加回车执行该命令。执行该命令后，git会例出索引库中的文件列表.<br>然后通过数字来选择。输入”1”表示git会例出索引库中的文件列表中的第1个文件。<br>“1-15”表示git会例出索引库中的文件列表中的第1个文件到第15个文件.回车将执行。<br>如果我们不输入任何东西，直接回车，将结束revert子命令，返回git add -i的主命令行。<br>5.2、update子命令<br>可以通过update子命令（2: [u]pdate）把已经tracked的文件添加到索引库中。其操作和revert子命令类似。<br>5.3、add untracked子命令<br>通过add untracked子命令（4: [a]dd untracked）可以把还没被git管理的文件添加到索引库中。其操作和revert子命令类似。<br>5.4、diff子命令<br>可以通过diff子命令（6: [d]iff）可以比较索引库中文件和原版本的差异。其操作和revert子命令类似。<br>5.5、status子命令<br>status子命令(1: [s]tatus)功能上和git add -i相似<br>5.6、quit子命令<br>quit子命令（7: [q]uit）用于退出git add -i命令系统<br>六、帮助<br>我们可以通过git add -h命令来看git add命令的帮助文档。<br> git add -h<br>usage: git add [options] [–] <filepattern>…</filepattern></p>
+<p>​    -n, –dry-run         dry run<br>​    -v, –verbose         be verbose</p>
+<p>​    -i, –interactive     interactive picking<br>​    -p, –patch           select hunks interactively<br>​    -e, –edit            edit current diff and apply<br>​    -f, –force           allow adding otherwise ignored files<br>​    -u, –update          update tracked files<br>​    -N, –intent-to-add   record only the fact that the path will be added later<br>​    -A, –all             add changes from all tracked and untracked files<br>​    –refresh             don’t add, only refresh the index<br>​    –ignore-errors       just skip files which cannot be added because of errors<br>​    –ignore-missing      check if - even missing - files are ignored in dry run</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1711,168 +1897,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/11/25/递归的理解和实现/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/25/递归的理解和实现/" itemprop="url">递归的理解和实现</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T08:05:33+08:00">
-                2017-11-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/11/25/递归的理解和实现/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2017/11/25/递归的理解和实现/" class="cy_cmt_count" data-xid="2017/11/25/递归的理解和实现/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="递归的理解和实现"><a href="#递归的理解和实现" class="headerlink" title="递归的理解和实现"></a>递归的理解和实现</h3><hr>
-<p><strong>递归实际上是一个多重函数嵌套组合</strong></p>
-<p>递归函数，分为两步：<code>递推</code>和<code>回归</code>两个阶段，递归就是普通的调用回调…调用回调(直到满足条件然后退出)。回归阶段就如下图，由近到远的‘回归’，这里回归是执行（第一个返回—第二个调用）之间的内容，也就是之间递推没有执行的内容。</p>
-<p>大量的递归调用会简历函数的副本，会消耗大量的时间和内存，而迭代则不需要此种付出。</p>
-<p>下面举一个arr[20]的例子： </p>
-<p><img src="http://owsgipnoo.bkt.clouddn.com/%E9%80%92%E5%BD%92%E5%9B%BE%E9%87%8A.jpg" alt=""></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//斐波那契数列 递归实现</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Fib</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span>(i&lt;<span class="number">2</span>)</div><div class="line">    <span class="keyword">return</span> i==<span class="number">0</span>?<span class="string">'0'</span>:<span class="string">'1'</span>;</div><div class="line">  <span class="keyword">return</span> Fib(n) = Fib(n<span class="number">-1</span>)+Fib(n<span class="number">-2</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//如果输入Fib(5),</span></div><div class="line"><span class="comment">//那么第一轮先会分解成Fib(4)+Fib(3),......，然后每个分支都会分解成无数个小段，直至全部为Fib(0)或者Fib(1)</span></div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//阶乘</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span><span class="params">(n)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span>(n==<span class="number">0</span>)</div><div class="line">    reutn <span class="number">1</span>;</div><div class="line">  <span class="keyword">else</span></div><div class="line">    <span class="keyword">return</span> n*factorial(n<span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//逆序输出字符串，也能用递归思想中的回归</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">char</span> a;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;a);</div><div class="line">	<span class="keyword">if</span>(a!=<span class="string">'#'</span>)&#123;</div><div class="line">		print();</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%c"</span>,a);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	print();  </div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//汉诺塔问题，利用递归分治</span></div><div class="line"><span class="comment">//把递归想成黑盒子就想的通了</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">char</span> x,<span class="keyword">char</span> y,<span class="keyword">char</span> z)</span></span>&#123;</div><div class="line">	<span class="keyword">if</span>(n==<span class="number">1</span>)&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%c--&gt;%c\n"</span>,x,z) ;<span class="comment">//如果只有一个数，那么我们直接将X移到Z上就行 </span></div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		move(n<span class="number">-1</span>,x,z,y); <span class="comment">//将n-1个盘子从x借助z移动到y上 </span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%c--&gt;%c\n"</span>,x,z); <span class="comment">//将n个盘子从x移动到z </span></div><div class="line">		move(n<span class="number">-1</span>,y,x,z);<span class="comment">//将n-1个盘子从y借助x移动到z上 </span></div><div class="line">	&#125; </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入汉诺塔层数"</span>);</div><div class="line">	<span class="keyword">int</span> n;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	move(n,<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>); </div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1922,7 +1946,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1933,7 +1957,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

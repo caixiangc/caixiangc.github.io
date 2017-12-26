@@ -210,6 +210,36 @@
         </li>
       
         
+        <li class="menu-item menu-item-java">
+          <a href="/categories/java" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            java
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-operations">
+          <a href="/categories/Operations" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Operations
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/Python" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Python
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-dsag">
           <a href="/categories/DSAG" rel="section">
             
@@ -402,19 +432,19 @@
 <blockquote>
 <h3 id="writable"><a href="#writable" class="headerlink" title="writable"></a>writable</h3></blockquote>
 <p>如果设置为fasle，就变成只读了。。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;&#125;; </div><div class="line"></div><div class="line"><span class="built_in">Object</span>.defineProperty(o, <span class="string">"b"</span>, &#123; </div><div class="line">    value : <span class="number">123</span>,</div><div class="line">    writable : <span class="literal">false</span> &#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a.b); <span class="comment">// 打印 37</span></div><div class="line">a.b = <span class="number">25</span>; <span class="comment">// 没有错误抛出（在严格模式下会抛出，即使之前已经有相同的值）</span></div><div class="line"><span class="built_in">console</span>.log(o.a); <span class="comment">// 打印 37， 赋值不起作用。</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var a = &#123;&#125;; </div><div class="line"></div><div class="line">Object.defineProperty(o, &quot;b&quot;, &#123; </div><div class="line">    value : 123,</div><div class="line">    writable : false &#125;);</div><div class="line"></div><div class="line">console.log(a.b); // 打印 37</div><div class="line">a.b = 25; // 没有错误抛出（在严格模式下会抛出，即使之前已经有相同的值）</div><div class="line">console.log(o.a); // 打印 37， 赋值不起作用。</div></pre></td></tr></table></figure>
 <blockquote>
 <h3 id="enumerable"><a href="#enumerable" class="headerlink" title="enumerable"></a>enumerable</h3></blockquote>
 <p>属性特性 enumerable 定义了对象的属性是否可以在 for…in 循环和 Object.keys() 中被枚举。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a= &#123;&#125;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">  value:<span class="number">3445</span>,</div><div class="line">  enumerable:<span class="literal">true</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(a));<span class="comment">// 打印["b"]</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a= &#123;&#125;</div><div class="line">Object.defineProperty(a,&quot;b&quot;,&#123;</div><div class="line">  value:3445,</div><div class="line">  enumerable:true</div><div class="line">&#125;)</div><div class="line">console.log(Object.keys(a));// 打印[&quot;b&quot;]</div></pre></td></tr></table></figure>
 <p>改为false</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a= &#123;&#125;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">  value:<span class="number">3445</span>,</div><div class="line">  enumerable:<span class="literal">false</span> <span class="comment">//注意咯这里改了</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(a));<span class="comment">// 打印[]</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a= &#123;&#125;</div><div class="line">Object.defineProperty(a,&quot;b&quot;,&#123;</div><div class="line">  value:3445,</div><div class="line">  enumerable:false //注意咯这里改了</div><div class="line">&#125;)</div><div class="line">console.log(Object.keys(a));// 打印[]</div></pre></td></tr></table></figure>
 <p>for…in 类似，，不赘述了</p>
 <blockquote>
 <h3 id="set-和-get-（重要）"><a href="#set-和-get-（重要）" class="headerlink" title="set 和 get （重要）"></a>set 和 get （重要）</h3></blockquote>
 <p>在 descriptor 中不能 <strong>同时</strong>设置访问器 (get 和 set) 和 wriable 或 value，否则会错，就是说想用(get 和 set)，就不能用（wriable 或 value中的任何一个）</p>
 <p>set 和 get ，他俩干啥用的的，</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a= &#123;&#125;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">  set:<span class="function"><span class="keyword">function</span>(<span class="params">newValue</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"你要赋值给我,我的新值是"</span>＋newValue)</div><div class="line">    &#125;,</div><div class="line">  get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"你取我的值"</span>)</div><div class="line">    <span class="keyword">return</span> <span class="number">2</span> <span class="comment">//注意这里，我硬编码返回2</span></div><div class="line">   &#125;</div><div class="line">&#125;)</div><div class="line">a.b =<span class="number">1</span> <span class="comment">//打印 你要赋值给我,我的新值是1</span></div><div class="line"><span class="built_in">console</span>.log(a.b)    <span class="comment">//打印 你取我的值</span></div><div class="line">                    <span class="comment">//打印 2    注意这里，和我的硬编码相同的</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var a= &#123;&#125;</div><div class="line">Object.defineProperty(a,&quot;b&quot;,&#123;</div><div class="line">  set:function(newValue)&#123;</div><div class="line">    console.log(&quot;你要赋值给我,我的新值是&quot;＋newValue)</div><div class="line">    &#125;,</div><div class="line">  get:function()&#123;</div><div class="line">    console.log(&quot;你取我的值&quot;)</div><div class="line">    return 2 //注意这里，我硬编码返回2</div><div class="line">   &#125;</div><div class="line">&#125;)</div><div class="line">a.b =1 //打印 你要赋值给我,我的新值是1</div><div class="line">console.log(a.b)    //打印 你取我的值</div><div class="line">                    //打印 2    注意这里，和我的硬编码相同的</div></pre></td></tr></table></figure>
 <p>简单来说，， 这个 “b” 赋值 或者 取值的时候会分别触发 set 和 get 对应的函数</p>
 <hr>
 <blockquote>
@@ -534,7 +564,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -545,7 +575,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

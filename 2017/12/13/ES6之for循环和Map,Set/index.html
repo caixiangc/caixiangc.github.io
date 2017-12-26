@@ -210,6 +210,36 @@
         </li>
       
         
+        <li class="menu-item menu-item-java">
+          <a href="/categories/java" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            java
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-operations">
+          <a href="/categories/Operations" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Operations
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/Python" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Python
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-dsag">
           <a href="/categories/DSAG" rel="section">
             
@@ -351,18 +381,18 @@
 
       
         <h3 id="ES6之for循环和Map-Set"><a href="#ES6之for循环和Map-Set" class="headerlink" title="ES6之for循环和Map,Set"></a>ES6之for循环和Map,Set</h3><p>现在大家先想一想，如果要你遍历一个数组的元素，你会选择如何去做呢？一般都会想起for循环：</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var <span class="keyword">index</span> = <span class="number">0</span>; <span class="keyword">index</span> &lt; myArray.<span class="built_in">length</span>; <span class="keyword">index</span>++) &#123;</div><div class="line">  console.<span class="built_in">log</span>(myArray[<span class="keyword">index</span>]);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var index = 0; index &lt; myArray.length; index++) &#123;</div><div class="line">  console.log(myArray[index]);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
 <p>可惜我得告诉你，这个方法是二十年的人才应该使用的方法，在ES5中已经提出了更为简便的<strong>forEach</strong>方法，代码如下：</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myArray.forEach(<span class="function"><span class="keyword">function</span></span> (<span class="keyword">value</span>) &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="keyword">value</span>);</div><div class="line">&#125;);<span class="number">123</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myArray.forEach(function (value) &#123;</div><div class="line">  console.log(value);</div><div class="line">&#125;);123</div></pre></td></tr></table></figure>
 <p>虽然forEach方法简短一点，但是它也有它的缺点，就是<strong>不能够break来中途退出循环</strong>，也<strong>不能通过return来退出循环</strong>。</p>
 <p>那么不是还有for-in方法吗：</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (var <span class="keyword">index</span> <span class="keyword">in</span> myArray) &#123;    </div><div class="line">  console.<span class="built_in">log</span>(myArray[<span class="keyword">index</span>]);</div><div class="line">&#125;<span class="number">123</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var index in myArray) &#123;    </div><div class="line">  console.log(myArray[index]);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
 <p>可是for-in方法实际上是为存储key的键值对型<strong>对象</strong>准备的，而<strong>不是为数组准备的</strong>，它的下标为<strong>字符串</strong>“1”，“2”……相信大家都知道“1”+“2”会怎么样吧？</p>
 <hr>
 <h2 id="for-of循环"><a href="#for-of循环" class="headerlink" title="for-of循环"></a><strong>for-of循环</strong></h2><p>ES6为了不影响以前的代码，为了满足很多人已经养成的习惯，只能推出一种新的循环语法for-of：</p>
-<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (var <span class="keyword">value</span> <span class="keyword">of</span> myArray) &#123;</div><div class="line">  console.log(<span class="keyword">value</span>);</div><div class="line">&#125;<span class="number">123</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var value of myArray) &#123;</div><div class="line">  console.log(value);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
 <p><strong>对比for-in和for-of</strong>：</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> a = [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>];</div><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> idx <span class="keyword">in</span> a) &#123;</div><div class="line">     console.<span class="built_in">log</span>( idx ); </div><div class="line">     &#125;// <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> </div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> val of a) &#123;</div><div class="line">     console.<span class="built_in">log</span>( val ); </div><div class="line">     &#125;// <span class="string">"a"</span> <span class="string">"b"</span> <span class="string">"c"</span> <span class="string">"d"</span> <span class="string">"e"</span><span class="number">12345678</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;];</div><div class="line">for (var idx in a) &#123;</div><div class="line">     console.log( idx ); </div><div class="line">     &#125;// 0 1 2 3 4 </div><div class="line"></div><div class="line">for (var val of a) &#123;</div><div class="line">     console.log( val ); </div><div class="line">     &#125;// &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;12345678</div></pre></td></tr></table></figure>
 <p>for-of不仅仅可以用于<strong>数组</strong>，还可以用在<strong>dom对象</strong>上，同样作用于<strong>Map和Set对象</strong>。</p>
 <p>下面介绍一下Map和Set对象</p>
 <hr>
@@ -370,20 +400,20 @@
 <p>为了解决这个问题，最新的ES6规范引入了新的数据类型Map。</p>
 <p>Map是<strong>具有极快查找速度</strong>的键值对结构。</p>
 <p>我们看看Map的使用示例：</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([[<span class="string">'Michael'</span>, <span class="number">95</span>], [<span class="string">'Bob'</span>, <span class="number">75</span>], [<span class="string">'Tracy'</span>, <span class="number">85</span>]]);</div><div class="line">m.<span class="keyword">get</span>(<span class="string">'Michael'</span>); <span class="comment">// 95</span></div><div class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>(); <span class="comment">// 空Map</span></div><div class="line">m.<span class="keyword">set</span>(<span class="string">'Adam'</span>, <span class="number">67</span>); <span class="comment">// 添加新的key-value</span></div><div class="line">m.<span class="keyword">set</span>(<span class="string">'Bob'</span>, <span class="number">59</span>);</div><div class="line">m.has(<span class="string">'Adam'</span>); <span class="comment">// 是否存在key 'Adam': true</span></div><div class="line">m.<span class="keyword">get</span>(<span class="string">'Adam'</span>); <span class="comment">// 67</span></div><div class="line">m.delete(<span class="string">'Adam'</span>); <span class="comment">// 删除key 'Adam'</span></div><div class="line">m.<span class="keyword">get</span>(<span class="string">'Adam'</span>); <span class="comment">// undefined123456789</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var m = new Map([[&apos;Michael&apos;, 95], [&apos;Bob&apos;, 75], [&apos;Tracy&apos;, 85]]);</div><div class="line">m.get(&apos;Michael&apos;); // 95</div><div class="line">var m = new Map(); // 空Map</div><div class="line">m.set(&apos;Adam&apos;, 67); // 添加新的key-value</div><div class="line">m.set(&apos;Bob&apos;, 59);</div><div class="line">m.has(&apos;Adam&apos;); // 是否存在key &apos;Adam&apos;: true</div><div class="line">m.get(&apos;Adam&apos;); // 67</div><div class="line">m.delete(&apos;Adam&apos;); // 删除key &apos;Adam&apos;</div><div class="line">m.get(&apos;Adam&apos;); // undefined123456789</div></pre></td></tr></table></figure>
 <p>上面的<strong>has</strong>方法比<strong>indexOf</strong>速度快。</p>
 <p>Set和Map类似，也是存在key的列表，只不过Set中的元素<strong>不能够重复</strong>。</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> <span class="built_in">Set</span>(); <span class="comment">// 空Set</span></div><div class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); <span class="comment">// 含1, 2, 3</span></div><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="string">'3'</span>]);</div><div class="line">s; <span class="comment">// Set &#123;1, 2, 3, "3"&#125;1234</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var s1 = new Set(); // 空Set</div><div class="line">var s2 = new Set([1, 2, 3]); // 含1, 2, 3</div><div class="line">var s = new Set([1, 2, 3, 3, &apos;3&apos;]);</div><div class="line">s; // Set &#123;1, 2, 3, &quot;3&quot;&#125;1234</div></pre></td></tr></table></figure>
 <p>可以看到，再次添加的<strong>重复数据会被过滤掉</strong>。</p>
 <p>那么这两种对象的<strong>运用场景</strong>有哪些呢？</p>
 <p>Map可以用来存储键值对，比如姓名和年龄，而Set可以用来存储不能重复的目标，比如学号列表。</p>
 <hr>
 <h2 id="for-of用于对象"><a href="#for-of用于对象" class="headerlink" title="for-of用于对象"></a><strong>for-of用于对象</strong></h2><p>好啦，介绍完了两种类型的新对象，让我们看看for-of如何作用于Set对象上的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> uniqueWords = <span class="keyword">new</span> <span class="built_in">Set</span>(words);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> word <span class="keyword">of</span> uniqueWords) &#123;</div><div class="line">  <span class="built_in">console</span>.log(word);</div><div class="line">&#125;<span class="number">1234</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var uniqueWords = new Set(words);</div><div class="line">for (var word of uniqueWords) &#123;</div><div class="line">  console.log(word);</div><div class="line">&#125;1234</div></pre></td></tr></table></figure>
 <p>遍历Map对象则不同，因为Map是以键值对存储的，所以我们需要分开<strong>两个单独的变量</strong>来遍历：</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> [<span class="built_in">key</span>, value] of phoneBookMap) &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="built_in">key</span> + <span class="string">"'s phone number is: "</span> + value);</div><div class="line">&#125;<span class="number">123</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var [key, value] of phoneBookMap) &#123;</div><div class="line">  console.log(key + &quot;&apos;s phone number is: &quot; + value);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
 <p>但是需要注意一点。for-of并<strong>不是用来遍历普通的对象的属性的</strong>，如果我们一定要这么做，可以使用for-in或者如下方法：</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> <span class="built_in">key</span> of Object.keys(someObject)) &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="built_in">key</span> + <span class="string">": "</span> + someObject[<span class="built_in">key</span>]);</div><div class="line">&#125;<span class="number">123</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var key of Object.keys(someObject)) &#123;</div><div class="line">  console.log(key + &quot;: &quot; + someObject[key]);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -498,7 +528,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -509,7 +539,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

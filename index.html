@@ -210,6 +210,36 @@
         </li>
       
         
+        <li class="menu-item menu-item-java">
+          <a href="/categories/java" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            java
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-operations">
+          <a href="/categories/Operations" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Operations
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/Python" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Python
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-dsag">
           <a href="/categories/DSAG" rel="section">
             
@@ -258,6 +288,176 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/26/Nginx 的一些用法 和注意事项/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/26/Nginx 的一些用法 和注意事项/" itemprop="url">Nginx 的一些用法 和注意事项</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T14:32:35+08:00">
+                2017-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Operations/" itemprop="url" rel="index">
+                    <span itemprop="name">Operations</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/12/26/Nginx 的一些用法 和注意事项/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/12/26/Nginx 的一些用法 和注意事项/" class="cy_cmt_count" data-xid="2017/12/26/Nginx 的一些用法 和注意事项/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Nginx-的一些用法-和注意事项"><a href="#Nginx-的一些用法-和注意事项" class="headerlink" title="Nginx 的一些用法 和注意事项"></a>Nginx 的一些用法 和注意事项</h3><hr>
+<p>查看Nginx的版本号：nginx -V</p>
+<p>启动Nginx：start nginx</p>
+<p>快速停止或关闭Nginx：nginx -s stop</p>
+<p>正常停止或关闭Nginx：nginx -s quit</p>
+<p>配置文件修改重装载命令：nginx -s reload</p>
+<p>查看windows任务管理器下Nginx的进程命令：tasklist /fi “imagename eq nginx.exe”</p>
+<p>如果在本地需要配置虚拟域名 那么需要修改 系统host 配置文件，在里面添加<code>10.31.172.22  image.test.com</code></p>
+<p>就是如果访问 image.test.com那么转发到这个ip(10.31.172.22)地址。这样我们可以配置图片的服务器地址，或者后台，或者前台的服务器地址，实现完全无关的分离</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">10.31</span><span class="number">.172</span><span class="number">.22</span> www.mymall.com</div><div class="line"><span class="number">10.31</span><span class="number">.172</span><span class="number">.22</span> image.mymall.com</div><div class="line"><span class="number">10.31</span><span class="number">.172</span><span class="number">.22</span> s.mymall.com</div><div class="line"><span class="comment">//虽然这三个子域名都是配置到这个ip地址，可是当到了这个ip地址以后 通过配置文件开始通过域名转发到不同ip地址了</span></div></pre></td></tr></table></figure>
+<p><code>nginx.exe -t</code>是验证配置文件是否正确的</p>
+<p><code>autoindex on;</code>自动索引（会对那个服务器地址自动安排索引树形结构排出来），一般是需要关闭的，当我们访问image.mymall.com的时候 这里配置的是off，如果我们访问image.mymall.com的时候会报错403（无权限），但是对于里面的资源是不受影响的可以正常访问</p>
+<p>nginx的一些简单配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div></pre></td><td class="code"><pre><div class="line">//nginx.conf</div><div class="line">//打# 是注释，当不同场景和业务的时候给你样例</div><div class="line">#user  nobody;</div><div class="line">worker_processes  1;</div><div class="line"></div><div class="line">#error_log  logs/error.log;</div><div class="line">#error_log  logs/error.log  notice;</div><div class="line">#error_log  logs/error.log  info;</div><div class="line"></div><div class="line">#pid        logs/nginx.pid;</div><div class="line"></div><div class="line"></div><div class="line">events &#123;</div><div class="line">    worker_connections  1024;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">http &#123;</div><div class="line">    include       mime.types;</div><div class="line">    default_type  application/octet-stream;</div><div class="line"></div><div class="line">    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</div><div class="line">    #                  '$status $body_bytes_sent "$http_referer" '</div><div class="line">    #                  '"$http_user_agent" "$http_x_forwarded_for"';</div><div class="line"></div><div class="line">    #access_log  logs/access.log  main;</div><div class="line"></div><div class="line">    sendfile        on;</div><div class="line">    #tcp_nopush     on;</div><div class="line"></div><div class="line">    #keepalive_timeout  0;</div><div class="line">    keepalive_timeout  65;</div><div class="line"></div><div class="line">    #gzip  on;</div><div class="line"></div><div class="line">    server &#123;       //主要是这里对你要访问的域名进行转发到不同端口</div><div class="line">        listen       80;</div><div class="line">        server_name  localhost; //当访问的是localhost的时候</div><div class="line"></div><div class="line">        #charset koi8-r;</div><div class="line"></div><div class="line">        #access_log  logs/host.access.log  main;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">            root   html;  //显示根目录下的 html</div><div class="line">            index  index.html index.htm; //下面这个是显示顺序，当index.html存在显示它，否者显示index.htm</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        #error_page  404              /404.html;</div><div class="line"></div><div class="line">        # redirect server error pages to the static page /50x.html</div><div class="line">        #</div><div class="line">        error_page   500 502 503 504  /50x.html;</div><div class="line">        location = /50x.html &#123;</div><div class="line">            root   html;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        # proxy the PHP scripts to Apache listening on 127.0.0.1:80</div><div class="line">        #</div><div class="line">        #location ~ \.php$ &#123;</div><div class="line">        #    proxy_pass   http://127.0.0.1;</div><div class="line">        #&#125;</div><div class="line"></div><div class="line">        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</div><div class="line">        #</div><div class="line">        #location ~ \.php$ &#123;</div><div class="line">        #    root           html;</div><div class="line">        #    fastcgi_pass   127.0.0.1:9000;</div><div class="line">        #    fastcgi_index  index.php;</div><div class="line">        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</div><div class="line">        #    include        fastcgi_params;</div><div class="line">        #&#125;</div><div class="line"></div><div class="line">        # deny access to .htaccess files, if Apache's document root</div><div class="line">        # concurs with nginx's one</div><div class="line">        #</div><div class="line">        #location ~ /\.ht &#123;</div><div class="line">        #    deny  all;</div><div class="line">        #&#125;</div><div class="line">    &#125;</div><div class="line">// *********下面这个include很重要，就行高级语言里面导入类一样</div><div class="line">    include vhost/*.conf; //这里是引用我们自己定义的conf（专门放在vhost下面），为不同的业务（网站）配置不同的转发路径</div><div class="line">    </div><div class="line">    # another virtual host using mix of IP-, name-, and port-based configuration</div><div class="line">    #</div><div class="line">    #server &#123;</div><div class="line">    #    listen       8000;</div><div class="line">    #    listen       somename:8080;</div><div class="line">    #    server_name  somename  alias  another.alias;</div><div class="line"></div><div class="line">    #    location / &#123;</div><div class="line">    #        root   html;</div><div class="line">    #        index  index.html index.htm;</div><div class="line">    #    &#125;</div><div class="line">    #&#125;</div><div class="line"></div><div class="line"></div><div class="line">    # HTTPS server</div><div class="line">    #</div><div class="line">    #server &#123;</div><div class="line">    #    listen       443 ssl;</div><div class="line">    #    server_name  localhost;</div><div class="line"></div><div class="line">    #    ssl_certificate      cert.pem;</div><div class="line">    #    ssl_certificate_key  cert.key;</div><div class="line"></div><div class="line">    #    ssl_session_cache    shared:SSL:1m;</div><div class="line">    #    ssl_session_timeout  5m;</div><div class="line"></div><div class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</div><div class="line">    #    ssl_prefer_server_ciphers  on;</div><div class="line"></div><div class="line">    #    location / &#123;</div><div class="line">    #        root   html;</div><div class="line">    #        index  index.html index.htm;</div><div class="line">    #    &#125;</div><div class="line">    #&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//tomcate.mymall.com.conf //这是我们自己定义的conf</div><div class="line">server</div><div class="line">&#123;</div><div class="line">  listen 80; //端口为80</div><div class="line">  autoindex on; //这个是是否自动穿件索引，一般为false ，至于为什么，上面有解释过</div><div class="line">  server_name tomcat.mymall.com; //****这个重要server_name就是我们需要代理的域名</div><div class="line">  access_log c:/tomcataccess.log;</div><div class="line">  index index.html index.htm index.jsp index.php;</div><div class="line">  #error_page 404 /404.html;</div><div class="line">  if ( $query_string ~* ".*[\;'\&lt;\&gt;].*" )</div><div class="line">  &#123;</div><div class="line">    return 404;</div><div class="line">  &#125;</div><div class="line">  location /</div><div class="line">  &#123;</div><div class="line">    proxy_pass http://127.0.0.1:8080;//***当我们访问tomcat.mymall.com的时候会转发到http://127.0.0.1:8080;这个ip地址这个很重要</div><div class="line">    add_header Access-Control-Allow-Origin *;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//image.mymall.com.conf  //这是我们的图片服务器</span></div><div class="line">server</div><div class="line">&#123;</div><div class="line">  listen <span class="number">80</span>;</div><div class="line">  autoindex off;</div><div class="line">  server_name image.mymall.com; <span class="comment">//nginx 不仅可以依据域名转发到ip地址，还能转发到服务器上特定的地址</span></div><div class="line">  access_log c:/imgaccess.<span class="built_in">log</span>;<span class="comment">//把一直打印在这个文件夹下</span></div><div class="line">  index index.html index.htm index.jsp index.php;</div><div class="line">  #error_page <span class="number">404</span> /<span class="number">404.</span>html;</div><div class="line">  <span class="keyword">if</span> ( $query_string ~* <span class="string">".*[\;'\&lt;\&gt;].*"</span> )</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">404</span>;</div><div class="line">  &#125;</div><div class="line">  location ~ /(mmall_fe|mmall_admin_fe)/dist/view<span class="comment">/*</span></div><div class="line"><span class="comment">  &#123;</span></div><div class="line"><span class="comment">    deny all;</span></div><div class="line"><span class="comment">  &#125;</span></div><div class="line"><span class="comment"> </span></div><div class="line"><span class="comment">  location /</span></div><div class="line"><span class="comment">  &#123;</span></div><div class="line"><span class="comment">    root C:\ftpfile\img;  //依据image.mymall.com这个域名转发到服务器上的这个C:\ftpfile\img，，</span></div><div class="line"><span class="comment">    //当我们访问image.mymall.com/a.png  就相当于访问 C:\ftpfile\img\a.png</span></div><div class="line"><span class="comment">    add_header Access-Control-Allow-Origin *;</span></div><div class="line"><span class="comment">  &#125;</span></div><div class="line"><span class="comment">&#125;</span></div></pre></td></tr></table></figure>
+<p>当是一个企业级项目的时候，他的架构差不多应该是这样的</p>
+<p><img src="http://owsgipnoo.bkt.clouddn.com/jiagou.png" alt="架构"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -377,7 +577,7 @@
         
           
             <h3 id="JS事件冒泡，事件捕捉，事件阻止案例"><a href="#JS事件冒泡，事件捕捉，事件阻止案例" class="headerlink" title="JS事件冒泡，事件捕捉，事件阻止案例"></a>JS事件冒泡，事件捕捉，事件阻止案例</h3><hr>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">    &lt;title&gt;<span class="xml"><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></div><div class="line">    &lt;style media=<span class="string">"screen"</span>&gt;</div><div class="line">      img&#123;<span class="attr">width</span>: <span class="number">100</span>px; height: <span class="number">100</span>px; float: left;&#125;</div><div class="line">    &lt;<span class="regexp">/style&gt;</span></div><div class="line"><span class="regexp">  &lt;/</span>head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    ul&gt;(li&gt;img)*<span class="number">4</span></div><div class="line">    &lt;!--    <span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">'aa'</span> <span class="attr">onclick</span>=<span class="string">"showMessage()"</span>&gt;</span>testsssssss<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>--&gt;</div><div class="line">    &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">'aa'</span>&gt;testsssssss&lt;<span class="regexp">/a&gt;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">    &lt;ul class="group-list"&gt;</span></div><div class="line"><span class="regexp">      &lt;li&gt;&lt;img src="aa.png" alt="1"&gt;&lt;/</span>li&gt;</div><div class="line">      &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"aa.png"</span> <span class="attr">alt</span>=<span class="string">"2"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">      &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"aa.png"</span> <span class="attr">alt</span>=<span class="string">"3"</span> <span class="attr">id</span>=<span class="string">'lost'</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">      &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"aa.png"</span> <span class="attr">alt</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">    &lt;<span class="regexp">/ul&gt;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">    &lt;script type="text/</span>javascript<span class="string">"&gt;</span></div><div class="line"><span class="string">      var as = document.querySelector('.group-list');//这里我们并没有为每个img去添加事件，而是在他们共同的容器ul上添加一个事件，因为事件会传播的，这种传播方式称为事件冒泡（默认情况下），</span></div><div class="line"><span class="string">                                 //由下到上，比如我们点击img它会向li传播，然后li再向ul传播,时间捕获是由外到内的</span></div><div class="line"><span class="string">      function showMessageaa(event)&#123; //只有绑定了addEventListener，才会返回event对象否者只是返回undefined</span></div><div class="line">        alert(event.target.alt);  //现在得到的就是，你点击的对象，后面代码也是可以的$(e.target).css("background-color","#ddd").siblings().css("background-color","white");</div><div class="line">      &#125;<span class="comment">//触发事件 img里面的alt 属性</span></div><div class="line">      <span class="keyword">as</span>.addEventListener(<span class="string">'click'</span>,showMessageaa,<span class="literal">false</span>);</div><div class="line"></div><div class="line"></div><div class="line">      <span class="comment">//JS在默认情况下获取事件后，就开始从根元素开始捕获所有该事件的监听对象，然后在冒泡阶段逐一执行。捕获阶段是在冒泡阶段前面</span></div><div class="line">      <span class="comment">//结构  ul&gt;(li&gt;img)*4 //如果定义了好几个事件，那还是得看具体事件是怎么定义的</span></div><div class="line">      <span class="keyword">var</span> listGroup = <span class="built_in">document</span>.querySelector(<span class="string">'.group-list'</span>);</div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">showMessage</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'这里是ul层'</span>);</div><div class="line">      &#125;</div><div class="line">      listGroup.addEventListener(<span class="string">'click'</span>,showMessage,<span class="literal">true</span>); <span class="comment">//事件捕捉  true（默认）--事件捕捉  由上往下</span></div><div class="line"></div><div class="line">      <span class="keyword">var</span> imgId = <span class="built_in">document</span>.getElementById(<span class="string">'lost'</span>);</div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">showAlert</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(event.target.alt);</div><div class="line">      &#125;</div><div class="line">      imgId.addEventListener(<span class="string">'click'</span>,showAlert,<span class="literal">false</span>); <span class="comment">//事件冒泡  false--事件冒泡 由下往上</span></div><div class="line">      <span class="comment">//当点击 lost 的时候 会输出 这里是ul层 3 ，因为有事件捕捉先执行他，然后在事件冒泡</span></div><div class="line">      <span class="comment">//listGroup 改成false，imgId 改成true。。当点击 lost 的时候 会输出  3 这里是ul层，因为事件捕捉完了，还要执行事件冒泡的</span></div><div class="line">      <span class="comment">//如果listGroup 改成true 事件不捕捉，那么会输出 这里是ul层 3</span></div><div class="line">    &lt;<span class="regexp">/script&gt;</span></div><div class="line"><span class="regexp">  &lt;/</span>body&gt;</div><div class="line">&lt;<span class="regexp">/html&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">    &lt;title&gt;&lt;/title&gt;</div><div class="line">    &lt;style media=<span class="string">"screen"</span>&gt;</div><div class="line">      img&#123;<span class="attr">width</span>: <span class="number">100</span>px; height: <span class="number">100</span>px; float: left;&#125;</div><div class="line">    &lt;<span class="regexp">/style&gt;</span></div><div class="line"><span class="regexp">  &lt;/</span>head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    ul&gt;(li&gt;img)*<span class="number">4</span></div><div class="line">    &lt;!--    &lt;a class='aa' onclick="showMessage()"&gt;testsssssss&lt;/a&gt;--&gt;</div><div class="line">    &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">'aa'</span>&gt;testsssssss&lt;<span class="regexp">/a&gt;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">    &lt;ul class="group-list"&gt;</span></div><div class="line"><span class="regexp">      &lt;li&gt;&lt;img src="aa.png" alt="1"&gt;&lt;/</span>li&gt;</div><div class="line">      &lt;li&gt;&lt;img src="aa.png" alt="2"&gt;&lt;/li&gt;</div><div class="line">      &lt;li&gt;&lt;img src="aa.png" alt="3" id='lost'&gt;&lt;/li&gt;</div><div class="line">      &lt;li&gt;&lt;img src="aa.png" alt="4"&gt;&lt;/li&gt;</div><div class="line">    &lt;<span class="regexp">/ul&gt;</span></div><div class="line"><span class="regexp"></span></div><div class="line"><span class="regexp">    &lt;script type="text/</span>javascript<span class="string">"&gt;</span></div><div class="line"><span class="string">      var as = document.querySelector('.group-list');//这里我们并没有为每个img去添加事件，而是在他们共同的容器ul上添加一个事件，因为事件会传播的，这种传播方式称为事件冒泡（默认情况下），</span></div><div class="line"><span class="string">                                 //由下到上，比如我们点击img它会向li传播，然后li再向ul传播,时间捕获是由外到内的</span></div><div class="line"><span class="string">      function showMessageaa(event)&#123; //只有绑定了addEventListener，才会返回event对象否者只是返回undefined</span></div><div class="line">        alert(event.target.alt);  //现在得到的就是，你点击的对象，后面代码也是可以的$(e.target).css("background-color","#ddd").siblings().css("background-color","white");</div><div class="line">      &#125;<span class="comment">//触发事件 img里面的alt 属性</span></div><div class="line">      <span class="keyword">as</span>.addEventListener(<span class="string">'click'</span>,showMessageaa,<span class="literal">false</span>);</div><div class="line"></div><div class="line"></div><div class="line">      <span class="comment">//JS在默认情况下获取事件后，就开始从根元素开始捕获所有该事件的监听对象，然后在冒泡阶段逐一执行。捕获阶段是在冒泡阶段前面</span></div><div class="line">      <span class="comment">//结构  ul&gt;(li&gt;img)*4 //如果定义了好几个事件，那还是得看具体事件是怎么定义的</span></div><div class="line">      <span class="keyword">var</span> listGroup = <span class="built_in">document</span>.querySelector(<span class="string">'.group-list'</span>);</div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">showMessage</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'这里是ul层'</span>);</div><div class="line">      &#125;</div><div class="line">      listGroup.addEventListener(<span class="string">'click'</span>,showMessage,<span class="literal">true</span>); <span class="comment">//事件捕捉  true（默认）--事件捕捉  由上往下</span></div><div class="line"></div><div class="line">      <span class="keyword">var</span> imgId = <span class="built_in">document</span>.getElementById(<span class="string">'lost'</span>);</div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">showAlert</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(event.target.alt);</div><div class="line">      &#125;</div><div class="line">      imgId.addEventListener(<span class="string">'click'</span>,showAlert,<span class="literal">false</span>); <span class="comment">//事件冒泡  false--事件冒泡 由下往上</span></div><div class="line">      <span class="comment">//当点击 lost 的时候 会输出 这里是ul层 3 ，因为有事件捕捉先执行他，然后在事件冒泡</span></div><div class="line">      <span class="comment">//listGroup 改成false，imgId 改成true。。当点击 lost 的时候 会输出  3 这里是ul层，因为事件捕捉完了，还要执行事件冒泡的</span></div><div class="line">      <span class="comment">//如果listGroup 改成true 事件不捕捉，那么会输出 这里是ul层 3</span></div><div class="line">    &lt;<span class="regexp">/script&gt;</span></div><div class="line"><span class="regexp">  &lt;/</span>body&gt;</div><div class="line">&lt;<span class="regexp">/html&gt;</span></div></pre></td></tr></table></figure>
 
           
         
@@ -533,7 +733,7 @@
             <h3 id="Javascript基础和一些需要注意的地方-ES5"><a href="#Javascript基础和一些需要注意的地方-ES5" class="headerlink" title="Javascript基础和一些需要注意的地方-ES5"></a>Javascript基础和一些需要注意的地方-ES5</h3><hr>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js是区分大小写的</span></div><div class="line">var words = <span class="string">"一二三四,五六七"</span>;</div><div class="line">words.split(<span class="string">','</span>);</div><div class="line"><span class="comment">//输出["一二三四", "五六七"]</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line"><span class="keyword">while</span>(i&lt;<span class="number">10</span>)&#123;</div><div class="line">  i++;</div><div class="line">  <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)&#123;</div><div class="line">    <span class="keyword">continue</span>; <span class="comment">//continue 是继续下一次循环，这次循环剩下的不做</span></div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">//</span>var abc = <span class="keyword">function</span>()&#123;</div><div class="line"><span class="regexp">//</span>  alert(<span class="string">'123'</span>);</div><div class="line"><span class="regexp">//</span>  var message_1 = <span class="string">'hello'</span></div><div class="line"><span class="regexp">//</span>&#125;</div><div class="line"><span class="regexp">//</span>alert(message_1);<span class="regexp">//</span>会报错undefined，不能调用函数内部变量</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//var abc = function()&#123;</div><div class="line">//  alert(&apos;123&apos;);</div><div class="line">//  var message_1 = &apos;hello&apos;</div><div class="line">//&#125;</div><div class="line">//alert(message_1);//会报错undefined，不能调用函数内部变量</div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对象</span></div><div class="line"><span class="keyword">var</span> beyound = &#123;</div><div class="line">  eg3:<span class="string">'hello'</span>,</div><div class="line">  eg4:<span class="number">555</span>,</div><div class="line">  arra:[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>]</div><div class="line">&#125;;</div><div class="line">beyound.eg1 = <span class="string">'1996'</span>; <span class="comment">//往对象里面添加数据</span></div><div class="line">beyound[<span class="string">'eg2'</span>] = <span class="string">'cxcx'</span>;<span class="comment">//往对象里面添加数据</span></div><div class="line">beyound.showarra = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;<span class="keyword">this</span>.arra.length;i++)&#123;</div><div class="line">    <span class="built_in">console</span>.log(beyound.arra[i]);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">beyound.showarra();</div><div class="line"><span class="built_in">console</span>.log(beyound);</div><div class="line"><span class="comment">// beyound.eg1    得到1996</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> property;</div><div class="line"><span class="keyword">for</span>(property <span class="keyword">in</span> beyound)&#123; <span class="comment">//这里的意思就是如果beyound中的数组元素一个一个的循环，循环到哪个放到property</span></div><div class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> beyound[property]!=<span class="string">'function'</span>)&#123;<span class="comment">//这样就不会把function输出出来</span></div><div class="line">    <span class="built_in">console</span>.log(beyound[property]);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newMember = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</div><div class="line"><span class="keyword">var</span> newMemberText = <span class="built_in">document</span>.createTextNode(<span class="string">'caixiangs'</span>);</div><div class="line">newMember.appendChild(newMemberText);</div><div class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.artist-list'</span>).appendChild(newMember);<span class="comment">//意思是找到.artist-list节点然后通过appendChild把&lt;li&gt;caixiangs&lt;/li&gt;放到.artist-list里面去</span></div><div class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.artist-list'</span>).removeChild(newMember);<span class="comment">//把newMember这个节点给删除</span></div></pre></td></tr></table></figure>
@@ -766,7 +966,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/20/Python 基础/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2017/12/20/Python 基础/" itemprop="url">Python 基础</a></h1>
         
 
         <div class="post-meta">
@@ -788,6 +988,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1150,14 +1372,14 @@
 <p>那么我该怎么解决这个问题呢？</p>
 <hr>
 <p><strong>（二）需要用到的知识</strong><br>愚蠢的自己尝试了很多种愚蠢的方法。废话就不多说，具体看看代码吧。</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这是html的结构样式</span></div><div class="line"><span class="comment">//clickFunction--点击事件函数，thisStatus--要传递的参数</span></div><div class="line">&lt;<span class="keyword">div</span> onClick=&#123;<span class="keyword">this</span>.clickFunction.bind(<span class="keyword">this</span>, thisStatus)&gt;收&lt;/<span class="keyword">div</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">----------</div><div class="line"><span class="comment">//函数接收参数方式</span></div><div class="line"><span class="comment">//thisStatus--函数接受的参数</span></div><div class="line">clickFunction(thisStatus, event) &#123;</div><div class="line">    console.log(<span class="string">'thisStatus'</span>, thisStatus);</div><div class="line">  &#125;<span class="number">1234567891011</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//这是html的结构样式</div><div class="line">//clickFunction--点击事件函数，thisStatus--要传递的参数</div><div class="line">&lt;div onClick=&#123;this.clickFunction.bind(this, thisStatus)&gt;收&lt;/div&gt;</div><div class="line"></div><div class="line"></div><div class="line">----------</div><div class="line">//函数接收参数方式</div><div class="line">//thisStatus--函数接受的参数</div><div class="line">clickFunction(thisStatus, event) &#123;</div><div class="line">    console.log(&apos;thisStatus&apos;, thisStatus);</div><div class="line">  &#125;1234567891011</div></pre></td></tr></table></figure>
 <p>明白吧？<br>OK。<br>来解决开头我提出的问题，同样，看图片吧。</p>
 <hr>
 <p><strong>（三）解决 所描述的问题</strong></p>
 <p><img src="http://img.blog.csdn.net/20170106105419126?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZ2VuaXVzX3l5bQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这样就可以了。</p>
 <hr>
 <p><strong>（四）总结</strong><br>如果上面看得眼花了，没关系。<strong>看下面这一行代码就够了</strong>。（原谅我的啰嗦）</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.handleclick.bind（<span class="keyword">this</span>，要传的参数）  handleclick（传过来的参数，event）<span class="number">1</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this.handleclick.bind（this，要传的参数）  handleclick（传过来的参数，event）1</div></pre></td></tr></table></figure>
 <p><strong>事件–this.handleclick.bind（this，要传的参数）</strong><br><strong>函数–handleclick（传过来的参数，event）</strong><br>ok！</p>
 
           
@@ -1453,18 +1675,18 @@
         
           
             <h3 id="ES6之for循环和Map-Set"><a href="#ES6之for循环和Map-Set" class="headerlink" title="ES6之for循环和Map,Set"></a>ES6之for循环和Map,Set</h3><p>现在大家先想一想，如果要你遍历一个数组的元素，你会选择如何去做呢？一般都会想起for循环：</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var <span class="keyword">index</span> = <span class="number">0</span>; <span class="keyword">index</span> &lt; myArray.<span class="built_in">length</span>; <span class="keyword">index</span>++) &#123;</div><div class="line">  console.<span class="built_in">log</span>(myArray[<span class="keyword">index</span>]);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var index = 0; index &lt; myArray.length; index++) &#123;</div><div class="line">  console.log(myArray[index]);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
 <p>可惜我得告诉你，这个方法是二十年的人才应该使用的方法，在ES5中已经提出了更为简便的<strong>forEach</strong>方法，代码如下：</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myArray.forEach(<span class="function"><span class="keyword">function</span></span> (<span class="keyword">value</span>) &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="keyword">value</span>);</div><div class="line">&#125;);<span class="number">123</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myArray.forEach(function (value) &#123;</div><div class="line">  console.log(value);</div><div class="line">&#125;);123</div></pre></td></tr></table></figure>
 <p>虽然forEach方法简短一点，但是它也有它的缺点，就是<strong>不能够break来中途退出循环</strong>，也<strong>不能通过return来退出循环</strong>。</p>
 <p>那么不是还有for-in方法吗：</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (var <span class="keyword">index</span> <span class="keyword">in</span> myArray) &#123;    </div><div class="line">  console.<span class="built_in">log</span>(myArray[<span class="keyword">index</span>]);</div><div class="line">&#125;<span class="number">123</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var index in myArray) &#123;    </div><div class="line">  console.log(myArray[index]);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
 <p>可是for-in方法实际上是为存储key的键值对型<strong>对象</strong>准备的，而<strong>不是为数组准备的</strong>，它的下标为<strong>字符串</strong>“1”，“2”……相信大家都知道“1”+“2”会怎么样吧？</p>
 <hr>
 <h2 id="for-of循环"><a href="#for-of循环" class="headerlink" title="for-of循环"></a><strong>for-of循环</strong></h2><p>ES6为了不影响以前的代码，为了满足很多人已经养成的习惯，只能推出一种新的循环语法for-of：</p>
-<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (var <span class="keyword">value</span> <span class="keyword">of</span> myArray) &#123;</div><div class="line">  console.log(<span class="keyword">value</span>);</div><div class="line">&#125;<span class="number">123</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var value of myArray) &#123;</div><div class="line">  console.log(value);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
 <p><strong>对比for-in和for-of</strong>：</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> a = [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>];</div><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> idx <span class="keyword">in</span> a) &#123;</div><div class="line">     console.<span class="built_in">log</span>( idx ); </div><div class="line">     &#125;// <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> </div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> val of a) &#123;</div><div class="line">     console.<span class="built_in">log</span>( val ); </div><div class="line">     &#125;// <span class="string">"a"</span> <span class="string">"b"</span> <span class="string">"c"</span> <span class="string">"d"</span> <span class="string">"e"</span><span class="number">12345678</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;];</div><div class="line">for (var idx in a) &#123;</div><div class="line">     console.log( idx ); </div><div class="line">     &#125;// 0 1 2 3 4 </div><div class="line"></div><div class="line">for (var val of a) &#123;</div><div class="line">     console.log( val ); </div><div class="line">     &#125;// &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;12345678</div></pre></td></tr></table></figure>
 <p>for-of不仅仅可以用于<strong>数组</strong>，还可以用在<strong>dom对象</strong>上，同样作用于<strong>Map和Set对象</strong>。</p>
 <p>下面介绍一下Map和Set对象</p>
 <hr>
@@ -1472,20 +1694,20 @@
 <p>为了解决这个问题，最新的ES6规范引入了新的数据类型Map。</p>
 <p>Map是<strong>具有极快查找速度</strong>的键值对结构。</p>
 <p>我们看看Map的使用示例：</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([[<span class="string">'Michael'</span>, <span class="number">95</span>], [<span class="string">'Bob'</span>, <span class="number">75</span>], [<span class="string">'Tracy'</span>, <span class="number">85</span>]]);</div><div class="line">m.<span class="keyword">get</span>(<span class="string">'Michael'</span>); <span class="comment">// 95</span></div><div class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>(); <span class="comment">// 空Map</span></div><div class="line">m.<span class="keyword">set</span>(<span class="string">'Adam'</span>, <span class="number">67</span>); <span class="comment">// 添加新的key-value</span></div><div class="line">m.<span class="keyword">set</span>(<span class="string">'Bob'</span>, <span class="number">59</span>);</div><div class="line">m.has(<span class="string">'Adam'</span>); <span class="comment">// 是否存在key 'Adam': true</span></div><div class="line">m.<span class="keyword">get</span>(<span class="string">'Adam'</span>); <span class="comment">// 67</span></div><div class="line">m.delete(<span class="string">'Adam'</span>); <span class="comment">// 删除key 'Adam'</span></div><div class="line">m.<span class="keyword">get</span>(<span class="string">'Adam'</span>); <span class="comment">// undefined123456789</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var m = new Map([[&apos;Michael&apos;, 95], [&apos;Bob&apos;, 75], [&apos;Tracy&apos;, 85]]);</div><div class="line">m.get(&apos;Michael&apos;); // 95</div><div class="line">var m = new Map(); // 空Map</div><div class="line">m.set(&apos;Adam&apos;, 67); // 添加新的key-value</div><div class="line">m.set(&apos;Bob&apos;, 59);</div><div class="line">m.has(&apos;Adam&apos;); // 是否存在key &apos;Adam&apos;: true</div><div class="line">m.get(&apos;Adam&apos;); // 67</div><div class="line">m.delete(&apos;Adam&apos;); // 删除key &apos;Adam&apos;</div><div class="line">m.get(&apos;Adam&apos;); // undefined123456789</div></pre></td></tr></table></figure>
 <p>上面的<strong>has</strong>方法比<strong>indexOf</strong>速度快。</p>
 <p>Set和Map类似，也是存在key的列表，只不过Set中的元素<strong>不能够重复</strong>。</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> <span class="built_in">Set</span>(); <span class="comment">// 空Set</span></div><div class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); <span class="comment">// 含1, 2, 3</span></div><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="string">'3'</span>]);</div><div class="line">s; <span class="comment">// Set &#123;1, 2, 3, "3"&#125;1234</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var s1 = new Set(); // 空Set</div><div class="line">var s2 = new Set([1, 2, 3]); // 含1, 2, 3</div><div class="line">var s = new Set([1, 2, 3, 3, &apos;3&apos;]);</div><div class="line">s; // Set &#123;1, 2, 3, &quot;3&quot;&#125;1234</div></pre></td></tr></table></figure>
 <p>可以看到，再次添加的<strong>重复数据会被过滤掉</strong>。</p>
 <p>那么这两种对象的<strong>运用场景</strong>有哪些呢？</p>
 <p>Map可以用来存储键值对，比如姓名和年龄，而Set可以用来存储不能重复的目标，比如学号列表。</p>
 <hr>
 <h2 id="for-of用于对象"><a href="#for-of用于对象" class="headerlink" title="for-of用于对象"></a><strong>for-of用于对象</strong></h2><p>好啦，介绍完了两种类型的新对象，让我们看看for-of如何作用于Set对象上的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> uniqueWords = <span class="keyword">new</span> <span class="built_in">Set</span>(words);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> word <span class="keyword">of</span> uniqueWords) &#123;</div><div class="line">  <span class="built_in">console</span>.log(word);</div><div class="line">&#125;<span class="number">1234</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var uniqueWords = new Set(words);</div><div class="line">for (var word of uniqueWords) &#123;</div><div class="line">  console.log(word);</div><div class="line">&#125;1234</div></pre></td></tr></table></figure>
 <p>遍历Map对象则不同，因为Map是以键值对存储的，所以我们需要分开<strong>两个单独的变量</strong>来遍历：</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> [<span class="built_in">key</span>, value] of phoneBookMap) &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="built_in">key</span> + <span class="string">"'s phone number is: "</span> + value);</div><div class="line">&#125;<span class="number">123</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var [key, value] of phoneBookMap) &#123;</div><div class="line">  console.log(key + &quot;&apos;s phone number is: &quot; + value);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
 <p>但是需要注意一点。for-of并<strong>不是用来遍历普通的对象的属性的</strong>，如果我们一定要这么做，可以使用for-in或者如下方法：</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> <span class="built_in">key</span> of Object.keys(someObject)) &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="built_in">key</span> + <span class="string">": "</span> + someObject[<span class="built_in">key</span>]);</div><div class="line">&#125;<span class="number">123</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var key of Object.keys(someObject)) &#123;</div><div class="line">  console.log(key + &quot;: &quot; + someObject[key]);</div><div class="line">&#125;123</div></pre></td></tr></table></figure>
 
           
         
@@ -1645,7 +1867,7 @@
 <p>现在我们给它们绑定上事件</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"parent"</span>).addEventListener(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    alert(<span class="string">"parent事件被触发，"</span>+<span class="keyword">this</span>.id);</div><div class="line">&#125;)</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"child"</span>).addEventListener(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    alert(<span class="string">"child事件被触发，"</span>+<span class="keyword">this</span>.id)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>结果：当点击child的时候，根据事件冒泡它会：先child=》parent</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">child事件被触发，child</div><div class="line"><span class="keyword">parent</span>事件被触发，<span class="keyword">parent</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">child事件被触发，child</div><div class="line">parent事件被触发，parent</div></pre></td></tr></table></figure>
 <p>当点击parent的时候，根据事件冒泡它会：只会调用parent；</p>
 <p><strong>一个小案例就能明白<strong><strong>**</strong></strong></strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;!Doctype html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">    &lt;title&gt;<span class="xml"><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></div><div class="line">    &lt;style type=<span class="string">"text/css"</span>&gt;</div><div class="line">    *&#123;<span class="attr">margin</span>:<span class="number">0</span>;padding: <span class="number">0</span>;&#125;</div><div class="line">    &lt;<span class="regexp">/style&gt;</span></div><div class="line"><span class="regexp">&lt;/</span>head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div  id=<span class="string">"id1"</span> style=<span class="string">"height:400px;  border:1px solid #000;"</span>&gt;<span class="number">1</span></div><div class="line">    &lt;div id=<span class="string">"id2"</span> style=<span class="string">"height:200px;  border:1px solid #000;"</span>&gt;<span class="number">2</span></div><div class="line">        &lt;div id=<span class="string">"id3"</span> style=<span class="string">"height:50px;  border:1px solid #000;"</span>&gt;<span class="number">3</span>&lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">    &lt;/</span>div&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">&lt;/</span>body&gt;</div><div class="line">&lt;!--事件捕获是在事件冒泡之前--&gt;</div><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> obj1=<span class="built_in">document</span>.getElementById(<span class="string">'id1'</span>);</div><div class="line">    obj1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        alert(<span class="string">'id1'</span>);</div><div class="line">        <span class="comment">//e.stopPropagation();//可以阻止自己和别人的事件（包括事件冒泡和事件捕捉） 当点击id3 的时候输出 id1的时候就不传播了</span></div><div class="line">        event.preventDefault(); <span class="comment">//可以阻止当前这个事件默认动作，但是却无法组织别人的事件,如标签里面的 href 或者submit,,后面执行的语句无法被event.preventDefault()阻止</span></div><div class="line">        <span class="comment">//window.location.href='https://caixiangc.github.io';  </span></div><div class="line">    &#125;,<span class="literal">true</span>);</div><div class="line"></div><div class="line">    <span class="keyword">var</span> obj2=<span class="built_in">document</span>.getElementById(<span class="string">'id2'</span>);</div><div class="line">    obj2.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        alert(<span class="string">'id2'</span>);</div><div class="line">    &#125;,<span class="literal">true</span>);</div><div class="line"></div><div class="line">    <span class="keyword">var</span> obj3=<span class="built_in">document</span>.getElementById(<span class="string">'id3'</span>);</div><div class="line">    obj3.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        alert(<span class="string">'id3'</span>);</div><div class="line">    &#125;,<span class="literal">true</span>);</div><div class="line">    <span class="comment">// 有事件捕捉先执行事件捕捉</span></div><div class="line">    <span class="comment">// 当点击 id3 的时候 输出 id1 id2 id3</span></div><div class="line">    <span class="comment">/*如果第三个参数为true，则事件在捕获阶段执行，如果第三个参数为false，则事件在冒泡阶段执行*/</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div><div class="line"><span class="regexp">&lt;/</span>html&gt;</div></pre></td></tr></table></figure>
@@ -1661,162 +1883,6 @@
 <p>还有就是，如果我们在绑定事件完成后，页面又动态的加载了一些元素……</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"&lt;li&gt;item7&lt;/li&gt;"</span>).appendTo(<span class="string">"ul"</span>);</div></pre></td></tr></table></figure>
 <p>这时候，第二种方案，由于绑定事件的时候item7还不存在，所以为了效果，我们还要给它再绑定一次事件。而利用冒泡方案由于是给ul绑的事件……</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/09/git add用法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/09/git add用法/" itemprop="url">git add用法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-09T17:19:36+08:00">
-                2017-12-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/RecordLife/" itemprop="url" rel="index">
-                    <span itemprop="name">RecordLife</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/12/09/git add用法/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2017/12/09/git add用法/" class="cy_cmt_count" data-xid="2017/12/09/git add用法/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="git-add用法"><a href="#git-add用法" class="headerlink" title="git add用法"></a>git add用法</h3><p>一、前言<br>git add命令主要用于把我们要提交的文件的信息添加到索引库中。当我们使用git commit时，git将依据索引库中的内容来进行文件的提交。<br>二、基本<br>git add <path></path>表示 add to index only files created or modified and not those deleted<br>我通常是通过git add <path></path>的形式把我们<path></path>添加到索引库中，<path></path>可以是文件也可以是目录。<br>git不仅能判断出<path></path>中，修改（不包括已删除）的文件，还能判断出新添的文件，并把它们的信息添加到索引库中。<br>三、git add -u<br>git add -u 表示 add to index only files modified or deleted and not those created<br>git add -u [<path></path>]: 把<path></path>中所有tracked文件中被修改过或已删除文件的信息添加到索引库。它不会处理untracted的文件。<br>省略<path></path>表示.,即当前目录。<br>四、git add -A<br>git add -A: [<path></path>]表示把<path></path>中所有tracked文件中被修改过或已删除文件和所有untracted的文件信息添加到索引库。<br>省略<path></path>表示.,即当前目录。<br>五、git add -i<br>我们可以通过git add -i [<path></path>]命令查看<path></path>中被所有修改过或已删除文件但没有提交的文件，<br>并通过其revert子命令可以查看<path></path>中所有untracted的文件，同时进入一个子命令系统。<br>比如：<br> git add -i<br>​           staged     unstaged path<br>  1:        +0/-0      nothing branch/t.txt<br>  2:        +0/-0      nothing branch/t2.txt<br>  3:    unchanged        +1/-0 readme.txt</p>
-<p><strong><em> Commands </em></strong><br>  1: [s]tatus     2: [u]pdate     3: [r]evert     4: [a]dd untracked<br>  5: [p]atch      6: [d]iff       7: [q]uit       8: [h]elp<br>What now&gt;<br>这里的t.txt和t2.txt表示已经被执行了git add，待提交。即已经添加到索引库中。<br>readme.txt表示已经处于tracked下，它被修改了，但是还没有被执行了git add。即还没添加到索引库中。<br>5.1、revert子命令<br>可以通过git add -i的revert子命令（3: [r]evert）把已经添加到索引库中的文件从索引库中剔除。<br>（3: [r]evert）表示通过3或r或revert加回车执行该命令。执行该命令后，git会例出索引库中的文件列表.<br>然后通过数字来选择。输入”1”表示git会例出索引库中的文件列表中的第1个文件。<br>“1-15”表示git会例出索引库中的文件列表中的第1个文件到第15个文件.回车将执行。<br>如果我们不输入任何东西，直接回车，将结束revert子命令，返回git add -i的主命令行。<br>5.2、update子命令<br>可以通过update子命令（2: [u]pdate）把已经tracked的文件添加到索引库中。其操作和revert子命令类似。<br>5.3、add untracked子命令<br>通过add untracked子命令（4: [a]dd untracked）可以把还没被git管理的文件添加到索引库中。其操作和revert子命令类似。<br>5.4、diff子命令<br>可以通过diff子命令（6: [d]iff）可以比较索引库中文件和原版本的差异。其操作和revert子命令类似。<br>5.5、status子命令<br>status子命令(1: [s]tatus)功能上和git add -i相似<br>5.6、quit子命令<br>quit子命令（7: [q]uit）用于退出git add -i命令系统<br>六、帮助<br>我们可以通过git add -h命令来看git add命令的帮助文档。<br> git add -h<br>usage: git add [options] [–] <filepattern>…</filepattern></p>
-<p>​    -n, –dry-run         dry run<br>​    -v, –verbose         be verbose</p>
-<p>​    -i, –interactive     interactive picking<br>​    -p, –patch           select hunks interactively<br>​    -e, –edit            edit current diff and apply<br>​    -f, –force           allow adding otherwise ignored files<br>​    -u, –update          update tracked files<br>​    -N, –intent-to-add   record only the fact that the path will be added later<br>​    -A, –all             add changes from all tracked and untracked files<br>​    –refresh             don’t add, only refresh the index<br>​    –ignore-errors       just skip files which cannot be added because of errors<br>​    –ignore-missing      check if - even missing - files are ignored in dry run</p>
 
           
         
@@ -1901,7 +1967,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1912,7 +1978,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

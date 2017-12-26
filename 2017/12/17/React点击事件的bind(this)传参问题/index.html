@@ -213,6 +213,36 @@
         </li>
       
         
+        <li class="menu-item menu-item-java">
+          <a href="/categories/java" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            java
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-operations">
+          <a href="/categories/Operations" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Operations
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/Python" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Python
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-dsag">
           <a href="/categories/DSAG" rel="section">
             
@@ -384,14 +414,14 @@
 <p>那么我该怎么解决这个问题呢？</p>
 <hr>
 <p><strong>（二）需要用到的知识</strong><br>愚蠢的自己尝试了很多种愚蠢的方法。废话就不多说，具体看看代码吧。</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这是html的结构样式</span></div><div class="line"><span class="comment">//clickFunction--点击事件函数，thisStatus--要传递的参数</span></div><div class="line">&lt;<span class="keyword">div</span> onClick=&#123;<span class="keyword">this</span>.clickFunction.bind(<span class="keyword">this</span>, thisStatus)&gt;收&lt;/<span class="keyword">div</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">----------</div><div class="line"><span class="comment">//函数接收参数方式</span></div><div class="line"><span class="comment">//thisStatus--函数接受的参数</span></div><div class="line">clickFunction(thisStatus, event) &#123;</div><div class="line">    console.log(<span class="string">'thisStatus'</span>, thisStatus);</div><div class="line">  &#125;<span class="number">1234567891011</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//这是html的结构样式</div><div class="line">//clickFunction--点击事件函数，thisStatus--要传递的参数</div><div class="line">&lt;div onClick=&#123;this.clickFunction.bind(this, thisStatus)&gt;收&lt;/div&gt;</div><div class="line"></div><div class="line"></div><div class="line">----------</div><div class="line">//函数接收参数方式</div><div class="line">//thisStatus--函数接受的参数</div><div class="line">clickFunction(thisStatus, event) &#123;</div><div class="line">    console.log(&apos;thisStatus&apos;, thisStatus);</div><div class="line">  &#125;1234567891011</div></pre></td></tr></table></figure>
 <p>明白吧？<br>OK。<br>来解决开头我提出的问题，同样，看图片吧。</p>
 <hr>
 <p><strong>（三）解决 所描述的问题</strong></p>
 <p><img src="http://img.blog.csdn.net/20170106105419126?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZ2VuaXVzX3l5bQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这样就可以了。</p>
 <hr>
 <p><strong>（四）总结</strong><br>如果上面看得眼花了，没关系。<strong>看下面这一行代码就够了</strong>。（原谅我的啰嗦）</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.handleclick.bind（<span class="keyword">this</span>，要传的参数）  handleclick（传过来的参数，event）<span class="number">1</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this.handleclick.bind（this，要传的参数）  handleclick（传过来的参数，event）1</div></pre></td></tr></table></figure>
 <p><strong>事件–this.handleclick.bind（this，要传的参数）</strong><br><strong>函数–handleclick（传过来的参数，event）</strong><br>ok！</p>
 
       
@@ -507,7 +537,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -518,7 +548,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
