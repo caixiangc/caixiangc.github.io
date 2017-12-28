@@ -3,6 +3,60 @@
 
     
   <url>
+    <loc>http://caixiangc.github.io/2017/12/28/%E6%8C%87%E9%92%88%E6%95%B0%E7%BB%84%E7%94%A8%E6%B3%95%E5%92%8C%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</loc>
+    <lastmod>2017-12-28T12:55:58.320Z</lastmod>
+    <data>
+        <display>
+        <title>指针数组用法和注意事项</title>
+        <pubTime>2017-12-28T09:11:20.837Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="c" url="http://caixiangc.github.io/categories/c/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://caixiangc.github.io/2017/12/26/hexo%E5%87%BA%E7%8E%B0Cannot%20set%20property%20'lastIndex'%20of%20undefined/</loc>
+    <lastmod>2017-12-26T08:42:46.872Z</lastmod>
+    <data>
+        <display>
+        <title>hexo出现Cannot set property 'lastIndex' of undefined</title>
+        <pubTime>2017-12-26T08:38:33.322Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="RecordLife" url="http://caixiangc.github.io/categories/RecordLife/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://caixiangc.github.io/2017/11/03/%E5%86%99%E5%8D%9A%E5%AE%A2%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</loc>
+    <lastmod>2017-12-26T08:42:18.042Z</lastmod>
+    <data>
+        <display>
+        <title>写博客的时候注意事项和步骤</title>
+        <pubTime>2017-11-03T15:03:05.708Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="RecordLife" url="http://caixiangc.github.io/categories/RecordLife/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://caixiangc.github.io/2017/12/20/Python%20%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2017-12-26T08:20:20.479Z</lastmod>
     <data>
@@ -458,24 +512,6 @@
            
              
               <breadCrumb title="c" url="http://caixiangc.github.io/categories/c/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://caixiangc.github.io/2017/11/03/%E5%86%99%E5%8D%9A%E5%AE%A2%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</loc>
-    <lastmod>2017-11-03T15:08:12.792Z</lastmod>
-    <data>
-        <display>
-        <title>写博客的时候注意事项和步骤</title>
-        <pubTime>2017-11-03T15:03:05.708Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="RecordLife" url="http://caixiangc.github.io/categories/RecordLife/"/>
           
         </display>
     </data>
