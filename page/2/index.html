@@ -302,6 +302,163 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/18/连续输入不定个数组元素和getchar() 理解和使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/18/连续输入不定个数组元素和getchar() 理解和使用/" itemprop="url">连续输入不定个数组元素和getchar() 理解和使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T17:17:10+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/12/18/连续输入不定个数组元素和getchar() 理解和使用/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/12/18/连续输入不定个数组元素和getchar() 理解和使用/" class="cy_cmt_count" data-xid="2017/12/18/连续输入不定个数组元素和getchar() 理解和使用/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="连续输入不定个数组元素和getchar-理解和使用"><a href="#连续输入不定个数组元素和getchar-理解和使用" class="headerlink" title="连续输入不定个数组元素和getchar() 理解和使用"></a>连续输入不定个数组元素和getchar() 理解和使用</h3><hr>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> n=<span class="number">0</span>,i=<span class="number">0</span>,arr[<span class="number">50</span>],j=<span class="number">0</span>;</div><div class="line">	<span class="comment">//gets(arr);  //gets() 只能输入char数组，不能输入int数组</span></div><div class="line">	<span class="comment">//while (arr[j++]);</span></div><div class="line"> <span class="comment">//**整型和浮点型数组没有结束符，只有字符串数组才有地址符 '\n'</span></div><div class="line"> <span class="comment">//****整型和浮点型数组没有结束符， 完全要自己严格控制元素的数量</span></div><div class="line"></div><div class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;;i++)&#123; <span class="comment">//输入不定个数 的数组元素：他的核心思想就是利用scanf遇到空格重新输入，和最后一个getchar() 是'\n' 退出</span></div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;arr[i]);</div><div class="line">		<span class="comment">//scanf输入 是遇到空格和 回车是无效的 ，要重新输入，如果一直回车（一直空格），那么要你一直重复输入</span></div><div class="line">		n++;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"arr[i]:%d\n"</span>,arr[i]);</div><div class="line">		<span class="comment">//*** 这里意思就是当我们输入完整形后，再回车，这里回车一按默认读取到一个char  且存有'\n'</span></div><div class="line">		<span class="keyword">if</span>(getchar()==<span class="string">'\n'</span>)<span class="keyword">break</span>; <span class="comment">//遇回车中断</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"n:%d\n"</span>,n);</div><div class="line">	<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n;j++)&#123;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,arr[j]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>getchar()</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="built_in">putchar</span>(getchar());</div><div class="line">&#125;</div><div class="line"><span class="comment">//输入 123</span></div><div class="line"><span class="comment">//输出 1</span></div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  <span class="keyword">int</span> n;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,n );</div><div class="line">&#125;</div><div class="line"><span class="comment">//********scanf遇到 空格回车也是不接受的</span></div><div class="line"><span class="comment">//int 类型只接受一个数</span></div><div class="line"><span class="comment">//1.输入 '1 1'   2.如果 '101'</span></div><div class="line"><span class="comment">//1.输出 '1'     2.输出 '101'</span></div><div class="line"></div><div class="line"><span class="comment">//如果是字符串</span></div><div class="line"><span class="comment">//1.输入 '1 1'  2.如果 '101'</span></div><div class="line"><span class="comment">//1.输出 '1'		2.输出 '101'</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/17/React点击事件的bind(this)传参问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1750,174 +1907,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/01/二叉堆/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/01/二叉堆/" itemprop="url">二叉堆</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T22:12:56+08:00">
-                2017-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/12/01/二叉堆/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2017/12/01/二叉堆/" class="cy_cmt_count" data-xid="2017/12/01/二叉堆/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="二叉堆"><a href="#二叉堆" class="headerlink" title="二叉堆"></a>二叉堆</h3><hr>
-<p>二叉堆有类似树的性质：</p>
-<p>1.第一个索引从0开始，最后一个不是叶子的节点是 （总结点-1）/2  得到的 ；如果第一个索引从1开始，最后一个不是叶子的节点是 （总结点）/2  得到的</p>
-<p>2.parent(i) = (i-1)/2;</p>
-<p>3.left child (i) = i*2+1;</p>
-<p>4.right child (i) = i*2+2;</p>
-<p><img src="http://owsgipnoo.bkt.clouddn.com/%E7%94%A8%E6%95%B0%E7%BB%84%E5%AD%98%E5%82%A8%E4%BA%8C%E5%8F%89%E5%A0%86.png" alt=""></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"assert.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="comment">//堆是一个完全二叉树 </span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Item&gt; </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MaxHeap</span>&#123;</span>  <span class="comment">//把最大堆 做成一个类，这里类里面要存储想对应的数据 </span></div><div class="line"></div><div class="line"><span class="keyword">private</span>:         <span class="comment">//为了把data(隐藏)，那么设置为私有的方法，设置为私有方法，是为了不让外部调用修改，从而增加安全新 </span></div><div class="line">	Item* data; <span class="comment">//因为并不知道，用户输入的数据量是多少，所以这里把data设置为指针类型 </span></div><div class="line">	<span class="keyword">int</span> count; <span class="comment">//为了知道这个堆有多少成员变量，我们定义一个成员 </span></div><div class="line">	<span class="keyword">int</span> capacity;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">shiftUp</span><span class="params">(<span class="keyword">int</span> k)</span></span>&#123;   <span class="comment">//shiftUp()是外部无法调用的，外部只能通过insert()调用 </span></div><div class="line">		<span class="keyword">while</span>(k&gt;<span class="number">1</span>&amp;&amp;data[k/<span class="number">2</span>]&lt;data[k])&#123;  <span class="comment">//这里核心是用了堆的性质 </span></div><div class="line">			swap(data[k/<span class="number">2</span>],data[k]);</div><div class="line">			k/=<span class="number">2</span>; <span class="comment">//把k/2 为下次比较做比较 </span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">shiftDown</span><span class="params">(<span class="keyword">int</span> k)</span></span>&#123;   <span class="comment">//这个函数大致意思，就是把要往下移的数据，一直往它大的孩子处移动 </span></div><div class="line">		<span class="keyword">while</span>(<span class="number">2</span>*k&lt;=count)&#123;  <span class="comment">//****依据堆的性质判断左孩子是否存在 </span></div><div class="line">			<span class="keyword">int</span> j = <span class="number">2</span>*k;    <span class="comment">//****j是我们最终要交换的下标，先给j一个初始值就是已经存在的左孩子 </span></div><div class="line">			<span class="keyword">if</span>(j+<span class="number">1</span>&lt;=count&amp;&amp;data[j+<span class="number">1</span>]&gt;data[j])&#123; <span class="comment">//*****再判断---双重条件：1.是否存在右孩子。2.是否右孩子大于左孩子，右大于左才放到右 </span></div><div class="line">				j+=<span class="number">1</span>;  <span class="comment">//******这里+1 是为了把之前的1 覆盖掉 就是说选右孩子了 </span></div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(data[k]&gt;=data[j+<span class="number">1</span>])&#123;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">			swap(data[k],data[j]);</div><div class="line">			k = j; <span class="comment">//把j 赋值给k ，继续向下移动比较数据 </span></div><div class="line">		&#125;	</div><div class="line">	&#125; </div><div class="line"><span class="keyword">public</span>:        </div><div class="line">	MaxHeap(<span class="keyword">int</span> capacity)&#123;  <span class="comment">//构造一个函数，来初始化这个数组,下面的count也应该是0 </span></div><div class="line">		data = <span class="keyword">new</span> Item[capacity+<span class="number">1</span>]; <span class="comment">//1.开辟空间 2.这里之所以要+1 是因为这个数组存储堆的内容是从索引1开始的 </span></div><div class="line">		count = <span class="number">0</span>; </div><div class="line">		<span class="keyword">this</span>-&gt;capacity=capacity;</div><div class="line">	&#125;  <span class="comment">//析构函数和构造函数是一对。构造函数用于创建对象，而析构函数是用来撤销对象。简单的说：一个对象出生的时候，使用构造函数，死掉的时候，使用析构函数。 </span></div><div class="line">	~MaxHeap()&#123; <span class="comment">//析构函数 来删除构造函数 </span></div><div class="line">		<span class="keyword">delete</span> [] data;  <span class="comment">//使用 delete []这样操作符来删除data </span></div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> count;</div><div class="line">	&#125; </div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> count ==<span class="number">0</span>; <span class="comment">//如果count是0那么就是true，否者就是false </span></div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Item item)</span></span>&#123;</div><div class="line">		assert(count+<span class="number">1</span>&lt;=capacity);<span class="comment">//这里是处理越界问题 </span></div><div class="line">		data[count+<span class="number">1</span>] = item; <span class="comment">//现在这个堆对于这个数组来说，索引是从1开始的</span></div><div class="line">		count++; </div><div class="line">		shiftUp(count);  <span class="comment">//这里的count 是加过1的，所以用shiftUp()这个函数，把新数字进行调整   </span></div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">printtext</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= size() ; i ++ )&#123;</div><div class="line">            <span class="comment">// 我们的testPrint要求堆中的所有整数在[0, 100)的范围内</span></div><div class="line">            assert( data[i] &gt;= <span class="number">0</span> &amp;&amp; data[i] &lt; <span class="number">100</span> );</div><div class="line">            <span class="built_in">cout</span>&lt;&lt;data[i]&lt;&lt;<span class="string">" "</span>;</div><div class="line">        &#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//*****要想从堆里面取元素，只能取根元素（也就是最顶上那个元素）</span></div><div class="line">	<span class="function">Item <span class="title">extractMax</span><span class="params">()</span></span>&#123;</div><div class="line">		assert(count&gt;<span class="number">0</span>); <span class="comment">//这里是保证堆大于0 </span></div><div class="line">		Item ret = data[<span class="number">1</span>];</div><div class="line">		swap(data[<span class="number">1</span>],data[count]); <span class="comment">//在堆的索引中，1是第一个 </span></div><div class="line">		count--;   <span class="comment">//提取出数字后，把count减掉</span></div><div class="line">		shiftDown(<span class="number">1</span>); <span class="comment">//把第一个数字，也就是下面提取出来的数字往下移动 </span></div><div class="line">		assert(count&gt;<span class="number">0</span>); <span class="comment">//这里是保证堆大于0 </span></div><div class="line">	&#125;</div><div class="line">	 </div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="comment">//实例化 一个存储类型了int 的最大堆 </span></div><div class="line">	MaxHeap&lt;<span class="keyword">int</span>&gt; maxHeap = MaxHeap&lt;<span class="keyword">int</span>&gt;(<span class="number">100</span>);</div><div class="line">	<span class="built_in">cout</span>&lt;&lt;maxHeap.size()&lt;&lt;<span class="built_in">endl</span>; </div><div class="line">	srand(time(<span class="literal">NULL</span>)); <span class="comment">//设置随机种子 为 null </span></div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">15</span>;i++)&#123;</div><div class="line">		maxHeap.insert(rand()%<span class="number">100</span>); <span class="comment">//插入 0-100 之间的随机数</span></div><div class="line">	&#125;</div><div class="line">	<span class="built_in">cout</span>&lt;&lt;maxHeap.size()&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//如果把方法写到 public方法里面，那么在调用public里面方法的时候，必须先实例 </span></div><div class="line">	maxHeap.printtext(); <span class="comment">//需要先进入maxHeap这个实例才能调用printtext()这个函数，，这里输出的是堆（类似树）结构 </span></div><div class="line">	</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>HeapSort</code>排序要比普通二叉堆排序要快一点，相比于其他排序，都会比他们慢一点，但是综合速度比较平局。</p>
-<p><img src="http://owsgipnoo.bkt.clouddn.com/%E4%BA%8C%E5%8F%89%E5%A0%86.png" alt=""></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MergeSort.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"QuickSort.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"QuickSort2Ways.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"QuickSort3Ways.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"HeapSort.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"SortTestHelper.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 原始的shiftDown过程</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">void</span> __shiftDown(T arr[], <span class="keyword">int</span> n, <span class="keyword">int</span> k)&#123;</div><div class="line"></div><div class="line">    <span class="keyword">while</span>( <span class="number">2</span>*k+<span class="number">1</span> &lt; n )&#123;</div><div class="line">        <span class="keyword">int</span> j = <span class="number">2</span>*k+<span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span>( j+<span class="number">1</span> &lt; n &amp;&amp; arr[j+<span class="number">1</span>] &gt; arr[j] )</div><div class="line">            j += <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>( arr[k] &gt;= arr[j] )<span class="keyword">break</span>;</div><div class="line"></div><div class="line">        swap( arr[k] , arr[j] );</div><div class="line">        k = j;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 优化的shiftDown过程, 使用赋值的方式取代不断的swap,</span></div><div class="line"><span class="comment">// 该优化思想和我们之前对插入排序进行优化的思路是一致的</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">void</span> __shiftDown2(T arr[], <span class="keyword">int</span> n, <span class="keyword">int</span> k)&#123;</div><div class="line"></div><div class="line">    T e = arr[k];</div><div class="line">    <span class="keyword">while</span>( <span class="number">2</span>*k+<span class="number">1</span> &lt; n )&#123;</div><div class="line">        <span class="keyword">int</span> j = <span class="number">2</span>*k+<span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span>( j+<span class="number">1</span> &lt; n &amp;&amp; arr[j+<span class="number">1</span>] &gt; arr[j] )</div><div class="line">            j += <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>( e &gt;= arr[j] ) <span class="keyword">break</span>;</div><div class="line"></div><div class="line">        arr[k] = arr[j];</div><div class="line">        k = j;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    arr[k] = e;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 不使用一个额外的最大堆, 直接在原数组上进行原地的堆排序</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(T arr[], <span class="keyword">int</span> n)</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 注意，此时我们的堆是从0开始索引的</span></div><div class="line">    <span class="comment">// 从(最后一个元素的索引-1)/2开始</span></div><div class="line">    <span class="comment">// 最后一个元素的索引 = n-1</span></div><div class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = (n<span class="number">-1</span><span class="number">-1</span>)/<span class="number">2</span> ; i &gt;= <span class="number">0</span> ; i -- )  <span class="comment">//这里就是依据数组 构建一个堆的结构，这个堆构建好并不是一个最大堆的结构，还是说需要后续for循环的倒叙 __shiftDown2完整最大二叉堆 </span></div><div class="line">        __shiftDown2(arr, n, i);</div><div class="line"></div><div class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = n<span class="number">-1</span>; i &gt; <span class="number">0</span> ; i-- )&#123; <span class="comment">//把最后一个元素放到堆顶，然后进行 __shiftDown2 操作最后 </span></div><div class="line">        swap( arr[<span class="number">0</span>] , arr[i] );</div><div class="line">        __shiftDown2(arr, i, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 比较 Merge Sort, 三种 Quick Sort 和本节介绍的三种 Heap Sort 的性能效率</span></div><div class="line"><span class="comment">// 注意, 这几种排序算法都是 O(nlogn) 级别的排序算法</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> n = <span class="number">1000000</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 测试1 一般性测试</span></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"Test for random array, size = "</span>&lt;&lt;n&lt;&lt;<span class="string">", random range [0, "</span>&lt;&lt;n&lt;&lt;<span class="string">"]"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">int</span>* arr1 = SortTestHelper::generateRandomArray(n,<span class="number">0</span>,n);</div><div class="line">    <span class="keyword">int</span>* arr2 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    <span class="keyword">int</span>* arr3 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    <span class="keyword">int</span>* arr4 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    <span class="keyword">int</span>* arr5 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    <span class="keyword">int</span>* arr6 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    <span class="keyword">int</span>* arr7 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line"></div><div class="line">    SortTestHelper::testSort(<span class="string">"Merge Sort"</span>, mergeSort, arr1, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Quick Sort"</span>, quickSort, arr2, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Quick Sort 2 Ways"</span>, quickSort2Ways, arr3, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Quick Sort 3 Ways"</span>, quickSort3Ways, arr4, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Heap Sort 1"</span>, heapSort1, arr5, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Heap Sort 2"</span>, heapSort2, arr6, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Heap Sort 3"</span>, heapSort, arr7, n);</div><div class="line"></div><div class="line">    <span class="keyword">delete</span>[] arr1;</div><div class="line">    <span class="keyword">delete</span>[] arr2;</div><div class="line">    <span class="keyword">delete</span>[] arr3;</div><div class="line">    <span class="keyword">delete</span>[] arr4;</div><div class="line">    <span class="keyword">delete</span>[] arr5;</div><div class="line">    <span class="keyword">delete</span>[] arr6;</div><div class="line">    <span class="keyword">delete</span>[] arr7;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">// 测试2 测试近乎有序的数组</span></div><div class="line">    <span class="keyword">int</span> swapTimes = <span class="number">100</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"Test for nearly ordered array, size = "</span>&lt;&lt;n&lt;&lt;<span class="string">", swap time = "</span>&lt;&lt;swapTimes&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    arr1 = SortTestHelper::generateNearlyOrderedArray(n,swapTimes);</div><div class="line">    arr2 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    arr3 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    arr4 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    arr5 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    arr6 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    arr7 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line"></div><div class="line">    SortTestHelper::testSort(<span class="string">"Merge Sort"</span>, mergeSort, arr1, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Quick Sort"</span>, quickSort, arr2, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Quick Sort 2 Ways"</span>, quickSort2Ways, arr3, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Quick Sort 3 Ways"</span>, quickSort3Ways, arr4, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Heap Sort 1"</span>, heapSort1, arr5, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Heap Sort 2"</span>, heapSort2, arr6, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Heap Sort 3"</span>, heapSort, arr7, n);</div><div class="line"></div><div class="line">    <span class="keyword">delete</span>[] arr1;</div><div class="line">    <span class="keyword">delete</span>[] arr2;</div><div class="line">    <span class="keyword">delete</span>[] arr3;</div><div class="line">    <span class="keyword">delete</span>[] arr4;</div><div class="line">    <span class="keyword">delete</span>[] arr5;</div><div class="line">    <span class="keyword">delete</span>[] arr6;</div><div class="line">    <span class="keyword">delete</span>[] arr7;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">// 测试3 测试存在包含大量相同元素的数组</span></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"Test for random array, size = "</span>&lt;&lt;n&lt;&lt;<span class="string">", random range [0,10]"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    arr1 = SortTestHelper::generateRandomArray(n,<span class="number">0</span>,<span class="number">10</span>);</div><div class="line">    arr2 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    arr3 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    arr4 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    arr5 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    arr6 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line">    arr7 = SortTestHelper::copyIntArray(arr1, n);</div><div class="line"></div><div class="line">    SortTestHelper::testSort(<span class="string">"Merge Sort"</span>, mergeSort, arr1, n);</div><div class="line">    <span class="comment">// 这种情况下, 普通的QuickSort退化为O(n^2)的算法, 不做测试</span></div><div class="line">    <span class="comment">//SortTestHelper::testSort("Quick Sort", quickSort, arr2, n);</span></div><div class="line">    SortTestHelper::testSort(<span class="string">"Quick Sort 2 Ways"</span>, quickSort2Ways, arr3, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Quick Sort 3 Ways"</span>, quickSort3Ways, arr4, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Heap Sort 1"</span>, heapSort1, arr5, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Heap Sort 2"</span>, heapSort2, arr6, n);</div><div class="line">    SortTestHelper::testSort(<span class="string">"Heap Sort 3"</span>, heapSort, arr7, n);</div><div class="line"></div><div class="line">    <span class="keyword">delete</span>[] arr1;</div><div class="line">    <span class="keyword">delete</span>[] arr2;</div><div class="line">    <span class="keyword">delete</span>[] arr3;</div><div class="line">    <span class="keyword">delete</span>[] arr4;</div><div class="line">    <span class="keyword">delete</span>[] arr5;</div><div class="line">    <span class="keyword">delete</span>[] arr6;</div><div class="line">    <span class="keyword">delete</span>[] arr7;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1962,7 +1956,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
