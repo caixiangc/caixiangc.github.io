@@ -69,17 +69,17 @@
 
 
 
-<meta name="description" content="本地代码git 到github    1.在github上创建好存储空间repository    2.touch .gitignore  git init// 会生成一个 .ssh 文件，但是不可见   git status//可以看到这个项目中有那些 项目发生变化，当作是验证就可以了   git add .//把所以文件添加到git 的本地仓库（这里是准备上传的）   git commit a">
+<meta name="description" content="本地代码git 到github    1.在github上创建好存储空间repository    2.touch .gitignore  git init// 会生成一个 .ssh 文件，但是不可见   git status//可以看到这个项目中有那些 项目发生变化，当作是验证就可以了   git add .//把所以文件添加到git 的本地仓库（这里是准备上传的）   git commit -">
 <meta property="og:type" content="article">
 <meta property="og:title" content="本地代码git 到github">
 <meta property="og:url" content="http://caixiangc.github.io/2018/01/02/本地代码git 到github/index.html">
 <meta property="og:site_name" content="Cai Xiang-blog">
-<meta property="og:description" content="本地代码git 到github    1.在github上创建好存储空间repository    2.touch .gitignore  git init// 会生成一个 .ssh 文件，但是不可见   git status//可以看到这个项目中有那些 项目发生变化，当作是验证就可以了   git add .//把所以文件添加到git 的本地仓库（这里是准备上传的）   git commit a">
+<meta property="og:description" content="本地代码git 到github    1.在github上创建好存储空间repository    2.touch .gitignore  git init// 会生成一个 .ssh 文件，但是不可见   git status//可以看到这个项目中有那些 项目发生变化，当作是验证就可以了   git add .//把所以文件添加到git 的本地仓库（这里是准备上传的）   git commit -">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-03T06:27:36.487Z">
+<meta property="og:updated_time" content="2018-02-19T09:21:55.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地代码git 到github">
-<meta name="twitter:description" content="本地代码git 到github    1.在github上创建好存储空间repository    2.touch .gitignore  git init// 会生成一个 .ssh 文件，但是不可见   git status//可以看到这个项目中有那些 项目发生变化，当作是验证就可以了   git add .//把所以文件添加到git 的本地仓库（这里是准备上传的）   git commit a">
+<meta name="twitter:description" content="本地代码git 到github    1.在github上创建好存储空间repository    2.touch .gitignore  git init// 会生成一个 .ssh 文件，但是不可见   git status//可以看到这个项目中有那些 项目发生变化，当作是验证就可以了   git add .//把所以文件添加到git 的本地仓库（这里是准备上传的）   git commit -">
 
 
 
@@ -415,7 +415,7 @@
 <li><code>git add .</code>//把所以文件添加到git 的本地仓库（这里是准备上传的）</li>
 </ol>
 <ol>
-<li><code>git commit am &#39;first commit init project&#39;</code>//-am 就是后面添加注释</li>
+<li><code>git commit -m &#39;first commit init project&#39;</code>//-m 就是后面添加注释</li>
 </ol>
 <ol>
 <li><code>git remote add origin git@........</code></li>
@@ -426,6 +426,17 @@
 <ol>
 <li><code>git push -u origin master</code>//现在正式连接远程仓库上传</li>
 </ol>
+<h4 id="管理分支"><a href="#管理分支" class="headerlink" title="管理分支"></a>管理分支</h4><p>​    </p>
+<ol>
+<li>git branch  //查看有几个分支</li>
+<li>git checkout ‘分支名’ //你想要转换到的分支名</li>
+<li>git add .     //如果是不同版本 ，那就add 所有</li>
+<li>git commit -m “”    //一定要commit 否者不能push</li>
+<li>git push -u origin ‘分支名’ //你要添加的分支名</li>
+</ol>
+<p>这个是用branch 提交不同版本的</p>
+<p><strong>//git 在切换分支的时候，要预先创建readme文件</strong><br> <strong>git pull —rebase origin master</strong></p>
+<p>然后具体步骤：<br>1.git add .<br>2.git remote add origin <a href="https://github.com/你的用户名/github项目名.git" target="_blank" rel="external">https://github.com/你的用户名/github项目名.git</a><br>3.git push -u origin master</p>
 
       
     </div>
@@ -540,7 +551,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -551,7 +562,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -588,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地代码git-到github"><span class="nav-number">1.</span> <span class="nav-text">本地代码git 到github</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地代码git-到github"><span class="nav-number">1.</span> <span class="nav-text">本地代码git 到github</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#管理分支"><span class="nav-number">1.1.</span> <span class="nav-text">管理分支</span></a></li></ol></li></ol></div>
             
 
           </div>
