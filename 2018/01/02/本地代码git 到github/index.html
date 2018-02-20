@@ -76,7 +76,7 @@
 <meta property="og:site_name" content="Cai Xiang-blog">
 <meta property="og:description" content="本地代码git 到github    1.在github上创建好存储空间repository    2.touch .gitignore  git init// 会生成一个 .ssh 文件，但是不可见   git status//可以看到这个项目中有那些 项目发生变化，当作是验证就可以了   git add .//把所以文件添加到git 的本地仓库（这里是准备上传的）   git commit -">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-19T09:21:55.671Z">
+<meta property="og:updated_time" content="2018-02-20T13:45:29.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地代码git 到github">
 <meta name="twitter:description" content="本地代码git 到github    1.在github上创建好存储空间repository    2.touch .gitignore  git init// 会生成一个 .ssh 文件，但是不可见   git status//可以看到这个项目中有那些 项目发生变化，当作是验证就可以了   git add .//把所以文件添加到git 的本地仓库（这里是准备上传的）   git commit -">
@@ -437,6 +437,11 @@
 <p>这个是用branch 提交不同版本的</p>
 <p><strong>//git 在切换分支的时候，要预先创建readme文件</strong><br> <strong>git pull —rebase origin master</strong></p>
 <p>然后具体步骤：<br>1.git add .<br>2.git remote add origin <a href="https://github.com/你的用户名/github项目名.git" target="_blank" rel="external">https://github.com/你的用户名/github项目名.git</a><br>3.git push -u origin master</p>
+<p>只有在那个branch 下才能push 到远程 对应的那个branch</p>
+<p><strong>*</strong>要小心切换分支，每次切换 相当于换个文件夹**<br>git push origin second2_6:master -f<br>//强制 把 <code>second2_6</code>分支代码push到远程<code>master</code>分支</p>
+<p>本地做好修改再去push到远端，所以我推荐如下操作<br>git checkout master</p>
+<p>git reset –hard develop<br>//先将本地的master分支重置成develop,要先切换到master分支上</p>
+<p>git push origin master –force //再推送到远程仓库</p>
 
       
     </div>
@@ -551,7 +556,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

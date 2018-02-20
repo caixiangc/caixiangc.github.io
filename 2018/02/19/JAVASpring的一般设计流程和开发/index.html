@@ -76,7 +76,7 @@
 <meta property="og:site_name" content="Cai Xiang-blog">
 <meta property="og:description" content="JAVA Spring 的一般设计流程和开发 DAO 层设计与开发Service 层 设计与开发Controller 层 设计与开发在设计数据的时候 别把所有字段都设置为必填，不然 update的时候如果没有数据传进来也是包报错的（在返回结果ResultVO数据库BeanCopy…的时候可能会报错） 会报数据库执行错误 一般步骤：1.创建数据库2.写dao（数据库对应的实体类）3.写 对应的 数据">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-19T09:56:36.344Z">
+<meta property="og:updated_time" content="2018-02-20T13:45:58.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA Spring 的一般设计流程和开发">
 <meta name="twitter:description" content="JAVA Spring 的一般设计流程和开发 DAO 层设计与开发Service 层 设计与开发Controller 层 设计与开发在设计数据的时候 别把所有字段都设置为必填，不然 update的时候如果没有数据传进来也是包报错的（在返回结果ResultVO数据库BeanCopy…的时候可能会报错） 会报数据库执行错误 一般步骤：1.创建数据库2.写dao（数据库对应的实体类）3.写 对应的 数据">
@@ -407,7 +407,6 @@
 <p>一般步骤：<br>1.创建数据库<br>2.写dao（数据库对应的实体类）<br>3.写 对应的 数据库操作仓库（repository)<br>4.然后再 创建 service ，再写serviceImpl<br>5.在controller 里面调用</p>
 <p>如果spring boot 要用到 mybatis 的话<br>那么 ：<br>1.首先依赖<br>    <dependency><br>        <groupid>org.mybatis.spring.boot</groupid><br>        <artifactid>mybatis-spring-boot-starter</artifactid><br>        <version>1.2.1</version><br>    </dependency></p>
 <p>2.启动类<br>在主文件口 加入扫描 代码：<br>@MapperScan(basePackages = “com.test.test.dataobject.mapper”) //在启动的时候去扫描这个包，不然mapper加载不到容器里面去</p>
-<p>redis高迸发分布式锁：<br>(redis是单线程服务的，就是里边的程序一次只能由一个进程执行，支持1s 几十万的迸发)<br>1.只能锁一个线程<br>2.value-》productId ，key=》time<br>3.解锁的方式两种：一是程序执行完自动解锁，二是程序超时被取代<br>4.低迸发，如果一个线程出现异常没执行完，但是还在超时范围以内，那是不会被新的value取代的（重要）<br>5.在高迸发的情况中，都是会主线 相同的 key 和value 但是他们的线程不同，所以他们还是有先后顺序的。（重要）<br>6.在高压测试的时候，比如1s 500 个请求，但是实际一秒 只执行了 10+的请求，就是因为分布式锁，一些进程没有得到锁，所以就没有执行（这种事防止超库存，就是超卖）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">补充</div><div class="line"></div><div class="line">aop统一处理，他是一个横向切面</div><div class="line">面向对象，是一个纵向的切面，他是把每个方法独立的分开来</div><div class="line"></div><div class="line">aop，不能在 写一个独立的方法来统一处理这些操作，因为，在项目启动的时候，系统会把那些类实例化，但是在http请求的时候，他不会重新执行这个构造方法了，所以没用</div></pre></td></tr></table></figure>
 
       
@@ -523,7 +522,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
