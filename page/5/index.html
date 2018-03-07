@@ -302,6 +302,954 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/10/30/c语言实现的基本算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/30/c语言实现的基本算法/" itemprop="url">C语言实现的基本算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T19:30:48+08:00">
+                2017-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/10/30/c语言实现的基本算法/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/10/30/c语言实现的基本算法/" class="cy_cmt_count" data-xid="2017/10/30/c语言实现的基本算法/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>num1.输入三个整数，按从大到小顺序输出</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> a,b,c,temp;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入要从大到小排序的的3个整数"</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;a,&amp;b,&amp;c);  <span class="comment">//地址符别忘记</span></div><div class="line">    <span class="keyword">if</span>(a&lt;b)&#123;</div><div class="line">        temp=a;</div><div class="line">        a=b;</div><div class="line">        b=temp;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(a&lt;c)&#123;</div><div class="line">        temp=a;</div><div class="line">        a=c;</div><div class="line">        c=temp;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(b&lt;c)&#123;</div><div class="line">        temp=b;</div><div class="line">        b=c;</div><div class="line">        c=temp;</div><div class="line">    &#125;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"从大到小依次排序为%d,%d,%d"</span>,a,b,c);</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>num2.指针和非指针传值区别</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> y,<span class="keyword">int</span> *x)</span></span>&#123;<span class="comment">//因为这里返回的是空值（void）所以这函数发生了什么外界不知道</span></div><div class="line">    y=y+ *x;  <span class="comment">//这里虽然会改变y的值但是，这种改变也仅限这个函数内；</span></div><div class="line">    *x=*x+y;  <span class="comment">//如果是指针x（直接指向物理地址），那么它的改变会带出函数f（）</span></div><div class="line">&#125;</div><div class="line">main()&#123;</div><div class="line">    <span class="keyword">int</span> x=<span class="number">2</span>,y=<span class="number">4</span>;</div><div class="line">    f(y,&amp;x);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d%d\n"</span>,x,y);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;  <span class="comment">//答案：8 0</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>num3.给定一串字符，匹配一共有几个wish</strong></p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">char</span> str1[]=<span class="string">"I wish to wish the wish you wish to wish,but if you wish the wish the witch wish"</span></div><div class="line">  <span class="keyword">char</span> str2[]=<span class="string">"wish"</span>;</div><div class="line">  <span class="keyword">char</span> *p1,*p2; <span class="comment">//指针也可以这样定义</span></div><div class="line">  <span class="keyword">int</span> sum=<span class="number">0</span>;</div><div class="line">  p1=str1;</div><div class="line">  p2=str2;</div><div class="line">  <span class="keyword">while</span>(*p1!=<span class="string">'\o'</span>)&#123; <span class="comment">//'\0' 是指字符串最后一个位置，这个表达式用来判断*p1是否指向str1最后一个元素</span></div><div class="line">      <span class="keyword">if</span>(*p1==*p2)&#123; <span class="comment">//判断第一个字符是否相等如果相等继续往下判断 </span></div><div class="line">          <span class="keyword">while</span>(*p1==*p2&amp;&amp;*p2!=<span class="string">'\0'</span>)&#123;<span class="comment">//写个while对应每个位置都一个一个判断下去</span></div><div class="line">              p1++;p2++;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">else</span>&#123;</div><div class="line">          p1++;  <span class="comment">//如果不想等就把str1往后移动一个单位继续判断</span></div><div class="line">      &#125;</div><div class="line">    <span class="keyword">if</span>(*p2==<span class="string">'\o'</span>)&#123;</div><div class="line">        sum++;  <span class="comment">//str2一波结束，sum+1 </span></div><div class="line">    &#125;</div><div class="line">  p2=str2;  <span class="comment">//p2初始化继续从头开始</span></div><div class="line">  &#125;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"it is：%d\n"</span>,sum);</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>num4.给定一个数组，区分他的奇数和偶数</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> i,j,k;</div><div class="line">  <span class="keyword">int</span> data1[<span class="number">20</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>&#125;;</div><div class="line">  <span class="keyword">int</span> data2[<span class="number">2</span>][<span class="number">10</span>]=&#123;<span class="number">0</span>&#125; <span class="comment">//2维数值初始化，这表示里面全为0</span></div><div class="line">  <span class="keyword">for</span>(i=j=k=<span class="number">0</span>,i&lt;<span class="number">20</span>;i++)&#123;</div><div class="line">      <span class="keyword">if</span>(data1[i]%<span class="number">2</span>)&#123;</div><div class="line">          data2[<span class="number">0</span>][j++]=data1[i]; <span class="comment">//如果是奇数那么存入data1[0][j]这个数组</span></div><div class="line">      &#125;</div><div class="line">      <span class="keyword">else</span>&#123;</div><div class="line">          data2[<span class="number">1</span>][j++]=data1[i];  <span class="comment">//偶数存入data2这个数组</span></div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>,i&lt;<span class="number">2</span>,i++)&#123;</div><div class="line">      <span class="keyword">for</span>(j=<span class="number">0</span>,j&lt;<span class="number">2</span>,j++)&#123;</div><div class="line">          <span class="built_in">printf</span>(<span class="string">"%d"</span>,data2[i][j]);</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>num5. 用C语言把2-100之间的数打印出来，质数就一个接着一个打印，偶数就分解成一个一个质数，如：</p>
+</blockquote>
+<p>2=2</p>
+<p>3=3</p>
+<p>4=2x2</p>
+<p>5=5</p>
+<p>6=2x3</p>
+<p>……</p>
+<p>100=2x2x5x5</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="comment">//将一个正整数分解质因数  </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line"><span class="function"></span>&#123;  </div><div class="line">    <span class="keyword">int</span> num,i,n;</div><div class="line">   	<span class="keyword">for</span>(num=<span class="number">2</span>;num&lt;=<span class="number">100</span>;num++)&#123;</div><div class="line">   	    <span class="built_in">printf</span>(<span class="string">"%d="</span>,num);</div><div class="line">		n=num; </div><div class="line">    	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)  </div><div class="line">    	&#123;  </div><div class="line">        	<span class="keyword">while</span>(n!=i)     <span class="comment">//若i=n，则质因数就是n本身  </span></div><div class="line">        	&#123;				</div><div class="line">            	<span class="keyword">if</span>(n%i==<span class="number">0</span>)  <span class="comment">//若i是质因数，则打印出i的值，并用商给n赋新值  </span></div><div class="line">            	&#123;  </div><div class="line">                	<span class="built_in">printf</span>(<span class="string">"%d*"</span>,i);  </div><div class="line">                	n=n/i;  </div><div class="line">            	&#125;  </div><div class="line">            	<span class="keyword">else</span> <span class="keyword">break</span>;<span class="comment">//若不能被i整除，则算下一个i  </span></div><div class="line">        	&#125;  </div><div class="line">    	&#125;  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,n);   <span class="comment">//这里是打印最后一个质因数，也就是等于i时的那个  	</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>num6.用C语言实现cosx</p>
+</blockquote>
+<p><img src="http://owsgipnoo.bkt.clouddn.com/cosx.jpg" alt="必须要n-1项和n项比较"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">float</span> x,cosx,n,t;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;x);</div><div class="line">	cosx = <span class="number">1</span>;</div><div class="line">	t = <span class="number">1</span>;</div><div class="line">	n = <span class="number">1</span>;</div><div class="line">	<span class="keyword">while</span>(<span class="built_in">fabs</span>(t)&gt;<span class="number">0.0001</span>)&#123;</div><div class="line">		t = -t*(x*x)/(<span class="number">2</span>*n)/(<span class="number">2</span>*n<span class="number">-1</span>);</div><div class="line">		cosx += t;</div><div class="line">		n += <span class="number">1</span>;</div><div class="line">	&#125;;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"cosx:%.3f"</span>,cosx);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>num7.用C语言实现sinx</p>
+</blockquote>
+<p><img src="http://owsgipnoo.bkt.clouddn.com/sinx.jpg" alt="必须要n-1项和n项比较"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">float</span> x,sinx,n,t;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;x);</div><div class="line">	sinx = x;</div><div class="line">	t = x;</div><div class="line">	n = <span class="number">1</span>;</div><div class="line">	<span class="keyword">while</span>(<span class="built_in">fabs</span>(t)&gt;<span class="number">0.0001</span>)&#123;</div><div class="line">		t = -t*(x*x)/(<span class="number">2</span>*n+<span class="number">1</span>)/(<span class="number">2</span>*n);</div><div class="line">		sinx += t;</div><div class="line">		n += <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"cosx:%.3f"</span>,sinx);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>num8.输入n（n为偶数）将n分解为2个质数和</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> f1,f2,n,i,j,k;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	k=<span class="number">2</span>;</div><div class="line">	<span class="keyword">while</span>(k&lt;n)&#123;</div><div class="line">		f1=<span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;k;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(k%i==<span class="number">0</span>)&#123;</div><div class="line">				f1=<span class="number">0</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		f2=<span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">2</span>;j&lt;(n-k);j++)&#123;</div><div class="line">			<span class="keyword">if</span>((n-k)%j==<span class="number">0</span>)&#123;</div><div class="line">				f2=<span class="number">0</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(f1==<span class="number">1</span>&amp;&amp;f2==<span class="number">1</span>)&#123;</div><div class="line">			<span class="keyword">int</span> res = n-k;</div><div class="line">			<span class="keyword">if</span>(res&gt;<span class="number">1</span>)&#123;  <span class="comment">//防止重复 不然有10=7+3 和10=3+7 </span></div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%d=%d+%d\n"</span>,n,k,res);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		k+=<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>num9.前几个数累加到15项，如1，1，2，3，5，8….</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> a,b,c,i;</div><div class="line">	a=b=<span class="number">1</span>;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"1,1,"</span>);</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">3</span>;i&lt;<span class="number">16</span>;i++)&#123;</div><div class="line">		c=a+b;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d,"</span>,c);</div><div class="line">		a=b;</div><div class="line">		b=c;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>num10.输入10个数把最大的数输出</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> max,x,i=<span class="number">1</span>;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</div><div class="line">	max=x;</div><div class="line">	<span class="keyword">while</span>(i&lt;<span class="number">10</span>)&#123;<span class="comment">//如果往while里面写scanf那么是一直连着一串输入 1 2 3 4....</span></div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x); </div><div class="line">		<span class="keyword">if</span>(max&lt;x)&#123;</div><div class="line">			max=x;</div><div class="line">		&#125;</div><div class="line">		i+=<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"max:%d"</span>,max);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>; </div><div class="line">&#125;</div><div class="line"><span class="comment">//如果往FOR里面写scanf那么是一个（回车）接着一个输入 1 2 3 4....</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>num11.输入一批以负数为结束的正整数，输出最大值。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> max,a;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</div><div class="line">	max = a;</div><div class="line">	<span class="keyword">while</span>(a&gt;<span class="number">0</span>)&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</div><div class="line">	<span class="keyword">if</span>(max&lt;a)&#123;</div><div class="line">		max=a;</div><div class="line">	&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"max:%d"</span>,max);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>num11.输入a,n计算并输入a+aa+aaa+aaaa…..(最后一向是n个a)</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> a,n,sum=<span class="number">0</span>,i=<span class="number">1</span>,mul;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;n);</div><div class="line">	mul =a; <span class="comment">//这个mul变量很重要，防止a 被 a=a*10+a 污染</span></div><div class="line">	<span class="keyword">for</span>(;i&lt;=n;i++)&#123;</div><div class="line">		sum+=mul;</div><div class="line">		mul=mul*<span class="number">10</span>+a;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"sum:%d"</span>,sum);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>num12.用C语言输出2-1000以内所有的完数，完数是指能把自己整除的所有因子之和 是其本身</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> j,i;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=<span class="number">1000</span>;i++)&#123;</div><div class="line">		<span class="keyword">int</span> s=<span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=i/<span class="number">2</span>;j++)&#123; <span class="comment">//为了提高效率 j&lt;=i/2</span></div><div class="line">			<span class="keyword">if</span>(i!=j)&#123;     <span class="comment">//这是除去被除数本身那次可能，不然永远都没有结果</span></div><div class="line">				<span class="keyword">if</span>(i%j==<span class="number">0</span>)&#123;</div><div class="line">				s+=j;</div><div class="line">				&#125;</div><div class="line">			&#125;			 </div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(s==i)&#123; <span class="comment">//这个放到外面去是为了防止 重复输出 一个6要多输出3次</span></div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在定义数据类型的时候要小心，因为如果是float类型定义了int 类型，那么输出出来就是（0.3–&gt;0,1.3–&gt;1）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//int main()&#123;</span></div><div class="line"><span class="comment">//int a=0.3333;</span></div><div class="line"><span class="comment">//printf("%d",a);</span></div><div class="line"><span class="comment">//&#125;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/10/06/ES6新语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/06/ES6新语法/" itemprop="url">ES6基础新语法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-06T22:16:12+08:00">
+                2017-10-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/10/06/ES6新语法/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/10/06/ES6新语法/" class="cy_cmt_count" data-xid="2017/10/06/ES6新语法/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<h3 id="函数表达式的改变"><a href="#函数表达式的改变" class="headerlink" title="函数表达式的改变"></a>函数表达式的改变</h3></blockquote>
+<p>function(){}  ===&gt;  ()=&gt;{}   //在某些特定的框架里面这是适用的，因为有脚本预先把ES6==》ES5，如果在Vue框架里在整个生命周期各期的钩子函数中最好别用新ES6 语法，用ES5</p>
+<blockquote>
+<h3 id="Promise-解决函数层层回调的-链式结构"><a href="#Promise-解决函数层层回调的-链式结构" class="headerlink" title="Promise 解决函数层层回调的 链式结构"></a>Promise 解决函数层层回调的 链式结构</h3></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">checkLogin().then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;(res)=&gt;&#123;getinfo()&#125;&#125;).catch().then() <span class="comment">//1.这种方法就要注意每个接口逻辑顺序关系，什么逻辑是嵌套在什么逻辑之后的</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Promise</span>.all([checkLogin(),getUserInfo()]).then(<span class="function">(<span class="params">[res1,res2]</span>)=&gt;</span>&#123; <span class="comment">//[res1,res2]是一个参数合并的，function（[res1,res2]）&#123;&#125;</span></div><div class="line">           <span class="built_in">console</span>.log(<span class="string">`res1:<span class="subst">$&#123;res1.result&#125;</span>,res2:<span class="subst">$&#123;res2.userId&#125;</span>`</span>)</div><div class="line">       &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="新的表达输出值"><a href="#新的表达输出值" class="headerlink" title="新的表达输出值"></a>新的表达输出值</h3></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">`total:<span class="subst">$&#123;total&#125;</span>`</span>)   <span class="comment">//total是已经定义好的值 要 `str:$&#123;&#125;` 包裹</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="实际案例代码"><a href="#实际案例代码" class="headerlink" title="实际案例代码"></a>实际案例代码</h3></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;	</div><div class="line">	<span class="keyword">let</span> total=<span class="number">0</span>;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">x,y,z</span>)</span>&#123;</div><div class="line">		<span class="keyword">if</span>(x)total+=x;</div><div class="line">		<span class="keyword">if</span>(y)total+=y;</div><div class="line">		<span class="keyword">if</span>(z)total+=z;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">`total:<span class="subst">$&#123;total&#125;</span>`</span>)</div><div class="line">	&#125;</div><div class="line">	sum(<span class="number">1</span>,<span class="string">""</span>,<span class="number">3</span>)   <span class="comment">//</span></div><div class="line">	</div><div class="line">	<span class="comment">//ES5的方法</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">sum2</span>(<span class="params">...m</span>)</span>&#123;  <span class="comment">//...m   有很多层意思，表明不确定有几个参数传近来</span></div><div class="line">		<span class="keyword">let</span> total=<span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">of</span> m)&#123; <span class="comment">//这里有不确定个数m，i就是一个一个遍历从m中</span></div><div class="line">			total+=i;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">`total:<span class="subst">$&#123;total&#125;</span>`</span>)</div><div class="line">	&#125;</div><div class="line">	sum2(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>)</div><div class="line"></div><div class="line">	<span class="comment">//ES6的方法</span></div><div class="line">	<span class="keyword">let</span> sum3=<span class="function">(<span class="params">...m</span>)=&gt;</span>&#123;   <span class="comment">//箭头函数。(重要)...放到参数里面去，就变成了动态参数</span></div><div class="line">		<span class="keyword">let</span> total=<span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">of</span> m)&#123; <span class="comment">//这里有不确定个数m，i就是一个一个遍历从m中</span></div><div class="line">			total+=i;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">`total:<span class="subst">$&#123;total&#125;</span>`</span>)</div><div class="line">	&#125;</div><div class="line">	sum3(<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>)</div><div class="line"></div><div class="line">	<span class="comment">//let [x,y]=[4,5];</span></div><div class="line">	<span class="built_in">console</span>.log(...[<span class="number">4</span>,<span class="number">5</span>]);<span class="comment">// (重要)...扩展 会把这个数组 拆分成 4 5,,,他有很多层意思 ...</span></div><div class="line">	<span class="keyword">let</span> arr1=[<span class="number">1</span>,<span class="number">2</span>]; <span class="keyword">let</span> arr2=[<span class="number">3</span>,<span class="number">4</span>];</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"concat:"</span>+arr1.concat(arr2))</div><div class="line">	<span class="built_in">console</span>.log(...arr1.concat(arr2))</div><div class="line">	<span class="keyword">let</span> [x,...y]=[<span class="number">10</span>,<span class="number">44</span>,<span class="number">3</span>,<span class="number">44</span>,<span class="number">10</span>] <span class="comment">//这里的...y就代表着 有很多参数，后面任意  ******</span></div><div class="line">	<span class="built_in">console</span>.log([x,...y])</div><div class="line">	<span class="keyword">let</span> [A,B,C] = <span class="string">"ES6"</span>   <span class="comment">//在控制台上输出 A=&gt;E ; B=&gt;S ; C=&gt;6</span></div><div class="line">	<span class="keyword">let</span> xy=[...<span class="string">"ES6"</span>];    <span class="comment">//在控制台上输出["E", "S", "6"]，，...是个神奇的新特性</span></div><div class="line">	<span class="comment">//综上</span></div><div class="line">    <span class="comment">//ES6 中 ...  1.会把数组，字符串拆解  2.在function参数中传入任意参数，在数组[x,..y]也一样</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/10/06/Vue实例的生命周期created和mounted的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/06/Vue实例的生命周期created和mounted的区别/" itemprop="url">Vue实例的生命周期created和mounted的区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-06T21:42:13+08:00">
+                2017-10-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/10/06/Vue实例的生命周期created和mounted的区别/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/10/06/Vue实例的生命周期created和mounted的区别/" class="cy_cmt_count" data-xid="2017/10/06/Vue实例的生命周期created和mounted的区别/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="什么是生命周期"><a href="#什么是生命周期" class="headerlink" title="什么是生命周期"></a>什么是生命周期</h3><blockquote>
+<p>Vue实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载Dom、渲染→更新→渲染、卸载等一系列过程，我们称这是Vue的生命周期。通俗说就是Vue实例从创建到销毁的过程，就是生命周期。</p>
+</blockquote>
+<p>在Vue的整个生命周期中，它提供了一系列的事件，可以让我们在事件触发时注册js方法，可以让我们用自己注册的js方法控制整个大局，在这些事件响应方法中的this直接指向的是vue的实例。</p>
+<h3 id="再上图，对生命周期图的标注"><a href="#再上图，对生命周期图的标注" class="headerlink" title="再上图，对生命周期图的标注"></a>再上图，对生命周期图的标注</h3><blockquote>
+<p>特别值得注意的是created钩子函数和mounted钩子函数的区别</p>
+</blockquote>
+<p><img src="https://segmentfault.com/image?src=http://ww1.sinaimg.cn/large/6aedb651gy1fdb6s9vs6bj20xc25s7qv&amp;objectId=1190000008570622&amp;token=9c0dd2b95af83184a86e85de842f8e9c" alt="img"></p>
+<h3 id="每个钩子函数都在啥时间触发"><a href="#每个钩子函数都在啥时间触发" class="headerlink" title="每个钩子函数都在啥时间触发"></a>每个钩子函数都在啥时间触发</h3><p>beforeCreate</p>
+<blockquote>
+<p>在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。</p>
+</blockquote>
+<p>created</p>
+<blockquote>
+<p>实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。</p>
+</blockquote>
+<p>beforeMount</p>
+<blockquote>
+<p>在挂载开始之前被调用：相关的 render 函数首次被调用。</p>
+</blockquote>
+<p>mounted</p>
+<blockquote>
+<p>el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。</p>
+</blockquote>
+<p>beforeUpdate</p>
+<blockquote>
+<p>数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。</p>
+</blockquote>
+<p>updated</p>
+<blockquote>
+<p>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p>
+</blockquote>
+<p>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态，因为这可能会导致更新无限循环。</p>
+<p>该钩子在服务器端渲染期间不被调用。</p>
+<p>beforeDestroy</p>
+<blockquote>
+<p>实例销毁之前调用。在这一步，实例仍然完全可用。</p>
+</blockquote>
+<p>destroyed</p>
+<blockquote>
+<p>Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。 该钩子在服务器端渲染期间不被调用。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/10/03/神奇的Object.defineProperty/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/03/神奇的Object.defineProperty/" itemprop="url">Vue双向数据绑定原理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-03T09:35:12+08:00">
+                2017-10-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/10/03/神奇的Object.defineProperty/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/10/03/神奇的Object.defineProperty/" class="cy_cmt_count" data-xid="2017/10/03/神奇的Object.defineProperty/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<h3 id="神奇的Object-defineProperty"><a href="#神奇的Object-defineProperty" class="headerlink" title="神奇的Object.defineProperty"></a>神奇的Object.defineProperty</h3></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Object.defineProperty(a,b,&#123;&#125;)有三个参数，而且是必填的！</span></div><div class="line">  <span class="keyword">var</span> a= &#123;&#125;</div><div class="line">    <span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">      value:<span class="number">123</span></div><div class="line">    &#125;)</div><div class="line">    <span class="built_in">console</span>.log(a.b);<span class="comment">//123</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="传入参数"><a href="#传入参数" class="headerlink" title="传入参数"></a>传入参数</h3></blockquote>
+<p>第一个参数:目标对象</p>
+<p>第二个参数:需要定义的属性或方法的名字。</p>
+<p>第三个参数:目标属性所拥有的特性。（descriptor）</p>
+<p>前两个参数不多说了，一看代码就懂，主要看第三个参数descriptor，看看有哪些取值</p>
+<blockquote>
+<h3 id="descriptor"><a href="#descriptor" class="headerlink" title="descriptor"></a>descriptor</h3></blockquote>
+<p>他又以下取值，我们简单认识一下，后面例子，挨个介绍，</p>
+<p>value:属性的值(不用多说了)</p>
+<p>writable:如果为false，属性的值就不能被重写,只能为只读了</p>
+<p>configurable:总开关，一旦为false，就不能再设置他的（value，writable，configurable）</p>
+<p>enumerable:是否能在for…in循环中遍历出来或在Object.keys中列举出来。</p>
+<p>get:一会细说</p>
+<p>set:一会细说</p>
+<blockquote>
+<h3 id="descriptor-1"><a href="#descriptor-1" class="headerlink" title="descriptor"></a>descriptor</h3></blockquote>
+<p>descriptor默认情况下是这样的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a= &#123;&#125;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">  value:<span class="number">123</span>,</div><div class="line">  writable:<span class="literal">false</span>,</div><div class="line">  enumerable:<span class="literal">false</span>,</div><div class="line">  configurable:<span class="literal">false</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(a.b);<span class="comment">//123</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="configurable"><a href="#configurable" class="headerlink" title="configurable"></a>configurable</h3></blockquote>
+<p>总开关，第一次设置 false 之后，，第二次什么设置也不行了，比如说</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a= &#123;&#125;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">  configurable:<span class="literal">false</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">Object</span>.defineProperty(a,<span class="string">"b"</span>,&#123;</div><div class="line">  configurable:<span class="literal">true</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">//error: Uncaught TypeError: Cannot redefine property: b</span></div></pre></td></tr></table></figure>
+<p>就会报错了。。注意上面讲的默认值。。。如果第一次不设置它会怎样。。会帮你设置为false。。所以。。第二次。再设置他会怎样？。。对喽，，会报错</p>
+<blockquote>
+<h3 id="writable"><a href="#writable" class="headerlink" title="writable"></a>writable</h3></blockquote>
+<p>如果设置为fasle，就变成只读了。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var a = &#123;&#125;; </div><div class="line"></div><div class="line">Object.defineProperty(o, &quot;b&quot;, &#123; </div><div class="line">    value : 123,</div><div class="line">    writable : false &#125;);</div><div class="line"></div><div class="line">console.log(a.b); // 打印 37</div><div class="line">a.b = 25; // 没有错误抛出（在严格模式下会抛出，即使之前已经有相同的值）</div><div class="line">console.log(o.a); // 打印 37， 赋值不起作用。</div></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="enumerable"><a href="#enumerable" class="headerlink" title="enumerable"></a>enumerable</h3></blockquote>
+<p>属性特性 enumerable 定义了对象的属性是否可以在 for…in 循环和 Object.keys() 中被枚举。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a= &#123;&#125;</div><div class="line">Object.defineProperty(a,&quot;b&quot;,&#123;</div><div class="line">  value:3445,</div><div class="line">  enumerable:true</div><div class="line">&#125;)</div><div class="line">console.log(Object.keys(a));// 打印[&quot;b&quot;]</div></pre></td></tr></table></figure>
+<p>改为false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a= &#123;&#125;</div><div class="line">Object.defineProperty(a,&quot;b&quot;,&#123;</div><div class="line">  value:3445,</div><div class="line">  enumerable:false //注意咯这里改了</div><div class="line">&#125;)</div><div class="line">console.log(Object.keys(a));// 打印[]</div></pre></td></tr></table></figure>
+<p>for…in 类似，，不赘述了</p>
+<blockquote>
+<h3 id="set-和-get-（重要）"><a href="#set-和-get-（重要）" class="headerlink" title="set 和 get （重要）"></a>set 和 get （重要）</h3></blockquote>
+<p>在 descriptor 中不能 <strong>同时</strong>设置访问器 (get 和 set) 和 wriable 或 value，否则会错，就是说想用(get 和 set)，就不能用（wriable 或 value中的任何一个）</p>
+<p>set 和 get ，他俩干啥用的的，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var a= &#123;&#125;</div><div class="line">Object.defineProperty(a,&quot;b&quot;,&#123;</div><div class="line">  set:function(newValue)&#123;</div><div class="line">    console.log(&quot;你要赋值给我,我的新值是&quot;＋newValue)</div><div class="line">    &#125;,</div><div class="line">  get:function()&#123;</div><div class="line">    console.log(&quot;你取我的值&quot;)</div><div class="line">    return 2 //注意这里，我硬编码返回2</div><div class="line">   &#125;</div><div class="line">&#125;)</div><div class="line">a.b =1 //打印 你要赋值给我,我的新值是1</div><div class="line">console.log(a.b)    //打印 你取我的值</div><div class="line">                    //打印 2    注意这里，和我的硬编码相同的</div></pre></td></tr></table></figure>
+<p>简单来说，， 这个 “b” 赋值 或者 取值的时候会分别触发 set 和 get 对应的函数</p>
+<hr>
+<blockquote>
+<h3 id="双向数据绑定实例"><a href="#双向数据绑定实例" class="headerlink" title="双向数据绑定实例"></a>双向数据绑定实例</h3></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line"><span class="comment">//方法1： 这种方法，是vue双向数据绑定的关键</span></div><div class="line">&lt;input type=<span class="string">"text"</span> id=<span class="string">"username1"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></div><div class="line">&lt;span id="uname1"&gt;&lt;/span&gt;&lt;br&gt;</div><div class="line">//方法2，这种方法，是调用监听 keyup，然后把username的event.target.value赋值给uname.innerText</div><div class="line">&lt;input type="text" id="username2"&gt;&lt;br&gt;</div><div class="line">&lt;span id="uname2"&gt;&lt;/span&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var obj=&#123;</div><div class="line">    	pwd:123456</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    //  1 这种方法，是vue双向数据绑定的关键</div><div class="line">    Object.defineProperty(obj,"username1",&#123;</div><div class="line">	    //value:"Jack"</div><div class="line">	    get: function () &#123;</div><div class="line">		    console.log("init get");  //在无监听的情况下，当调用obj的时候，get 函数会自动触发</div><div class="line">	    &#125;,</div><div class="line">	    set: function (val) &#123;</div><div class="line">		    console.log("init set");  //在无监听的情况下，当改变obj的属性时候，set 函数会自动触发(然后我们可以利用这个触发干很多事)</div><div class="line">            document.getElementById("uname1").innerText= val;  //关键</div><div class="line">            document.getElementById("username1").value= val;  //关键</div><div class="line">	    &#125;</div><div class="line">    &#125;);</div><div class="line">    document.getElementById("username1").addEventListener("keyup",function (event) &#123;</div><div class="line">	    obj.username1=event.target.value;</div><div class="line">    &#125;);</div><div class="line">    // 这种方法，是调用监听 keyup，然后把username的event.target.value赋值给uname.innerText</div><div class="line">    document.getElementById("username2").addEventListener("keyup",function (event) &#123;</div><div class="line">        document.getElementById("uname2").innerText=event.target.value;  //可以直接给uname赋值</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/10/01/C_first/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/01/C_first/" itemprop="url">C语言基础篇</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-01T21:38:55+08:00">
+                2017-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/10/01/C_first/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2017/10/01/C_first/" class="cy_cmt_count" data-xid="2017/10/01/C_first/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="C语言基础篇"><a href="#C语言基础篇" class="headerlink" title="C语言基础篇"></a>C语言基础篇</h2><ol>
+<li><p>数学中3&lt;x&lt;10是恒成立的，在程序中要表示成：3&lt;x&amp;&amp;x&lt;10；</p>
+</li>
+<li><p>算数运算符：表达式1？表达式2：表达式3</p>
+<p>表达式1为true，那么等式就为表达式2，false为表达式3</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> a,b,c,max,m_max;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"请输入要判断的3个数\n"</span>);</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;a,&amp;b,&amp;c);</div><div class="line">  max=a&gt;b?a:b;</div><div class="line">  m_max=max&gt;c?max:c;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"最大数为%d"</span>,m_max);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>x%2取余 ; x/2取整数 ;  %1.2d小数点前保留1位小数小数点后保留2位 ; %-4d左对齐按照4个字符。</p>
+</li>
+<li><p>&amp;&amp;（and）==》一个不成立就false；</p>
+<p>||（or）==》只要有一个成立就成立；</p>
+<p>！（非）==》和原来相反；</p>
+</li>
+</ol>
+<h3 id="关于交换问题"><a href="#关于交换问题" class="headerlink" title="关于交换问题"></a>关于交换问题</h3><p>输出两个数a，b，将大数存于a，小数存于b，并输出a，b</p>
+<p><u>思路（交换a，b）</u></p>
+<blockquote>
+<p>1.a=a+b；b=a-b；a=a-b ===》这样可读性差</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> a,b,temp;</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);  <span class="comment">//在输入的时候地址符号（&amp;）千万不要忘记写否者会报错</span></div><div class="line">  <span class="keyword">if</span>(a&lt;b)&#123;</div><div class="line">    temp=a;a=b;b=temp; <span class="comment">//一般是这样实现位置交换，需要个中间变量。</span></div><div class="line">   &#125;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"交换以后的顺序为%d%d"</span>,a,b);  </div><div class="line">&#125;</div><div class="line"><span class="comment">//可以用来判断3个或者4个数的大小</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">static int a= 2 //a是静态变量，不会被重置</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/10/01/recursion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1209,7 +2157,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

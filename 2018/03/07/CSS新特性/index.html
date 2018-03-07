@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="CSS新特性 html 很重要的一点是利用好标签，这样你写css页好些一点1. Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。 任何一个容器都可以指定为 Flex 布局。 传送门 2. //box-sizing是盒模型的规范，如果是border-box 那么在计算width 的时候也会把paddng给计算进来 3. 1234position: f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS新特性">
+<meta property="og:url" content="http://caixiangc.github.io/2018/03/07/CSS新特性/index.html">
+<meta property="og:site_name" content="Cai Xiang-blog">
+<meta property="og:description" content="CSS新特性 html 很重要的一点是利用好标签，这样你写css页好些一点1. Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。 任何一个容器都可以指定为 Flex 布局。 传送门 2. //box-sizing是盒模型的规范，如果是border-box 那么在计算width 的时候也会把paddng给计算进来 3. 1234position: f">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="c:/Users/93938/AppData/Local/YNote/data/qq61794B059E3D99521B4CCF2B0B950401/39fb467e772c4217b79d1a99e196e8c1/qq20180301-200013@2x.png">
+<meta property="og:updated_time" content="2018-03-07T13:52:18.650Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS新特性">
+<meta name="twitter:description" content="CSS新特性 html 很重要的一点是利用好标签，这样你写css页好些一点1. Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。 任何一个容器都可以指定为 Flex 布局。 传送门 2. //box-sizing是盒模型的规范，如果是border-box 那么在计算width 的时候也会把paddng给计算进来 3. 1234position: f">
+<meta name="twitter:image" content="c:/Users/93938/AppData/Local/YNote/data/qq61794B059E3D99521B4CCF2B0B950401/39fb467e772c4217b79d1a99e196e8c1/qq20180301-200013@2x.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://caixiangc.github.io/2018/03/07/CSS新特性/"/>
+
+
+
+
+
+  <title>CSS新特性 | Cai Xiang-blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cai Xiang-blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-js">
+          <a href="/categories/js" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            js
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-c">
+          <a href="/categories/c" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            c
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-vue">
+          <a href="/categories/Vue" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Vue
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-java">
+          <a href="/categories/java" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            java
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-operations">
+          <a href="/categories/Operations" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Operations
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/Python" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-dsag">
+          <a href="/categories/DSAG" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            DSAG
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-recordlife">
+          <a href="/categories/RecordLife" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            RecordLife
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-code">
+          <a href="/categories/code" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            code
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2018/03/07/CSS新特性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS新特性</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T21:43:34+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/03/07/CSS新特性/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/03/07/CSS新特性/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="CSS新特性"><a href="#CSS新特性" class="headerlink" title="CSS新特性"></a>CSS新特性</h3><hr>
+<h4 id="html-很重要的一点是利用好标签，这样你写css页好些一点"><a href="#html-很重要的一点是利用好标签，这样你写css页好些一点" class="headerlink" title="html 很重要的一点是利用好标签，这样你写css页好些一点"></a>html 很重要的一点是利用好标签，这样你写css页好些一点</h4><p>1.</p>
+<p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。 任何一个容器都可以指定为 Flex 布局。</p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?^%$" target="_blank" rel="external">传送门</a></p>
+<p>2.</p>
+<p>//box-sizing是盒模型的规范，如果是border-box 那么在计算width 的时候也会把paddng给计算进来</p>
+<p>3.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">position</span>: <span class="selector-tag">fixed</span>; 是不随着 滚动条滚动而滚动的，但是必须设定位置</div><div class="line"><span class="selector-tag">top</span>: 0;</div><div class="line">left: 0; //left: 0 &amp; right: 0 代表宽度100%</div><div class="line"><span class="selector-tag">right</span>: 0;</div></pre></td></tr></table></figure>
+<p>4.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&amp;:after&#123;   //这里加在哪里 ，就是加载 item里面的最后一个元素</div><div class="line"></div><div class="line">          <span class="selector-tag">content</span>: "";</div><div class="line"></div><div class="line">          <span class="selector-tag">width</span>: 1<span class="selector-tag">px</span>;</div><div class="line"></div><div class="line">          <span class="selector-tag">height</span>: 136<span class="selector-tag">px</span>;</div><div class="line"></div><div class="line">          <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</div><div class="line"></div><div class="line">          <span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</div><div class="line"></div><div class="line">// 因为after 是放在 这个div 里面最后一个位置，如果想要让他那么必须以下两条代码</div><div class="line"></div><div class="line">          top: 50%;  //固定到中间的位置，然后再向上移动 height: 136px;的一般，就能起到垂直居中的效果</div><div class="line"></div><div class="line">          <span class="selector-tag">margin-top</span>: <span class="selector-tag">-68px</span>;</div><div class="line"></div><div class="line">          </div><div class="line"></div><div class="line">          <span class="selector-tag">right</span>: 0;</div><div class="line"></div><div class="line">          <span class="selector-tag">border-right</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">red</span>;</div><div class="line"></div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>5.</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">vertical-align</span>: <span class="number">1px</span>; <span class="comment">//***这个是调 垂直对齐的 因为border 1px,所以这里要向上移动1px</span></div><div class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#FF5155</span>;</div></pre></td></tr></table></figure>
+<ol>
+<li><code>position: absolute;</code>和 <code>position: relative</code> 配合使用，<code>absolute</code>会参照 <code>relative</code>，如果有<code>relative</code>，那么它会参照自身的（top，和 margin-top:30px;没有设置right那就是现在的right），如果父级没有relative ，那么会参照整个windows</li>
+</ol>
+<p>7.在使用 scss 模块化的 时候，css模块化也有继承这种说法，也有类似 java 的 overwrite</p>
+<p>8.如果要实现这样的效果，</p>
+<p><img src="C:/Users/93938/AppData/Local/YNote/data/qq61794B059E3D99521B4CCF2B0B950401/39fb467e772c4217b79d1a99e196e8c1/qq20180301-200013@2x.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;li v-for=&quot;item in items&quot; :key=&quot;item.title&quot;&gt;</div><div class="line"></div><div class="line">                    &lt;img :src=&quot;item.src&quot; alt=&quot;&quot;&gt;</div><div class="line"></div><div class="line">                    &lt;div class=&quot;&quot;&gt;</div><div class="line"></div><div class="line">                        &lt;h4&gt;&#123;&#123; item.title &#125;&#125;&lt;/h4&gt;</div><div class="line"></div><div class="line">                        &lt;span&gt;&#123;&#123; item.desc &#125;&#125;&lt;/span&gt;</div><div class="line"></div><div class="line">                    &lt;/div&gt;</div><div class="line"></div><div class="line">                    &lt;p&gt;</div><div class="line"></div><div class="line">                        &lt;router-link :to=&quot;&#123; name: &apos;&apos;, params: &#123;&#125; &#125;&quot;&gt;</div><div class="line"></div><div class="line">                            &#123;&#123; item.goto &#125;&#125;</div><div class="line"></div><div class="line">                        &lt;/router-link&gt;</div><div class="line"></div><div class="line">                    &lt;/p&gt;</div><div class="line"></div><div class="line"> &lt;/li&gt;</div><div class="line"></div><div class="line">li&#123;</div><div class="line"></div><div class="line">flex-direction:row;   //显示按行 排</div><div class="line"></div><div class="line">  	flex-wrap: wrap;	//按一行排下去，如果超出就换行</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>\9. after 伪类一定要加 content: “”; 否者不会生效</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&amp;<span class="selector-pseudo">:after</span>&#123;</div><div class="line"></div><div class="line">        <span class="attribute">content</span>: <span class="string">""</span>; </div><div class="line"></div><div class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid red;</div><div class="line"></div><div class="line">        <span class="attribute">position</span>: absolute;</div><div class="line"></div><div class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line"></div><div class="line">        <span class="attribute">height</span>: <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="attribute">bottom</span>: <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line"></div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/07/图片响应式的设计与实现/" rel="next" title="图片响应式的设计与实现">
+                <i class="fa fa-chevron-left"></i> 图片响应式的设计与实现
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/07/手机端响应式（设备像素比）/" rel="prev" title="手机端响应式（设备像素比）">
+                手机端响应式（设备像素比） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">Cai Xiang</p>
+            <p class="site-description motion-element" itemprop="description">person blog</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS新特性"><span class="nav-number">1.</span> <span class="nav-text">CSS新特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#html-很重要的一点是利用好标签，这样你写css页好些一点"><span class="nav-number">1.1.</span> <span class="nav-text">html 很重要的一点是利用好标签，这样你写css页好些一点</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cai Xiang</span>
+
+  
+</div>
+
+
+
+  <div class="powered-by"><a class="theme-link" href="http://www.cxnei.cn">Friends Links</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytf4s6c2';
+      var conf = 'fdbfa210ec18f6093f8fe5396ef6602e';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

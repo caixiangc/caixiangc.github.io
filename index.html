@@ -302,6 +302,838 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2018/03/07/手机端响应式（设备像素比）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/07/手机端响应式（设备像素比）/" itemprop="url">手机端响应式（设备像素比）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T21:47:31+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/03/07/手机端响应式（设备像素比）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2018/03/07/手机端响应式（设备像素比）/" class="cy_cmt_count" data-xid="2018/03/07/手机端响应式（设备像素比）/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="手机端响应式（设备像素比）"><a href="#手机端响应式（设备像素比）" class="headerlink" title="手机端响应式（设备像素比）"></a>手机端响应式（设备像素比）</h3><hr>
+<p>这个是重点 写一套代码就能 完成所有设备的响应式</p>
+<p>通过缩放像素点，连图片也能同时缩放并且保持原来的尺寸不变形</p>
+<p>设备像素比（dpr 描述的是未缩放状态下，物理像素和css像素 的初始比例关系，计算方法如下图。</p>
+<p><img src="C:/Users/93938/AppData/Local/YNote/data/qq61794B059E3D99521B4CCF2B0B950401/d18239f1f84a494c81fc38e6b7e7308f/687474703a2f2f3778766831722e636f6d312e7a302e676c622e636c6f7564646e2e636f6d2f.png" alt="687474703a2f2f3778766831722e636f6d312e7a302e676c622e636c6f7564646e2e636f6d2f6470722e706e67"></p>
+<p>在实际开发的时候，就可知，实际真实设计稿尺寸 = dpr * 理想视口的尺寸(就是我们依据psd量出的宽)，也就是说只要我们获取到不同设备的dpr，我们就能通过一份代码写出n 份 不同设备的响应式</p>
+<p>4.2 理解</p>
+<p>设备像素比(dpr) 是指在移动开发中1个css像素占用多少设备像素，如2代表1个css像素用2x2个设备像素来绘制。</p>
+<p>设备像素比(dpr)，公式为 1px = (dpr)^2 * 1dp ，可以理解为1px由多少个设备像素组成；</p>
+<p><img src="C:/Users/93938/AppData/Local/YNote/data/qq61794B059E3D99521B4CCF2B0B950401/9f6ba3e7f7e547cdbf4d4b227e7bd852/68747470733a2f2f6c697a686979616f2e6769746875622e696f2f323031372f30342f30312f.png" alt="68747470733a2f2f6c697a686979616f2e6769746875622e696f2f323031372f30342f30312f76696577706f72742f646576696365253230706978656c253230616e64253230637373253230706978656c2e706e67"></p>
+<p>所以//凡是设计像素的 都要 乘以 设备像素比(像 宽，高，fontsize，图片宽高也都是要的，。。都是)</p>
+<p>是更具viewport 来进行一个换算的 要引用一个js（hotcss就是用来处理自适应方案的一个框架）</p>
+<p>应用viewport 后 要导入 px2rem.scss  ,然后申明设计稿宽度，最后 调用scss函数 px2rem(设计稿px)</p>
+<p>下面这个博客写的很好！！！！！！！！</p>
+<p>引用：<a href="https://github.com/jawil/blog/issues/21" target="_blank" rel="external">https://github.com/jawil/blog/issues/21</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2018/03/07/CSS新特性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/07/CSS新特性/" itemprop="url">CSS新特性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T21:43:34+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/03/07/CSS新特性/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2018/03/07/CSS新特性/" class="cy_cmt_count" data-xid="2018/03/07/CSS新特性/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="CSS新特性"><a href="#CSS新特性" class="headerlink" title="CSS新特性"></a>CSS新特性</h3><hr>
+<h4 id="html-很重要的一点是利用好标签，这样你写css页好些一点"><a href="#html-很重要的一点是利用好标签，这样你写css页好些一点" class="headerlink" title="html 很重要的一点是利用好标签，这样你写css页好些一点"></a>html 很重要的一点是利用好标签，这样你写css页好些一点</h4><p>1.</p>
+<p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。 任何一个容器都可以指定为 Flex 布局。</p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?^%$" target="_blank" rel="external">传送门</a></p>
+<p>2.</p>
+<p>//box-sizing是盒模型的规范，如果是border-box 那么在计算width 的时候也会把paddng给计算进来</p>
+<p>3.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">position</span>: <span class="selector-tag">fixed</span>; 是不随着 滚动条滚动而滚动的，但是必须设定位置</div><div class="line"><span class="selector-tag">top</span>: 0;</div><div class="line">left: 0; //left: 0 &amp; right: 0 代表宽度100%</div><div class="line"><span class="selector-tag">right</span>: 0;</div></pre></td></tr></table></figure>
+<p>4.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&amp;:after&#123;   //这里加在哪里 ，就是加载 item里面的最后一个元素</div><div class="line"></div><div class="line">          <span class="selector-tag">content</span>: "";</div><div class="line"></div><div class="line">          <span class="selector-tag">width</span>: 1<span class="selector-tag">px</span>;</div><div class="line"></div><div class="line">          <span class="selector-tag">height</span>: 136<span class="selector-tag">px</span>;</div><div class="line"></div><div class="line">          <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</div><div class="line"></div><div class="line">          <span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</div><div class="line"></div><div class="line">// 因为after 是放在 这个div 里面最后一个位置，如果想要让他那么必须以下两条代码</div><div class="line"></div><div class="line">          top: 50%;  //固定到中间的位置，然后再向上移动 height: 136px;的一般，就能起到垂直居中的效果</div><div class="line"></div><div class="line">          <span class="selector-tag">margin-top</span>: <span class="selector-tag">-68px</span>;</div><div class="line"></div><div class="line">          </div><div class="line"></div><div class="line">          <span class="selector-tag">right</span>: 0;</div><div class="line"></div><div class="line">          <span class="selector-tag">border-right</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">red</span>;</div><div class="line"></div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>5.</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">vertical-align</span>: <span class="number">1px</span>; <span class="comment">//***这个是调 垂直对齐的 因为border 1px,所以这里要向上移动1px</span></div><div class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#FF5155</span>;</div></pre></td></tr></table></figure>
+<ol>
+<li><code>position: absolute;</code>和 <code>position: relative</code> 配合使用，<code>absolute</code>会参照 <code>relative</code>，如果有<code>relative</code>，那么它会参照自身的（top，和 margin-top:30px;没有设置right那就是现在的right），如果父级没有relative ，那么会参照整个windows</li>
+</ol>
+<p>7.在使用 scss 模块化的 时候，css模块化也有继承这种说法，也有类似 java 的 overwrite</p>
+<p>8.如果要实现这样的效果，</p>
+<p><img src="C:/Users/93938/AppData/Local/YNote/data/qq61794B059E3D99521B4CCF2B0B950401/39fb467e772c4217b79d1a99e196e8c1/qq20180301-200013@2x.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;li v-for=&quot;item in items&quot; :key=&quot;item.title&quot;&gt;</div><div class="line"></div><div class="line">                    &lt;img :src=&quot;item.src&quot; alt=&quot;&quot;&gt;</div><div class="line"></div><div class="line">                    &lt;div class=&quot;&quot;&gt;</div><div class="line"></div><div class="line">                        &lt;h4&gt;&#123;&#123; item.title &#125;&#125;&lt;/h4&gt;</div><div class="line"></div><div class="line">                        &lt;span&gt;&#123;&#123; item.desc &#125;&#125;&lt;/span&gt;</div><div class="line"></div><div class="line">                    &lt;/div&gt;</div><div class="line"></div><div class="line">                    &lt;p&gt;</div><div class="line"></div><div class="line">                        &lt;router-link :to=&quot;&#123; name: &apos;&apos;, params: &#123;&#125; &#125;&quot;&gt;</div><div class="line"></div><div class="line">                            &#123;&#123; item.goto &#125;&#125;</div><div class="line"></div><div class="line">                        &lt;/router-link&gt;</div><div class="line"></div><div class="line">                    &lt;/p&gt;</div><div class="line"></div><div class="line"> &lt;/li&gt;</div><div class="line"></div><div class="line">li&#123;</div><div class="line"></div><div class="line">flex-direction:row;   //显示按行 排</div><div class="line"></div><div class="line">  	flex-wrap: wrap;	//按一行排下去，如果超出就换行</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>\9. after 伪类一定要加 content: “”; 否者不会生效</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&amp;<span class="selector-pseudo">:after</span>&#123;</div><div class="line"></div><div class="line">        <span class="attribute">content</span>: <span class="string">""</span>; </div><div class="line"></div><div class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid red;</div><div class="line"></div><div class="line">        <span class="attribute">position</span>: absolute;</div><div class="line"></div><div class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line"></div><div class="line">        <span class="attribute">height</span>: <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="attribute">bottom</span>: <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line"></div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2018/03/07/图片响应式的设计与实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/07/图片响应式的设计与实现/" itemprop="url">图片响应式的设计与实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T21:37:28+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/03/07/图片响应式的设计与实现/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2018/03/07/图片响应式的设计与实现/" class="cy_cmt_count" data-xid="2018/03/07/图片响应式的设计与实现/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="图片响应式的设计与实现"><a href="#图片响应式的设计与实现" class="headerlink" title="图片响应式的设计与实现"></a>图片响应式的设计与实现</h3><hr>
+<h4 id="第一种情况"><a href="#第一种情况" class="headerlink" title="第一种情况"></a>第一种情况</h4><h5 id="html"><a href="#html" class="headerlink" title="html"></a>html</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;section :class=&quot;$style.content&quot;&gt;</div><div class="line">            &lt;img src=&quot;img1&quot; alt=&quot;&quot;&gt;</div><div class="line">            &lt;img src=&quot;img2&quot; alt=&quot;&quot;&gt;</div><div class="line">&lt;/section&gt;</div></pre></td></tr></table></figure>
+<h5 id="css"><a href="#css" class="headerlink" title="css"></a>css</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.content</span>&#123;</div><div class="line"></div><div class="line">  @include list(row);</div><div class="line"></div><div class="line">  <span class="selector-tag">justify-content</span>: <span class="selector-tag">space-around</span>;</div><div class="line"></div><div class="line">  <span class="selector-tag">img</span>&#123;</div><div class="line"></div><div class="line">    width: 50%;      //如果这样 两个img 都在一个相同容器里面，宽度设置50% 让他自适应是行不通，图片会变形。</div><div class="line"></div><div class="line">    <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;    </div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="C:/Users/93938/AppData/Local/YNote/data/qq61794B059E3D99521B4CCF2B0B950401/6ae93afd4be24728937cc8f086c4ec0a/wx20180302-155654@2x.png" alt="img"></p>
+<p><strong>第二种情况（实现自适应设备改变图片大小在不变形情况下）</strong></p>
+<h5 id="html-1"><a href="#html-1" class="headerlink" title="html"></a>html</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;section :class=&quot;$style.content&quot;&gt;</div><div class="line">        &lt;div :class=&quot;$style.item&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div :class=&quot;$style.item&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/section&gt;</div></pre></td></tr></table></figure>
+<h5 id="css-1"><a href="#css-1" class="headerlink" title="css"></a>css</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.content</span>&#123;</div><div class="line"></div><div class="line">    @include list(row);</div><div class="line"></div><div class="line">    <span class="selector-tag">justify-content</span>: <span class="selector-tag">space-around</span>;</div><div class="line"></div><div class="line">    <span class="selector-class">.item</span>&#123;</div><div class="line"></div><div class="line">      <span class="attribute">width</span>: <span class="number">48%</span>;  </div><div class="line"></div><div class="line">      img&#123;      		// content 下有两个相同的 容器item，然后item 宽度设置成 50% （总容器的50%）</div><div class="line"></div><div class="line">        width: 100%;     //把两个img，分别放到两个的item 容器，img的宽度设置成 100%，display:block,让他自动适应，自己撑开高度</div><div class="line"></div><div class="line">        <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</div><div class="line"></div><div class="line">      &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p><img src="C:/Users/93938/AppData/Local/YNote/data/qq61794B059E3D99521B4CCF2B0B950401/919a2b47cb224d169d76fbe80093af01/wx20180302-160239@2x.png" alt="img"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2018/03/07/Vue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/07/Vue/" itemprop="url">Vue</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T21:33:26+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/03/07/Vue/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2018/03/07/Vue/" class="cy_cmt_count" data-xid="2018/03/07/Vue/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><hr>
+<p>1.当我们新建vue 文件的时候 可以通过命令 template 创建vue模板</p>
+<p>2.SSR 是seo 优化的用法</p>
+<p>3.SPA 是客户端的用法，一般我们都是这个用法</p>
+<p>4.如果要把 css写成模块的，那么引用一定要写成 <code>:class=&quot;$style.item&quot;</code>，否者不起效</p>
+<p>5.如果想要在父级组件中传参数 控制子组件 的 div 显示或者隐藏，那么需要这样</p>
+<p>父组件：</p>
+<p><code>&lt;Footer bools=&quot;false&quot;/&gt;</code> // 传参数</p>
+<p>子组件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;li v-if=&quot;bools == &apos;true&apos;&quot;&gt;</div><div class="line"></div><div class="line">hellow                 </div><div class="line"></div><div class="line">&lt;/li&gt;</div><div class="line"></div><div class="line">js</div><div class="line"></div><div class="line">props: &#123;</div><div class="line"></div><div class="line">        bools: &#123;</div><div class="line"></div><div class="line">            type: String,</div><div class="line"></div><div class="line">            default: &quot;true&quot;,</div><div class="line"></div><div class="line">        &#125;,</div><div class="line"></div><div class="line">    &#125;,</div></pre></td></tr></table></figure>
+<p>\6. vue 动态绑定 类名<code>:class=&quot;[btnClass,cname]&quot;</code>  // btnClass是默认共有的，cname是外部传递进来自定义的</p>
+<p>7.组件中 的 <code>data(){ return{}}</code> 里面必须有<code>return</code>出去   </p>
+<p>\8. <code>&lt;Panel :class=&quot;$style.panel&quot; title=&quot;生活服务&quot;&gt;&lt;/Panel&gt;</code>   //如果想要把<code>style.panel</code> 的样式传递到<code>Panel</code>组件，那么class前面必须加<code>&quot;:&quot;</code>,否者 在外面写的样式传递不到组件里面去，同时在子组件中声明了才能用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">props: &#123;   // 下面这些属性是传递过来的（叫做属性传递）</div><div class="line"></div><div class="line">        cname: &#123;   // 传过来的自定义类名</div><div class="line"></div><div class="line">            type: String,</div><div class="line"></div><div class="line">            default: &quot;&quot;,</div><div class="line"></div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        title: &#123;  // title传过来的就是标题</div><div class="line"></div><div class="line">            type: String,</div><div class="line"></div><div class="line">            default: &quot;&quot;,</div><div class="line"></div><div class="line">        &#125;,</div><div class="line"></div><div class="line">    &#125;,</div></pre></td></tr></table></figure>
+<p>9.vue 依据数据过来，然后判别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;section :class=&quot;$style.tiao&quot;&gt;</div><div class="line">                  &lt;div :class=&quot;$style.wapper&quot; v-if=&quot;item.percent&lt;100&quot;&gt;</div><div class="line">                      &lt;div :class=&quot;$style.inner&quot; :style=&quot;&apos;width:&apos;+ item.percent +&apos;%;&apos;&quot;/&gt;</div><div class="line">                  &lt;/div&gt;</div><div class="line">                  &lt;div :class=&quot;$style.wapper&quot; v-else=&quot;item.percent&gt;99&quot;&gt;</div><div class="line">                      &lt;div :class=&quot;$style.inner&quot; :style=&quot;&apos;width:100%;&apos;&quot;/&gt;</div><div class="line">                  &lt;/div&gt;</div><div class="line">                  &lt;p v-if=&quot;item.percent&lt;100&quot;&gt;&#123;&#123; item.percent &#125;&#125;%&lt;/p&gt;</div><div class="line">                  &lt;p v-else=&quot;item.percent&gt;99&quot; style=&quot;margin-left:-10px&quot;&gt;满拉！&lt;/p&gt;</div><div class="line">&lt;/section&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2018/03/07/git遇到的一些问题和解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cai Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai Xiang-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/07/git遇到的一些问题和解决方案/" itemprop="url">git遇到的一些问题和解决方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T21:27:03+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RecordLife/" itemprop="url" rel="index">
+                    <span itemprop="name">RecordLife</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/03/07/git遇到的一些问题和解决方案/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://caixiangc.github.io/2018/03/07/git遇到的一些问题和解决方案/" class="cy_cmt_count" data-xid="2018/03/07/git遇到的一些问题和解决方案/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="git遇到的一些问题和解决方案"><a href="#git遇到的一些问题和解决方案" class="headerlink" title="git遇到的一些问题和解决方案"></a>git遇到的一些问题和解决方案</h3><hr>
+<p>1.需要把一个分支里面的内容复制到另外一个分支</p>
+<p><code>git reset --hard develop</code>  //先将本地的master分支重置成develop</p>
+<p>2.如果你的项目 是冲别人那里拷贝过来的，在push 的时候可能会报错，因为git配置里面的信息是别人的所以要</p>
+<p><code>git remote rm origin</code> （把别人的git地址信息给删除掉）</p>
+<p>3.把一个分支里面的东西 复制到另外一个分支</p>
+<p><code>git reset --hard develop</code>  //先将本地的master分支重置成develop</p>
+<p><code>git push origin master --force</code> //再推送到远程仓库</p>
+<p>4.GitHub远程仓库中的README.md文件不在本地仓库中。 </p>
+<p><code>git pull --rebase origin master</code></p>
+<p>下面是简洁的一个流程</p>
+<p><a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="external">http://www.bootcss.com/p/git-guide/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2018/02/20/redis高迸发分布式锁/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1085,861 +1917,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2018/01/04/结构体指针和动态分配内存/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/04/结构体指针和动态分配内存/" itemprop="url">结构体指针和动态分配内存</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T14:55:35+08:00">
-                2018-01-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/01/04/结构体指针和动态分配内存/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2018/01/04/结构体指针和动态分配内存/" class="cy_cmt_count" data-xid="2018/01/04/结构体指针和动态分配内存/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="结构体指针和动态分配内存"><a href="#结构体指针和动态分配内存" class="headerlink" title="结构体指针和动态分配内存"></a>结构体指针和动态分配内存</h3><hr>
-<blockquote>
-<p>结构体指针</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">emp</span>&#123;</span></div><div class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];</div><div class="line">    <span class="keyword">int</span> no;</div><div class="line">    <span class="keyword">float</span> pay;</div><div class="line">&#125;;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">emp</span> *<span class="title">p</span> <span class="title">s</span> ；</span></div><div class="line"><span class="class">//<span class="title">s</span> 的数据类型是<span class="title">struct</span> <span class="title">emp</span>，*<span class="title">p</span>的只是一个<span class="title">struct</span> <span class="title">emp</span>类型的指针变量</span></div><div class="line"><span class="class"></span></div><div class="line"><span class="class">// *<span class="title">p</span>.<span class="title">s</span> === *(<span class="title">p</span>.<span class="title">s</span>);</span>  <span class="comment">//'.'的优先级比'*'要高</span></div><div class="line"><span class="comment">// 要想指向s那么就要， (*p).s === *p-&gt;s</span></div><div class="line">p = &amp;s;</div><div class="line"><span class="built_in">scanf</span>(<span class="string">"%d%f"</span>,(*p).no,*p-&gt;pay);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>动态分配地址实例</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> *p,i,n;</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">  <span class="comment">//要是p是一个数组，p[10] 那么p就是表示首地址</span></div><div class="line">  <span class="comment">//c语言表示string ，，char a[20]，a代表首地址，a[0]代表首元素</span></div><div class="line">  <span class="comment">//但是这里p是这个指针变量，p还是一个变量不是地址</span></div><div class="line">  p = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(n*<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">    <span class="comment">//scanf("%d",(p+i));</span></div><div class="line">    <span class="comment">//可以使用表达式p[0]来表示第一个元素，p[1]表示第二个</span></div><div class="line">    <span class="comment">//所以这里输入地址的时候，要加入地址符号</span></div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;p[i]); </div><div class="line">    <span class="comment">//scanf("%d",p[i]);✖ 因为p[i]代表值</span></div><div class="line">    <span class="comment">//scanf("%d",(p+i));✔ 因为(p+i)===&amp;p[i] 都是代表地址</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>(i=(n<span class="number">-1</span>);i&gt;=<span class="number">0</span>;i--)&#123;</div><div class="line">    <span class="comment">//printf("%d  ",p[i]);</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d  "</span>,*(p+i));</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>动态分配地址和结构体实例</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">emp</span>&#123;</span></div><div class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];</div><div class="line">    <span class="keyword">int</span> no;</div><div class="line">    <span class="keyword">float</span> pay;</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">inputs</span><span class="params">(struct emp a[],<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">  <span class="comment">/* code */</span></div><div class="line">  <span class="keyword">int</span> i;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s%d%f"</span>,a[i].name,&amp;a[i].no,&amp;a[i].pay);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(struct emp a[],<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">  <span class="comment">/* code */</span></div><div class="line">  <span class="keyword">int</span> i,j;</div><div class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">emp</span> <span class="title">t</span>;</span></div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">    <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;(n<span class="number">-1</span>-i);j++)&#123;</div><div class="line">      <span class="keyword">if</span>(a[j].pay&lt;a[j+<span class="number">1</span>].pay)&#123;</div><div class="line">        t = a[j];</div><div class="line">        a[j] = a[j+<span class="number">1</span>];</div><div class="line">        a[j+<span class="number">1</span>] = t;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">printfs</span><span class="params">(struct emp a[],<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> i;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s %d %.1f\n"</span>,a[i].name,a[i].no,a[i].pay);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">emp</span> *<span class="title">w</span>;</span> <span class="comment">//这里的*w 就是用来指向我们后面动态分配空间的首地址</span></div><div class="line">  <span class="keyword">int</span> n;</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="comment">//malloc 返回值 是void* 类型的（表明喂确定类型的指针），malloc找到分配的内存是匿名的,因此需要一个接受指针变量来接受，它的首地址</span></div><div class="line">  <span class="comment">//(struct emp*) 强制数据类型转换，n 是表明你要产生几个数据，sizeof(struct emp)你要动态分配的数据类型。</span></div><div class="line">  <span class="comment">//****可以用数组名来表示指针，也可以用指针来表示数组</span></div><div class="line">  w = (struct emp*)<span class="built_in">malloc</span>(n*<span class="keyword">sizeof</span>(struct emp)); <span class="comment">//动态分配地址，分配后是一个数组的形式</span></div><div class="line">  inputs(w,n);</div><div class="line">  sort(w,n);</div><div class="line">  printfs(w,n);</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2018/01/02/本地代码git 到github/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/02/本地代码git 到github/" itemprop="url">本地代码git 到github</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-02T23:08:12+08:00">
-                2018-01-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/RecordLife/" itemprop="url" rel="index">
-                    <span itemprop="name">RecordLife</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/01/02/本地代码git 到github/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2018/01/02/本地代码git 到github/" class="cy_cmt_count" data-xid="2018/01/02/本地代码git 到github/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="本地代码git-到github"><a href="#本地代码git-到github" class="headerlink" title="本地代码git 到github"></a>本地代码git 到github</h3><hr>
-<p>   1.在github上创建好存储空间repository</p>
-<p>   2.<code>touch .gitignore</code></p>
-<ol>
-<li><code>git init</code>// 会生成一个 .ssh 文件，但是不可见</li>
-</ol>
-<ol>
-<li><code>git status</code>//可以看到这个项目中有那些 项目发生变化，当作是验证就可以了</li>
-</ol>
-<ol>
-<li><code>git add .</code>//把所以文件添加到git 的本地仓库（这里是准备上传的）</li>
-</ol>
-<ol>
-<li><code>git commit -m &#39;first commit init project&#39;</code>//-m 就是后面添加注释</li>
-</ol>
-<ol>
-<li><code>git remote add origin git@........</code></li>
-</ol>
-<ol>
-<li><code>git brance</code>//查看分支</li>
-</ol>
-<ol>
-<li><code>git push -u origin master</code>//现在正式连接远程仓库上传</li>
-</ol>
-<h4 id="管理分支"><a href="#管理分支" class="headerlink" title="管理分支"></a>管理分支</h4><p>​    </p>
-<ol>
-<li>git branch  //查看有几个分支</li>
-<li>git checkout ‘分支名’ //你想要转换到的分支名</li>
-<li>git add .     //如果是不同版本 ，那就add 所有</li>
-<li>git commit -m “”    //一定要commit 否者不能push</li>
-<li>git push -u origin ‘分支名’ //你要添加的分支名</li>
-</ol>
-<p>这个是用branch 提交不同版本的</p>
-<p><strong>//git 在切换分支的时候，要预先创建readme文件</strong><br> <strong>git pull —rebase origin master</strong></p>
-<p>然后具体步骤：<br>1.git add .<br>2.git remote add origin <a href="https://github.com/你的用户名/github项目名.git" target="_blank" rel="external">https://github.com/你的用户名/github项目名.git</a><br>3.git push -u origin master</p>
-<p>只有在那个branch 下才能push 到远程 对应的那个branch</p>
-<p><strong>*</strong>要小心切换分支，每次切换 相当于换个文件夹**<br>git push origin second2_6:master -f<br>//强制 把 <code>second2_6</code>分支代码push到远程<code>master</code>分支</p>
-<p>本地做好修改再去push到远端，所以我推荐如下操作<br>git checkout master</p>
-<p>git reset –hard develop<br>//先将本地的master分支重置成develop,要先切换到master分支上</p>
-<p>git push origin master –force //再推送到远程仓库</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/28/指针数组用法和注意事项/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/28/指针数组用法和注意事项/" itemprop="url">指针数组用法和注意事项</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T17:11:20+08:00">
-                2017-12-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/12/28/指针数组用法和注意事项/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2017/12/28/指针数组用法和注意事项/" class="cy_cmt_count" data-xid="2017/12/28/指针数组用法和注意事项/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="指针数组用法和注意事项"><a href="#指针数组用法和注意事项" class="headerlink" title="指针数组用法和注意事项"></a>指针数组用法和注意事项</h3><hr>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a[]=&#123;<span class="number">0</span>&#125;  <span class="comment">//如果没有指定数组元素个数，那么默认1</span></div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> a[<span class="number">10</span>];</div><div class="line"><span class="keyword">char</span> *p;</div><div class="line">a=<span class="string">"abcd"</span>; ✖ <span class="comment">//因为a 是地址</span></div><div class="line">p=<span class="string">"abcd"</span>; ✔ <span class="comment">//p是变量就可以</span></div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> a[<span class="number">4</span>][<span class="number">6</span>];</div><div class="line">a[i]是每行数组的首地址如:</div><div class="line">	a[i][j] = *(a[i]+j);</div><div class="line">			= *(*(a+i)+j);</div><div class="line">	&amp;a[i][j] = a[i]+j = *(a+i)+j;  <span class="comment">//**就是先找到a[i]的地址然后加上j的偏移量</span></div><div class="line">**(a+<span class="number">2</span>) <span class="comment">//第三行第一个</span></div><div class="line">*(*(a+<span class="number">1</span>)+<span class="number">1</span>) <span class="comment">//第二行第二个</span></div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">指针数组</div><div class="line">	<span class="keyword">int</span> *a[<span class="number">5</span>]; 定义了含有<span class="number">5</span>个元素的数组a[],数组中每个元素是指向整数的指针；</div><div class="line">	<span class="keyword">int</span> b;</div><div class="line">	a[<span class="number">0</span>] = &amp;b;</div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">指向指针的指针</div><div class="line">类型名 **变量名</div><div class="line"><span class="keyword">int</span> a = <span class="number">5</span>; <span class="comment">//定义a的地址是 5000</span></div><div class="line"><span class="keyword">int</span> *p;    <span class="comment">//定义b的地址是 6000</span></div><div class="line"><span class="keyword">int</span> **q;   <span class="comment">//定义c的地址是 7000</span></div><div class="line">p = &amp;a;    <span class="comment">//输出5000</span></div><div class="line">q = &amp;p;    <span class="comment">//输出6000</span></div><div class="line"><span class="comment">//*p = 5;</span></div><div class="line"><span class="comment">//*q = 5000</span></div><div class="line"><span class="comment">//**q = 5</span></div></pre></td></tr></table></figure>
-<p><img src="http://owsgipnoo.bkt.clouddn.com/tu.jpg" alt=""></p>
-<p><strong>数组指针(行指针):<code>int (*b)[6]</code>;</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> (*p)[<span class="number">20</span>];<span class="comment">//这里20是每行数组长度为20</span></div><div class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++,p++)&#123;</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%s"</span>,p); <span class="comment">//把数组每行数据 打印出来</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>数组指针(列指针):<code>int *b[10]</code>;</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//a[4][6] 上节那个图</span></div><div class="line"><span class="keyword">char</span> a[<span class="number">4</span>][<span class="number">6</span>];</div><div class="line"><span class="keyword">char</span> *b[<span class="number">4</span>];<span class="comment">// 这个列指针就是用来存放二维数组每行首地址的</span></div><div class="line"><span class="keyword">char</span> (*p)[<span class="number">6</span>];</div><div class="line">b[<span class="number">0</span>] = a[<span class="number">0</span>]; <span class="comment">//**b[0]++ 指向行后面一个元素，由‘a’指向了'b'（a是第一行第一个，b是第二行第一个）</span></div><div class="line">p = a; 		 <span class="comment">//**指向第二行，由‘a’指向‘d’，所以称为行指针，这个与二维数组结合更有意义，在二维数组中第二行可以是第一行的索引。</span></div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//a[4][6] 上节那个图，这里a[i]是a[4][6]每行的首地址</span></div><div class="line"></div><div class="line">b[i] = a[i];<span class="comment">//把每行首地址赋给b，方便之后交换地址（这两个都代表的是地址）</span></div><div class="line"><span class="built_in">scanf</span>(<span class="string">"%s"</span>,a[i]); <span class="comment">//输入一串字符串，以a[i]为首地址，这就是字符串在scanf的时候为什么不加入地址符的原因了，因为a[i]本身就代表地址。</span></div><div class="line"><span class="comment">//***其他数据类型 scanf 这个函数输入之所以要加地址符，是因为加了它才能改变它的值</span></div></pre></td></tr></table></figure>
-<p>我们定义字符串通常定义一个char字符，然后逐个字符放在定义char 数组里面；</p>
-<p>字符串交换位置，我们可以<code>交换地址</code>来代替<code>交换全部需要交换2行字符串相对应的数组元素</code>,类似索引代表一个数的形式，这里定义一个新的指针数组里面存放字符串地址;</p>
-<h3 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> 类型名 ｛                  <span class="title">struct</span> <span class="title">student</span> &#123;</span></div><div class="line"></div><div class="line">	类型<span class="number">1</span> 成员<span class="number">1</span>；					<span class="keyword">char</span> name[<span class="number">20</span>];</div><div class="line"></div><div class="line">	类型<span class="number">2</span> 成员<span class="number">2</span>；					<span class="keyword">int</span> no;</div><div class="line"></div><div class="line">	......							<span class="keyword">int</span> math,phy,english;</div><div class="line">								&#125;</div><div class="line">	类型n 成员n；				<span class="comment">//s1.no=5;</span></div><div class="line">								<span class="comment">//scanf("%s%d",s1.name,s1.no)  一定要这样赋值</span></div><div class="line">｝ 						       <span class="comment">// s1.name="abcde" 这样错误的，</span></div><div class="line">								<span class="comment">//如果非要这样，那么s1.name[0]='a'....s1.name[4]='e'</span></div><div class="line"><span class="comment">//结构体可以整体赋值，但前提条件是，结构体必须同一种类型(内置属性结构相同)</span></div><div class="line"><span class="comment">//s1 = s2</span></div></pre></td></tr></table></figure>
-<p><strong>指针数组实例</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="comment">//输出6串字符串，按从小到大排序</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">char</span> nam[<span class="number">6</span>][<span class="number">20</span>],*b[<span class="number">6</span>],*t;</div><div class="line">  <span class="keyword">int</span> i,j,k;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</div><div class="line">    b[i] = nam[i]; <span class="comment">//把nam[i] 每行首地址给b[i]，相当于复制</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,nam[i]); <span class="comment">//然后这里输入nam[],在b数组中也是能提现出来的</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</div><div class="line">    k=i;</div><div class="line">    <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;<span class="number">6</span>;j++)&#123;</div><div class="line">      <span class="keyword">if</span>(<span class="built_in">strcmp</span>(b[k],b[j])&gt;<span class="number">0</span>)&#123; <span class="comment">//strcmp(&amp;1,&amp;2)，里面放的是地址</span></div><div class="line">        k = j;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(k!=i)&#123;</div><div class="line">      t = b[i];  <span class="comment">//通过交换首地址来替换 家欢整个字符串，如果那样的话要逐个交换</span></div><div class="line">      b[i] = b[k];</div><div class="line">      b[k] = t;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,b[i]); <span class="comment">//这里输出的是要b[],不能nam[]</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="结构体和指针函数实例"><a href="#结构体和指针函数实例" class="headerlink" title="结构体和指针函数实例"></a>结构体和指针函数实例</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//编写函数 int *findMax(int *p,int n),查找前n个元素中最大的数，并且返回其地址</span></div><div class="line"><span class="comment">//int *findMax(int p[],int n)  和下面那种写法相同</span></div><div class="line"><span class="function"><span class="keyword">int</span> *<span class="title">findMax</span><span class="params">(<span class="keyword">int</span> *p,<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> i,*max;</div><div class="line">  max = p;p++;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">    <span class="keyword">if</span>(*max&lt;*p)&#123;</div><div class="line">      max = p;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> max;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stud</span> &#123;</span></div><div class="line">  <span class="keyword">char</span> nam[<span class="number">10</span>];</div><div class="line">  <span class="keyword">int</span> c;</div><div class="line">  <span class="keyword">int</span> math;</div><div class="line">  <span class="keyword">int</span> english;</div><div class="line">  <span class="keyword">int</span> tot;</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">stud</span> <span class="title">s</span>[6],<span class="title">t</span>;</span> <span class="comment">//这里的s变量是特殊的,代表整个结构体（就行json结构），t也是和s类型一样只不过它长度只有1</span></div><div class="line">  <span class="keyword">int</span> i,j;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s%d%d%d%d"</span>,s[i].nam,&amp;s[i].c,&amp;s[i].math,&amp;s[i].english,&amp;s[i].tot); <span class="comment">//这里输入一定要把整个struct()结构里面的变量都输入tot，否者可能要你多输入一行</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</div><div class="line">    s[i].tot = s[i].c+s[i].math+s[i].english;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</div><div class="line">    <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">6</span>;j++)&#123;</div><div class="line">      <span class="keyword">if</span>(s[j].tot&gt;s[j+<span class="number">1</span>].tot)&#123;</div><div class="line">        t = s[j];</div><div class="line">        s[j] = s[j+<span class="number">1</span>];</div><div class="line">        s[j+<span class="number">1</span>] = t;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s %d %d %d %d\n"</span>,s[i].nam,s[i].c,s[i].math,s[i].english,s[i].tot);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/26/hexo出现Cannot set property 'lastIndex' of undefined/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/26/hexo出现Cannot set property 'lastIndex' of undefined/" itemprop="url">hexo出现Cannot set property 'lastIndex' of undefined</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T16:38:33+08:00">
-                2017-12-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/RecordLife/" itemprop="url" rel="index">
-                    <span itemprop="name">RecordLife</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/12/26/hexo出现Cannot set property 'lastIndex' of undefined/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2017/12/26/hexo出现Cannot set property 'lastIndex' of undefined/" class="cy_cmt_count" data-xid="2017/12/26/hexo出现Cannot set property 'lastIndex' of undefined/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="hexo出现Cannot-set-property-‘lastIndex’-of-undefined"><a href="#hexo出现Cannot-set-property-‘lastIndex’-of-undefined" class="headerlink" title="hexo出现Cannot set property ‘lastIndex’ of undefined"></a>hexo出现Cannot set property ‘lastIndex’ of undefined</h3><hr>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">(node:<span class="number">2292</span>) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.</div><div class="line">INFO  Start processing</div><div class="line">FATAL Something<span class="string">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span></div><div class="line"><span class="string">TypeError: Cannot set property '</span>lastIndex<span class="string">' of undefined</span></div><div class="line"><span class="string">    at highlight (E:\Hexo\node_modules\highlight.js\lib\highlight.js:511:35)</span></div><div class="line"><span class="string">    at E:\Hexo\node_modules\highlight.js\lib\highlight.js:561:21</span></div><div class="line"><span class="string">    at Array.forEach (&lt;anonymous&gt;)</span></div><div class="line"><span class="string">    at Object.highlightAuto (E:\Hexo\node_modules\highlight.js\lib\highlight.js:560:40)</span></div><div class="line"><span class="string">    at E:\Hexo\node_modules\hexo-util\lib\highlight.js:100:25</span></div><div class="line"><span class="string">    at highlight (E:\Hexo\node_modules\hexo-util\lib\highlight.js:103:7)</span></div><div class="line"><span class="string">    at highlightUtil (E:\Hexo\node_modules\hexo-util\lib\highlight.js:22:14)</span></div><div class="line"><span class="string">    at E:\Hexo\node_modules\hexo\lib\plugins\filter\before_post_render\backtick_code_block.js:62:15</span></div><div class="line"><span class="string">    at String.replace (&lt;anonymous&gt;)</span></div><div class="line"><span class="string">    at Hexo.backtickCodeBlock (E:\Hexo\node_modules\hexo\lib\plugins\filter\before_post_render\backtick_code_block.js:15:31)</span></div><div class="line"><span class="string">    at Hexo.tryCatcher (E:\Hexo\node_modules\bluebird\js\release\util.js:16:23)</span></div><div class="line"><span class="string">    at Hexo.&lt;anonymous&gt; (E:\Hexo\node_modules\bluebird\js\release\method.js:15:34)</span></div><div class="line"><span class="string">    at E:\Hexo\node_modules\hexo\lib\extend\filter.js:68:35</span></div><div class="line"><span class="string">    at tryCatcher (E:\Hexo\node_modules\bluebird\js\release\util.js:16:23)</span></div><div class="line"><span class="string">    at Object.gotValue (E:\Hexo\node_modules\bluebird\js\release\reduce.js:155:18)</span></div><div class="line"><span class="string">    at Object.gotAccum (E:\Hexo\node_modules\bluebird\js\release\reduce.js:144:25)</span></div></pre></td></tr></table></figure>
-<p>修改配置文件_config.yml，注意不是主题里面的配置文件！<br>把auto_detect设置为false，即可解决。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://caixiangc.github.io/2017/12/26/Nginx 的一些用法 和注意事项/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cai Xiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cai Xiang-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/26/Nginx 的一些用法 和注意事项/" itemprop="url">Nginx 的一些用法 和注意事项</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T14:32:35+08:00">
-                2017-12-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Operations/" itemprop="url" rel="index">
-                    <span itemprop="name">Operations</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/12/26/Nginx 的一些用法 和注意事项/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://caixiangc.github.io/2017/12/26/Nginx 的一些用法 和注意事项/" class="cy_cmt_count" data-xid="2017/12/26/Nginx 的一些用法 和注意事项/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Nginx-的一些用法-和注意事项"><a href="#Nginx-的一些用法-和注意事项" class="headerlink" title="Nginx 的一些用法 和注意事项"></a>Nginx 的一些用法 和注意事项</h3><hr>
-<p>查看Nginx的版本号：nginx -V</p>
-<p>启动Nginx：start nginx</p>
-<p>快速停止或关闭Nginx：nginx -s stop</p>
-<p>正常停止或关闭Nginx：nginx -s quit</p>
-<p>配置文件修改重装载命令：nginx -s reload</p>
-<p>查看windows任务管理器下Nginx的进程命令：tasklist /fi “imagename eq nginx.exe”</p>
-<p>如果在本地需要配置虚拟域名 那么需要修改 系统host 配置文件，在里面添加<code>10.31.172.22  image.test.com</code></p>
-<p>就是如果访问 image.test.com那么转发到这个ip(10.31.172.22)地址。这样我们可以配置图片的服务器地址，或者后台，或者前台的服务器地址，实现完全无关的分离</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">10.31</span><span class="number">.172</span><span class="number">.22</span> www.mymall.com</div><div class="line"><span class="number">10.31</span><span class="number">.172</span><span class="number">.22</span> image.mymall.com</div><div class="line"><span class="number">10.31</span><span class="number">.172</span><span class="number">.22</span> s.mymall.com</div><div class="line"><span class="comment">//虽然这三个子域名都是配置到这个ip地址，可是当到了这个ip地址以后 通过配置文件开始通过域名转发到不同ip地址了</span></div></pre></td></tr></table></figure>
-<p><code>nginx.exe -t</code>是验证配置文件是否正确的</p>
-<p><code>autoindex on;</code>自动索引（会对那个服务器地址自动安排索引树形结构排出来），一般是需要关闭的，当我们访问image.mymall.com的时候 这里配置的是off，如果我们访问image.mymall.com的时候会报错403（无权限），但是对于里面的资源是不受影响的可以正常访问</p>
-<p>nginx的一些简单配置</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div></pre></td><td class="code"><pre><div class="line">//nginx.conf</div><div class="line">//打# 是注释，当不同场景和业务的时候给你样例</div><div class="line">#user  nobody;</div><div class="line">worker_processes  1;</div><div class="line"></div><div class="line">#error_log  logs/error.log;</div><div class="line">#error_log  logs/error.log  notice;</div><div class="line">#error_log  logs/error.log  info;</div><div class="line"></div><div class="line">#pid        logs/nginx.pid;</div><div class="line"></div><div class="line"></div><div class="line">events &#123;</div><div class="line">    worker_connections  1024;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">http &#123;</div><div class="line">    include       mime.types;</div><div class="line">    default_type  application/octet-stream;</div><div class="line"></div><div class="line">    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</div><div class="line">    #                  '$status $body_bytes_sent "$http_referer" '</div><div class="line">    #                  '"$http_user_agent" "$http_x_forwarded_for"';</div><div class="line"></div><div class="line">    #access_log  logs/access.log  main;</div><div class="line"></div><div class="line">    sendfile        on;</div><div class="line">    #tcp_nopush     on;</div><div class="line"></div><div class="line">    #keepalive_timeout  0;</div><div class="line">    keepalive_timeout  65;</div><div class="line"></div><div class="line">    #gzip  on;</div><div class="line"></div><div class="line">    server &#123;       //主要是这里对你要访问的域名进行转发到不同端口</div><div class="line">        listen       80;</div><div class="line">        server_name  localhost; //当访问的是localhost的时候</div><div class="line"></div><div class="line">        #charset koi8-r;</div><div class="line"></div><div class="line">        #access_log  logs/host.access.log  main;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">            root   html;  //显示根目录下的 html</div><div class="line">            index  index.html index.htm; //下面这个是显示顺序，当index.html存在显示它，否者显示index.htm</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        #error_page  404              /404.html;</div><div class="line"></div><div class="line">        # redirect server error pages to the static page /50x.html</div><div class="line">        #</div><div class="line">        error_page   500 502 503 504  /50x.html;</div><div class="line">        location = /50x.html &#123;</div><div class="line">            root   html;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        # proxy the PHP scripts to Apache listening on 127.0.0.1:80</div><div class="line">        #</div><div class="line">        #location ~ \.php$ &#123;</div><div class="line">        #    proxy_pass   http://127.0.0.1;</div><div class="line">        #&#125;</div><div class="line"></div><div class="line">        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</div><div class="line">        #</div><div class="line">        #location ~ \.php$ &#123;</div><div class="line">        #    root           html;</div><div class="line">        #    fastcgi_pass   127.0.0.1:9000;</div><div class="line">        #    fastcgi_index  index.php;</div><div class="line">        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</div><div class="line">        #    include        fastcgi_params;</div><div class="line">        #&#125;</div><div class="line"></div><div class="line">        # deny access to .htaccess files, if Apache's document root</div><div class="line">        # concurs with nginx's one</div><div class="line">        #</div><div class="line">        #location ~ /\.ht &#123;</div><div class="line">        #    deny  all;</div><div class="line">        #&#125;</div><div class="line">    &#125;</div><div class="line">// *********下面这个include很重要，就行高级语言里面导入类一样</div><div class="line">    include vhost/*.conf; //这里是引用我们自己定义的conf（专门放在vhost下面），为不同的业务（网站）配置不同的转发路径</div><div class="line">    </div><div class="line">    # another virtual host using mix of IP-, name-, and port-based configuration</div><div class="line">    #</div><div class="line">    #server &#123;</div><div class="line">    #    listen       8000;</div><div class="line">    #    listen       somename:8080;</div><div class="line">    #    server_name  somename  alias  another.alias;</div><div class="line"></div><div class="line">    #    location / &#123;</div><div class="line">    #        root   html;</div><div class="line">    #        index  index.html index.htm;</div><div class="line">    #    &#125;</div><div class="line">    #&#125;</div><div class="line"></div><div class="line"></div><div class="line">    # HTTPS server</div><div class="line">    #</div><div class="line">    #server &#123;</div><div class="line">    #    listen       443 ssl;</div><div class="line">    #    server_name  localhost;</div><div class="line"></div><div class="line">    #    ssl_certificate      cert.pem;</div><div class="line">    #    ssl_certificate_key  cert.key;</div><div class="line"></div><div class="line">    #    ssl_session_cache    shared:SSL:1m;</div><div class="line">    #    ssl_session_timeout  5m;</div><div class="line"></div><div class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</div><div class="line">    #    ssl_prefer_server_ciphers  on;</div><div class="line"></div><div class="line">    #    location / &#123;</div><div class="line">    #        root   html;</div><div class="line">    #        index  index.html index.htm;</div><div class="line">    #    &#125;</div><div class="line">    #&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//tomcate.mymall.com.conf //这是我们自己定义的conf</div><div class="line">server</div><div class="line">&#123;</div><div class="line">  listen 80; //端口为80</div><div class="line">  autoindex on; //这个是是否自动穿件索引，一般为false ，至于为什么，上面有解释过</div><div class="line">  server_name tomcat.mymall.com; //****这个重要server_name就是我们需要代理的域名</div><div class="line">  access_log c:/tomcataccess.log;</div><div class="line">  index index.html index.htm index.jsp index.php;</div><div class="line">  #error_page 404 /404.html;</div><div class="line">  if ( $query_string ~* ".*[\;'\&lt;\&gt;].*" )</div><div class="line">  &#123;</div><div class="line">    return 404;</div><div class="line">  &#125;</div><div class="line">  location /</div><div class="line">  &#123;</div><div class="line">    proxy_pass http://127.0.0.1:8080;//***当我们访问tomcat.mymall.com的时候会转发到http://127.0.0.1:8080;这个ip地址这个很重要</div><div class="line">    add_header Access-Control-Allow-Origin *;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//image.mymall.com.conf  //这是我们的图片服务器</span></div><div class="line">server</div><div class="line">&#123;</div><div class="line">  listen <span class="number">80</span>;</div><div class="line">  autoindex off;</div><div class="line">  server_name image.mymall.com; <span class="comment">//nginx 不仅可以依据域名转发到ip地址，还能转发到服务器上特定的地址</span></div><div class="line">  access_log c:/imgaccess.<span class="built_in">log</span>;<span class="comment">//把一直打印在这个文件夹下</span></div><div class="line">  index index.html index.htm index.jsp index.php;</div><div class="line">  #error_page <span class="number">404</span> /<span class="number">404.</span>html;</div><div class="line">  <span class="keyword">if</span> ( $query_string ~* <span class="string">".*[\;'\&lt;\&gt;].*"</span> )</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">404</span>;</div><div class="line">  &#125;</div><div class="line">  location ~ /(mmall_fe|mmall_admin_fe)/dist/view<span class="comment">/*</span></div><div class="line"><span class="comment">  &#123;</span></div><div class="line"><span class="comment">    deny all;</span></div><div class="line"><span class="comment">  &#125;</span></div><div class="line"><span class="comment"> </span></div><div class="line"><span class="comment">  location /</span></div><div class="line"><span class="comment">  &#123;</span></div><div class="line"><span class="comment">    root C:\ftpfile\img;  //依据image.mymall.com这个域名转发到服务器上的这个C:\ftpfile\img，，</span></div><div class="line"><span class="comment">    //当我们访问image.mymall.com/a.png  就相当于访问 C:\ftpfile\img\a.png</span></div><div class="line"><span class="comment">    add_header Access-Control-Allow-Origin *;</span></div><div class="line"><span class="comment">  &#125;</span></div><div class="line"><span class="comment">&#125;</span></div></pre></td></tr></table></figure>
-<p>当是一个企业级项目的时候，他的架构差不多应该是这样的</p>
-<p><img src="http://owsgipnoo.bkt.clouddn.com/jiagou.png" alt="架构"></p>
-<p>nginx 中的server_name sell.com  (就是你的域名)<br>在后期微信授权的时候要域名 不能ip地址</p>
-<p>在虚拟机 上的nginx 代理设置成我们自己的主机，当我们访问虚拟机的时候， 虚拟机就通过nginx代理到了我们本机里面的数据库信息</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1989,7 +1966,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
